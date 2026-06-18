@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.logincontroller">
+   <children>
+      <Text layoutX="110.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to XYZ Sports Club">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text layoutX="277.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" textAlignment="CENTER">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Label layoutX="155.0" layoutY="97.0" text="User:" />
+      <PasswordField layoutX="226.0" layoutY="131.0" />
+      <Label layoutX="154.0" layoutY="135.0" text="Password:" />
+      <ComboBox fx:id="usercombobox" layoutX="226.0" layoutY="93.0" prefWidth="150.0" promptText="Select user" />
+      <Button fx:id="passlogin" layoutX="266.0" layoutY="187.0" mnemonicParsing="false" onAction="#Login" text="Login" />
+      <Label fx:id="logininfo" layoutX="227.0" layoutY="245.0" text="Please fill in all the fields" />
+   </children>
+</AnchorPane>
