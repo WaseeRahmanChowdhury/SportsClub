@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="565.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid.AdminDashboardController">
+   <children>
+      <Label layoutX="310.0" layoutY="13.0" prefHeight="55.0" prefWidth="142.0" text="Club Admin Dashboard" />
+      <Button fx:id="signoutButton" layoutX="670.0" layoutY="28.0" mnemonicParsing="false" onAction="#signOut" text="Sign Out" />
+      <VBox layoutX="43.0" layoutY="143.0" prefHeight="362.0" prefWidth="392.0">
+         <children>
+            <Button fx:id="registerStaffButton" mnemonicParsing="false" onAction="#registerStaff" prefHeight="40.0" prefWidth="398.0" text="Register New Staff Member" />
+            <Button fx:id="scheduleMatchButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#scheduleMatch" prefHeight="40.0" prefWidth="398.0" text="Schedule New Match" />
+            <Button fx:id="staffDirectoryButton" layoutX="10.0" layoutY="50.0" mnemonicParsing="false" onAction="#staffDirectory" prefHeight="40.0" prefWidth="398.0" text="Staff Directory" />
+            <Button fx:id="reportsButton" layoutX="10.0" layoutY="90.0" mnemonicParsing="false" onAction="#reports" prefHeight="40.0" prefWidth="398.0" text="Reports" />
+            <Button fx:id="transferButton" layoutX="10.0" layoutY="130.0" mnemonicParsing="false" onAction="#transfer" prefHeight="40.0" prefWidth="398.0" text="Transfers" />
+            <Button fx:id="postAnnouncementButton" layoutX="10.0" layoutY="170.0" mnemonicParsing="false" onAction="#postAnnouncement" prefHeight="40.0" prefWidth="398.0" text="Post Announcement" />
+            <Button fx:id="sponsershipManagementButton" layoutX="10.0" layoutY="210.0" mnemonicParsing="false" onAction="#sponsershipManagement" prefHeight="40.0" prefWidth="398.0" text="Sponsorship Management" />
+            <Button fx:id="ticketSaleSummaryButton" layoutX="10.0" layoutY="250.0" mnemonicParsing="false" onAction="#ticketSaleSummary" prefHeight="40.0" prefWidth="398.0" text="Ticket Sale Summary" />
+         </children>
+      </VBox>
+      <Label layoutX="43.0" layoutY="96.0" prefHeight="17.0" prefWidth="313.0" text="Please select an option from the navigation menu" />
+   </children>
+</AnchorPane>
