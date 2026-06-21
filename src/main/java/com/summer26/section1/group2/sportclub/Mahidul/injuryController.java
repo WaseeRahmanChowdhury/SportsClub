@@ -1,6 +1,5 @@
-package com.summer26.section1.group2.sportclub;
+package com.summer26.section1.group2.sportclub.Mahidul;
 
-import com.summer26.section1.group2.sportclub.Mahidul.injury;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -8,7 +7,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class injuryController
 {

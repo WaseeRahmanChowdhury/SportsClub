@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="580.0" prefWidth="817.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.injuryController">
+<AnchorPane prefHeight="580.0" prefWidth="817.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Mahidul.injuryController">
    <children>
       <TextField fx:id="player_name_tf" layoutX="207.0" layoutY="28.0" />
       <TextField fx:id="player_idtf" layoutX="207.0" layoutY="74.0" />
