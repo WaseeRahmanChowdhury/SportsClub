@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.logincontroller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.general.logincontroller">
    <children>
       <Text layoutX="110.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to XYZ Sports Club">
          <font>
