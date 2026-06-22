@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.SubmitFitnessReportController"
+            prefHeight="530.0" prefWidth="490.0">
+   <children>
+
+      <Label layoutX="20.0" layoutY="15.0" text="Submit Fitness Report">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+
+      <!-- event-4: date (auto-filled) -->
+      <Label layoutX="20.0" layoutY="65.0" text="Date:" />
+      <DatePicker fx:id="dateField" layoutX="150.0" layoutY="60.0" prefWidth="200.0" disable="true" />
+
+      <!-- body weight (in kg) -->
+      <Label layoutX="20.0" layoutY="105.0" text="Body Weight (kg):" />
+      <TextField fx:id="bodyWeightField" layoutX="150.0" layoutY="100.0" prefWidth="200.0" promptText="e.g. 72.5" />
+
+      <!-- fatigue level (1-10 scale) -->
+      <Label layoutX="20.0" layoutY="145.0" text="Fatigue Level (1-10):" />
+      <ComboBox fx:id="fatigueLevelCombo" layoutX="150.0" layoutY="140.0" prefWidth="200.0" />
+
+      <!-- pain area dropdown -->
+      <Label layoutX="20.0" layoutY="185.0" text="Pain Area:" />
+      <ComboBox fx:id="painAreaCombo" layoutX="150.0" layoutY="180.0" prefWidth="200.0" />
+
+      <Label fx:id="statusLabel" layoutX="20.0" layoutY="230.0" prefWidth="450.0" wrapText="true" textFill="GREEN" />
+
+      <Button layoutX="370.0" layoutY="500.0" prefWidth="100.0" prefHeight="27.0" text="Submit" onAction="#submitFitnessReport" />
+
+   </children>
+</AnchorPane>

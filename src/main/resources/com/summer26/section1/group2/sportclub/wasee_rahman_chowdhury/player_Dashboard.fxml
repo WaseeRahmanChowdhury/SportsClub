@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.player_Dashboard">
+   <children>
+
+      <!-- Left sidebar with buttons -->
+      <Label layoutX="290.0" layoutY="14.0" text="Player Dashboard">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+
+      <Button layoutX="275.0" layoutY="67.0" onAction="#openMyMatchSchedule" prefHeight="32.0" prefWidth="200.0" text="My Match Schedule" />
+      <Button layoutX="275.0" layoutY="109.0" onAction="#openSubmitFitnessReport" prefHeight="32.0" prefWidth="200.0" text="Submit Fitness Report" />
+      <Button layoutX="275.0" layoutY="151.0" onAction="#openMyPerformanceStats" prefHeight="32.0" prefWidth="200.0" text="My Performance Stats" />
+      <Button layoutX="275.0" layoutY="194.0" onAction="#openRequestLeave" prefHeight="32.0" prefWidth="200.0" text="Request Leave" />
+      <Button layoutX="275.0" layoutY="235.0" onAction="#openMyContractAndSalary" prefHeight="32.0" prefWidth="200.0" text="My Contract and Salary" />
+      <Button layoutX="275.0" layoutY="275.0" onAction="#openMarkMyAttendance" prefHeight="32.0" prefWidth="200.0" text="Mark My Attendance" />
+      <Button layoutX="275.0" layoutY="320.0" onAction="#openEditMyProfile" prefHeight="32.0" prefWidth="200.0" text="Edit My Profile" />
+      <Button layoutX="275.0" layoutY="365.0" onAction="#openClubAnnouncements" prefHeight="32.0" prefWidth="200.0" text="Club Announcements" />
+      <Button layoutX="275.0" layoutY="472.0" onAction="#logout" prefHeight="32.0" prefWidth="200.0" text="Logout" />
+
+   </children>
+</AnchorPane>

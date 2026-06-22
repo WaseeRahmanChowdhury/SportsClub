@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.MyMatchScheduleController"
+            prefHeight="530.0" prefWidth="490.0">
+   <children>
+
+      <Label layoutX="20.0" layoutY="15.0" text="My Match Schedule">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+
+      <TableView fx:id="matchTable" layoutX="20.0" layoutY="55.0" prefWidth="450.0" prefHeight="440.0">
+         <columns>
+            <TableColumn fx:id="colDate"        text="Date"        prefWidth="80.0" />
+            <TableColumn fx:id="colDay"         text="Day"         prefWidth="70.0" />
+            <TableColumn fx:id="colKickoff"     text="Kickoff"     prefWidth="65.0" />
+            <TableColumn fx:id="colOpponent"    text="Opponent Club" prefWidth="100.0" />
+            <TableColumn fx:id="colVenue"       text="Venue"       prefWidth="70.0" />
+            <TableColumn fx:id="colCompetition" text="Competition" prefWidth="65.0" />
+         </columns>
+      </TableView>
+
+      <Button layoutX="370.0" layoutY="500.0" prefWidth="100.0" prefHeight="27.0" text="Refresh" onAction="#refreshSchedule" />
+
+   </children>
+</AnchorPane>

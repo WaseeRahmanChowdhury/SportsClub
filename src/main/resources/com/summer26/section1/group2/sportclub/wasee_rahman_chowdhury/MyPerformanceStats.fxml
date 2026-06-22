@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.MyPerformanceStatsController"
+            prefHeight="530.0" prefWidth="490.0">
+   <children>
+
+      <Label layoutX="20.0" layoutY="15.0" text="My Performance Stats">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+
+      <!-- event-4: time range filter -->
+      <Label layoutX="20.0" layoutY="60.0" text="Time Range:" />
+      <ComboBox fx:id="timeRangeCombo" layoutX="150.0" layoutY="55.0" prefWidth="200.0" onAction="#onTimeRangeSelected" />
+
+      <!-- event-5: performance statistics table -->
+      <TableView fx:id="statsTable" layoutX="20.0" layoutY="100.0" prefWidth="450.0" prefHeight="395.0">
+         <columns>
+            <TableColumn fx:id="colAppearances" text="Appearances" prefWidth="90.0" />
+            <TableColumn fx:id="colGoals"       text="Goals"       prefWidth="70.0" />
+            <TableColumn fx:id="colAssists"     text="Assists"     prefWidth="70.0" />
+            <TableColumn fx:id="colYellowCards" text="Yellow Cards" prefWidth="100.0" />
+            <TableColumn fx:id="colRedCards"    text="Red Cards"   prefWidth="80.0" />
+            <TableColumn fx:id="colMinutes"     text="Minutes Played" prefWidth="40.0" />
+         </columns>
+      </TableView>
+
+   </children>
+</AnchorPane>

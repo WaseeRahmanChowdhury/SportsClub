@@ -1,4 +1,4 @@
-package com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury;
+package com.summer26.section1.group2.sportclub.general;
 
 import java.util.ArrayList;
 import java.util.List;

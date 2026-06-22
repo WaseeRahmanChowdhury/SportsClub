@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.ClubAnnouncementsController"
+            prefHeight="530.0" prefWidth="490.0">
+   <children>
+
+      <Label layoutX="20.0" layoutY="15.0" text="Club Announcements">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+
+      <!-- event-4: list of announcements, sorted by date descending -->
+      <ListView fx:id="announcementsListView" layoutX="20.0" layoutY="55.0" prefWidth="450.0" prefHeight="200.0" />
+
+      <!-- event-6: full announcement content -->
+      <Label layoutX="20.0" layoutY="270.0" text="Announcement Details" />
+
+      <Label layoutX="20.0" layoutY="300.0" text="Title:" />
+      <Label fx:id="titleLabel" layoutX="100.0" layoutY="300.0" prefWidth="370.0" wrapText="true" />
+
+      <Label layoutX="20.0" layoutY="330.0" text="Posted By:" />
+      <Label fx:id="postedByLabel" layoutX="100.0" layoutY="330.0" prefWidth="370.0" />
+
+      <Label layoutX="20.0" layoutY="360.0" text="Posted Date:" />
+      <Label fx:id="postedDateLabel" layoutX="100.0" layoutY="360.0" prefWidth="370.0" />
+
+      <Label layoutX="20.0" layoutY="395.0" text="Content:" />
+      <TextArea fx:id="contentTextArea" layoutX="20.0" layoutY="420.0" prefWidth="450.0" prefHeight="95.0" editable="false" wrapText="true" />
+
+   </children>
+</AnchorPane>
