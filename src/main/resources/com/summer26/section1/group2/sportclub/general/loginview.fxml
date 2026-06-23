@@ -22,10 +22,10 @@
          </font>
       </Text>
       <Label layoutX="155.0" layoutY="97.0" text="User:" />
-      <PasswordField layoutX="226.0" layoutY="131.0" />
+      <PasswordField fx:id="passlogin" layoutX="226.0" layoutY="131.0" />
       <Label layoutX="154.0" layoutY="135.0" text="Password:" />
       <ComboBox fx:id="usercombobox" layoutX="226.0" layoutY="93.0" prefWidth="150.0" promptText="Select user" />
-      <Button fx:id="passlogin" layoutX="266.0" layoutY="187.0" mnemonicParsing="false" onAction="#Login" text="Login" />
+      <Button fx:id="loginbutton" layoutX="266.0" layoutY="187.0" mnemonicParsing="false" onAction="#Login" text="Login" />
       <Label fx:id="logininfo" layoutX="227.0" layoutY="245.0" text="Please fill in all the fields" />
    </children>
 </AnchorPane>

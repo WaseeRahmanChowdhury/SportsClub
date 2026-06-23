@@ -1,29 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.player_Dashboard">
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.player_Dashboard"
+            prefHeight="800.0" prefWidth="1100.0">
    <children>
 
       <!-- Left sidebar with buttons -->
-      <Label layoutX="290.0" layoutY="14.0" text="Player Dashboard">
+      <Label layoutX="20.0" layoutY="15.0" text="Player Dashboard">
          <font>
-            <Font name="Arial Bold" size="20.0" />
+            <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
 
-      <Button layoutX="275.0" layoutY="67.0" onAction="#openMyMatchSchedule" prefHeight="32.0" prefWidth="200.0" text="My Match Schedule" />
-      <Button layoutX="275.0" layoutY="109.0" onAction="#openSubmitFitnessReport" prefHeight="32.0" prefWidth="200.0" text="Submit Fitness Report" />
-      <Button layoutX="275.0" layoutY="151.0" onAction="#openMyPerformanceStats" prefHeight="32.0" prefWidth="200.0" text="My Performance Stats" />
-      <Button layoutX="275.0" layoutY="194.0" onAction="#openRequestLeave" prefHeight="32.0" prefWidth="200.0" text="Request Leave" />
-      <Button layoutX="275.0" layoutY="235.0" onAction="#openMyContractAndSalary" prefHeight="32.0" prefWidth="200.0" text="My Contract and Salary" />
-      <Button layoutX="275.0" layoutY="275.0" onAction="#openMarkMyAttendance" prefHeight="32.0" prefWidth="200.0" text="Mark My Attendance" />
-      <Button layoutX="275.0" layoutY="320.0" onAction="#openEditMyProfile" prefHeight="32.0" prefWidth="200.0" text="Edit My Profile" />
-      <Button layoutX="275.0" layoutY="365.0" onAction="#openClubAnnouncements" prefHeight="32.0" prefWidth="200.0" text="Club Announcements" />
-      <Button layoutX="275.0" layoutY="472.0" onAction="#logout" prefHeight="32.0" prefWidth="200.0" text="Logout" />
+      <Button layoutX="2.0" layoutY="86.0"  prefWidth="335.0" prefHeight="44.0" text="My Match Schedule"     onAction="#openMyMatchSchedule" />
+      <Button layoutX="2.0" layoutY="153.0" prefWidth="335.0" prefHeight="44.0" text="Submit Fitness Report" onAction="#openSubmitFitnessReport" />
+      <Button layoutX="2.0" layoutY="220.0" prefWidth="335.0" prefHeight="44.0" text="My Performance Stats"  onAction="#openMyPerformanceStats" />
+      <Button layoutX="2.0" layoutY="287.0" prefWidth="335.0" prefHeight="44.0" text="Request Leave"         onAction="#openRequestLeave" />
+      <Button layoutX="2.0" layoutY="354.0" prefWidth="335.0" prefHeight="44.0" text="My Contract and Salary" onAction="#openMyContractAndSalary" />
+      <Button layoutX="2.0" layoutY="421.0" prefWidth="335.0" prefHeight="44.0" text="Mark My Attendance"    onAction="#openMarkMyAttendance" />
+      <Button layoutX="2.0" layoutY="488.0" prefWidth="335.0" prefHeight="44.0" text="Edit My Profile"       onAction="#openEditMyProfile" />
+      <Button layoutX="2.0" layoutY="555.0" prefWidth="335.0" prefHeight="44.0" text="Club Announcements"    onAction="#openClubAnnouncements" />
+
+      <Button layoutX="2.0" layoutY="735.0" prefWidth="335.0" prefHeight="44.0" text="Logout" onAction="#logout" />
+
+      <!-- Main content pane - sub-views load here -->
+      <AnchorPane fx:id="mainpane" layoutX="350.0" layoutY="0.0" prefWidth="750.0" prefHeight="800.0" style="-fx-border-color: #cccccc; -fx-border-width: 1; -fx-background-color: #f4f4f4;" />
 
    </children>
 </AnchorPane>
