@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="mainpane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Mahidul.admin1_dashboardController">
+   <children>
+      <Button layoutX="470.0" layoutY="35.0" mnemonicParsing="false" onAction="#signoutAction" text="Signout" />
+      <Label layoutX="57.0" layoutY="69.0" prefHeight="18.0" prefWidth="268.0" text="                          please select the option" />
+      <VBox layoutX="8.0" layoutY="94.0" prefHeight="263.0" prefWidth="365.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#MedicalStaffRecordAnInjuryAssessment" prefHeight="26.0" prefWidth="434.0" text="Medical Staff Record An Injury Assessment" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="434.0" text="Medical Staff Update The Reccovary" />
+            <Button layoutX="10.0" layoutY="36.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="434.0" text="Medical Staff Record An Injury Assessment" />
+         </children>
+      </VBox>
+      <Label layoutX="98.0" layoutY="6.0" prefHeight="18.0" prefWidth="262.0" text="                  Medical Staff " />
+   </children>
+</AnchorPane>
