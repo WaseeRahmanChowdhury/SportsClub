@@ -1,5 +1,6 @@
 package com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,6 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import com.summer26.section1.group2.sportclub.general.SceneSwitcher;
+import com.summer26.section1.group2.sportclub.general.LogoutHandler;
 
 public class player_Dashboard {
 
@@ -90,5 +92,9 @@ public class player_Dashboard {
             e.printStackTrace();
             // displays a user-facing error message (e.g. via an alert or status label)
         }
+    }
+    @FXML
+    private void logout(ActionEvent event) {
+        LogoutHandler.handleLogout(event);
     }
 }

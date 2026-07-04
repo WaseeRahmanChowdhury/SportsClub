@@ -38,16 +38,38 @@ public class logincontroller {
             return;
         }
 
-        // For now, this routes every successful login to the Player dashboard
-        // Later, switch to the matching dashboard FXML for that role.
         String selectedRole = usercombobox.getValue();
 
-        if ("Player".equals(selectedRole)) {
-            SceneSwitcher.switchScene(actionEvent,
-                    "/com/summer26/section1/group2/sportclub/wasee_rahman_chowdhury/player_Dashboard.fxml");
-        } else {
-            //  add scene-switch calls for the other roles' dashboards once they exist
-            logininfo.setText("Dashboard for '" + selectedRole + "' is not set up yet.");
+        switch (selectedRole) {
+            case "Player":
+                SceneSwitcher.switchScene(actionEvent,
+                        "/com/summer26/section1/group2/sportclub/wasee_rahman_chowdhury/player_Dashboard.fxml");
+                break;
+
+            case "Club Admin":
+                SceneSwitcher.switchScene(actionEvent,
+                        "/com/summer26/section1/group2/sportclub/Abdullah_Abuzor_Sajid/AdminDashboard.fxml");
+                break;
+
+            case "Medical Staff":
+                SceneSwitcher.switchScene(actionEvent,
+                        "/com/summer26/section1/group2/sportclub/Mahidul/Medical.fxml");
+                break;
+
+            // add these once other dashboard FXML files exist
+            case "Coach":
+            case "Fan":
+            case "Equipment Manager":
+            case "Match Official Liaison":
+            case "Finance Officer":
+            case "Receptionist":
+            case "Canteen Manager":
+                logininfo.setText("Dashboard for '" + selectedRole + "' is not set up yet.");
+                break;
+
+            default:
+                logininfo.setText("Unknown role selected.");
+                break;
         }
     }
 }
