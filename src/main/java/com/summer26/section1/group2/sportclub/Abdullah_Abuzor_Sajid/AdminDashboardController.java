@@ -2,7 +2,16 @@ package com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+import com.summer26.section1.group2.sportclub.general.LogoutHandler;
 
 public class AdminDashboardController {
 
@@ -35,12 +44,25 @@ public class AdminDashboardController {
 
     @FXML
     private void signOut(ActionEvent event) {
-        System.out.println("Sign Out button clicked");
+        LogoutHandler.handleLogout(event);
     }
 
     @FXML
     private void registerStaff(ActionEvent event) {
-        System.out.println("Register New Staff Member button clicked");
+        // event-4: display the registration form window
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterStaffMember.fxml"));
+            Parent root = loader.load();
+
+            Stage formStage = new Stage();
+            formStage.setTitle("Register New Staff Member");
+            formStage.initModality(Modality.APPLICATION_MODAL);
+            formStage.initOwner(registerStaffButton.getScene().getWindow());
+            formStage.setScene(new Scene(root));
+            formStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

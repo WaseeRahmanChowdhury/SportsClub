@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="565.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid.AdminDashboardController">
+<AnchorPane prefHeight="715.0" prefWidth="916.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid.AdminDashboardController">
    <children>
-      <Label layoutX="310.0" layoutY="13.0" prefHeight="55.0" prefWidth="142.0" text="Club Admin Dashboard" />
-      <Button fx:id="signoutButton" layoutX="670.0" layoutY="28.0" mnemonicParsing="false" onAction="#signOut" text="Sign Out" />
-      <VBox layoutX="43.0" layoutY="143.0" prefHeight="362.0" prefWidth="392.0">
+      <Label layoutX="310.0" layoutY="13.0" prefHeight="55.0" prefWidth="142.0" text="Club Admin Dashboard" AnchorPane.topAnchor="13.0" />
+      <Button fx:id="signoutButton" layoutX="670.0" layoutY="28.0" mnemonicParsing="false" onAction="#signOut" text="Sign Out" AnchorPane.topAnchor="28.0" />
+      <VBox layoutX="43.0" layoutY="143.0" prefHeight="318.0" prefWidth="392.0" AnchorPane.leftAnchor="43.0" AnchorPane.topAnchor="143.0">
          <children>
             <Button fx:id="registerStaffButton" mnemonicParsing="false" onAction="#registerStaff" prefHeight="40.0" prefWidth="398.0" text="Register New Staff Member" />
             <Button fx:id="scheduleMatchButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#scheduleMatch" prefHeight="40.0" prefWidth="398.0" text="Schedule New Match" />
@@ -21,6 +21,6 @@
             <Button fx:id="ticketSaleSummaryButton" layoutX="10.0" layoutY="250.0" mnemonicParsing="false" onAction="#ticketSaleSummary" prefHeight="40.0" prefWidth="398.0" text="Ticket Sale Summary" />
          </children>
       </VBox>
-      <Label layoutX="43.0" layoutY="96.0" prefHeight="17.0" prefWidth="313.0" text="Please select an option from the navigation menu" />
+      <Label layoutX="43.0" layoutY="96.0" prefHeight="17.0" prefWidth="313.0" text="Please select an option from the navigation menu" AnchorPane.topAnchor="96.0" />
    </children>
 </AnchorPane>

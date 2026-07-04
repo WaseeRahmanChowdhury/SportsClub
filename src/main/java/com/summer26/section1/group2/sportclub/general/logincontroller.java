@@ -48,7 +48,7 @@ public class logincontroller {
 
             case "Club Admin":
                 SceneSwitcher.switchScene(actionEvent,
-                        "/com/summer26/section1/group2/sportclub/Abdullah_Abuzor_Sajid/AdminDashboard.fxml");
+                        "/com/summer26/section1/group2/sportclub/Abdullah_Abuzor_Sajid/admin-dashboard.fxml");
                 break;
 
             case "Medical Staff":
