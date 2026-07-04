@@ -45,6 +45,10 @@ public class logincontroller {
                 SceneSwitcher.switchScene(actionEvent,
                         "/com/summer26/section1/group2/sportclub/wasee_rahman_chowdhury/player_Dashboard.fxml");
                 break;
+            case "Coach":
+                SceneSwitcher.switchScene(actionEvent,
+                        "/com/summer26/section1/group2/sportclub/wasee_rahman_chowdhury/coach_Dashboard.fxml");
+                break;
 
             case "Club Admin":
                 SceneSwitcher.switchScene(actionEvent,
@@ -57,7 +61,6 @@ public class logincontroller {
                 break;
 
             // add these once other dashboard FXML files exist
-            case "Coach":
             case "Fan":
             case "Equipment Manager":
             case "Match Official Liaison":

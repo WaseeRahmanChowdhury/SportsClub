@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.PlayerReportsController">
+
+    <VBox spacing="20.0" AnchorPane.topAnchor="30.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+
+        <Label text="Player Performance Reports" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+        <HBox spacing="15.0" style="-fx-alignment: center-left;">
+            <Label text="Player:"/>
+            <ComboBox fx:id="playerCombo" onAction="#onGenerateReport" prefWidth="220.0"/>
+
+            <Label text="Report Period:"/>
+            <ComboBox fx:id="reportPeriodCombo" onAction="#onGenerateReport" prefWidth="180.0"/>
+        </HBox>
+
+        <GridPane hgap="20.0" vgap="15.0" style="-fx-padding: 20 0 0 0;">
+            <Label text="Matches Played:" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Label fx:id="matchesPlayedLabel" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Goals:" style="-fx-font-weight: bold;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Label fx:id="goalsLabel" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Assists:" style="-fx-font-weight: bold;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Label fx:id="assistsLabel" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Pass Accuracy %:" style="-fx-font-weight: bold;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Label fx:id="passAccuracyLabel" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Minutes Played:" style="-fx-font-weight: bold;" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <Label fx:id="minutesPlayedLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            <Label text="Shots on Target:" style="-fx-font-weight: bold;" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <Label fx:id="shotsOnTargetLabel" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+            <Label text="Yellow Cards:" style="-fx-font-weight: bold;" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+            <Label fx:id="yellowCardsLabel" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+            <Label text="Red Cards:" style="-fx-font-weight: bold;" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+            <Label fx:id="redCardsLabel" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+        </GridPane>
+
+    </VBox>
+
+</AnchorPane>

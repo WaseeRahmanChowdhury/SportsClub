@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.ManageRosterController">
+
+    <VBox spacing="20.0" AnchorPane.topAnchor="30.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+
+        <Label text="Manage Roster - Add New Player" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+        <GridPane hgap="15.0" vgap="15.0">
+            <Label text="Full Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="fullNameField" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="250.0"/>
+
+            <Label text="Date of Birth:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="dateOfBirthField" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="250.0"/>
+
+            <Label text="Nationality:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="nationalityField" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="250.0"/>
+
+            <Label text="Playing Position:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="playingPositionCombo" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="250.0"/>
+
+            <Label text="Squad Number:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <TextField fx:id="squadNumberField" GridPane.rowIndex="4" GridPane.columnIndex="1" prefWidth="250.0"/>
+        </GridPane>
+
+        <Button text="Register Player" onAction="#addNewPlayer" mnemonicParsing="false"/>
+
+        <Label fx:id="statusLabel" wrapText="true"/>
+
+    </VBox>
+
+</AnchorPane>

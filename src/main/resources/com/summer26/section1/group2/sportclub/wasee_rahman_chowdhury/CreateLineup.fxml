@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.CreateLineupController">
+
+    <VBox spacing="15.0" AnchorPane.topAnchor="30.0" AnchorPane.leftAnchor="40.0"
+          AnchorPane.rightAnchor="40.0" AnchorPane.bottomAnchor="30.0">
+
+        <Label text="Create Lineup" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+        <HBox spacing="10.0" style="-fx-alignment: center-left;">
+            <Label text="Select Fixture:"/>
+            <ComboBox fx:id="fixtureCombo" onAction="#onFixtureSelected" prefWidth="300.0"/>
+        </HBox>
+
+        <TableView fx:id="squadTable" prefHeight="400.0" editable="true">
+            <columns>
+                <TableColumn fx:id="colSelected" text="Select" prefWidth="70.0"/>
+                <TableColumn fx:id="colName" text="Player Name" prefWidth="220.0"/>
+                <TableColumn fx:id="colSquadNumber" text="Squad No." prefWidth="100.0"/>
+                <TableColumn fx:id="colPosition" text="Assigned Position" prefWidth="150.0"/>
+            </columns>
+        </TableView>
+
+        <Button text="Save Lineup" onAction="#saveLineup" mnemonicParsing="false"/>
+
+        <Label fx:id="statusLabel" wrapText="true"/>
+
+    </VBox>
+
+</AnchorPane>

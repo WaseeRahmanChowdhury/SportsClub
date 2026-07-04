@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.FixtureListController">
+
+    <VBox spacing="15.0" AnchorPane.topAnchor="30.0" AnchorPane.leftAnchor="40.0"
+          AnchorPane.rightAnchor="40.0" AnchorPane.bottomAnchor="30.0">
+
+        <Label text="Fixture List" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+        <HBox spacing="10.0" style="-fx-alignment: center-left;">
+            <Label text="Filter by Competition:"/>
+            <ComboBox fx:id="competitionFilterCombo" onAction="#onCompetitionFilterSelected" prefWidth="180.0"/>
+        </HBox>
+
+        <TableView fx:id="fixtureTable" prefHeight="450.0">
+            <columns>
+                <TableColumn fx:id="colMatchDate" text="Match Date" prefWidth="110.0"/>
+                <TableColumn fx:id="colOpponent" text="Opponent" prefWidth="150.0"/>
+                <TableColumn fx:id="colVenue" text="Venue" prefWidth="150.0"/>
+                <TableColumn fx:id="colCompetition" text="Competition" prefWidth="130.0"/>
+                <TableColumn fx:id="colHomeAway" text="Home/Away" prefWidth="100.0"/>
+                <TableColumn fx:id="colLineupStatus" text="Lineup Status" prefWidth="110.0"/>
+            </columns>
+        </TableView>
+
+    </VBox>
+
+</AnchorPane>
