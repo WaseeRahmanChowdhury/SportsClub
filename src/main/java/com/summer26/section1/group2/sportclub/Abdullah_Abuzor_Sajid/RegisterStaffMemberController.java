@@ -22,7 +22,6 @@ public class RegisterStaffMemberController {
     private void registerStaffMember() {
         statusLabel.setTextFill(Color.RED);
 
-        // event-5: verify all fields are filled
         if (fullNameField.getText().isBlank()
                 || roleField.getText().isBlank()
                 || departmentField.getText().isBlank()
@@ -31,7 +30,6 @@ public class RegisterStaffMemberController {
             return;
         }
 
-        // event-6: assign a unique Staff Member ID and save to the staff directory
         String staffId = StaffDirectory.registerStaffMember(
                 fullNameField.getText().trim(),
                 roleField.getText().trim(),
@@ -39,7 +37,6 @@ public class RegisterStaffMemberController {
                 phoneNumberField.getText().trim()
         );
 
-        // event-7: display confirmation with the generated Member ID
         statusLabel.setTextFill(Color.GREEN);
         statusLabel.setText("Staff member registered successfully. Member ID: " + staffId);
     }

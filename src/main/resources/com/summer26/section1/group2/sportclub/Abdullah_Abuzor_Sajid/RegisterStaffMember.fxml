@@ -18,7 +18,6 @@
             </font>
         </Label>
 
-        <!-- event-4: registration form fields -->
         <Label layoutX="20.0" layoutY="65.0" text="Full Name:" />
         <TextField fx:id="fullNameField" layoutX="150.0" layoutY="60.0" prefWidth="230.0" />
 

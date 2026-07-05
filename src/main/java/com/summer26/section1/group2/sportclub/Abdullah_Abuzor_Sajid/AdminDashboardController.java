@@ -67,7 +67,20 @@ public class AdminDashboardController {
 
     @FXML
     private void scheduleMatch(ActionEvent event) {
-        System.out.println("Schedule New Match button clicked");
+        // event-4: display the match scheduling form window
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ScheduleMatch.fxml"));
+            Parent root = loader.load();
+
+            Stage formStage = new Stage();
+            formStage.setTitle("Schedule New Match");
+            formStage.initModality(Modality.APPLICATION_MODAL);
+            formStage.initOwner(scheduleMatchButton.getScene().getWindow());
+            formStage.setScene(new Scene(root));
+            formStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
