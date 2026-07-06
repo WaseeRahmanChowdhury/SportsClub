@@ -66,6 +66,8 @@ public class logincontroller {
             case "Match Official Liaison":
             case "Finance Officer":
             case "Receptionist":
+                SceneSwitcher.switchScene(actionEvent,
+                        "/com/summer26/section1/group2/sportclub/mainur_reza_mahi/receptionist-dashboard.fxml");
             case "Canteen Manager":
                 logininfo.setText("Dashboard for '" + selectedRole + "' is not set up yet.");
                 break;
