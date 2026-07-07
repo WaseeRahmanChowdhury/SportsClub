@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="651.0" prefWidth="696.0" style="-fx-background-color: #F5F5F5;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.mainur_reza_mahi.VisitorLogController">
+   <children>
+      <Text layoutX="31.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visitor Log" wrappingWidth="147.8671875">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Text>
+      <Separator layoutX="21.0" layoutY="73.0" prefHeight="5.0" prefWidth="658.0" />
+      <VBox layoutX="21.0" layoutY="152.0">
+         <children>
+            <TableView prefHeight="273.0" prefWidth="658.0">
+              <columns>
+                <TableColumn prefWidth="73.0" style="-fx-background-color: #D4D4D4;" text="Visitor ID" />
+                <TableColumn prefWidth="137.0" text="Full Name" />
+                  <TableColumn style="-fx-background-color: #D4D4D4;" text="Purpose" />
+                  <TableColumn minWidth="0.0" prefWidth="120.0" text="Host" />
+                  <TableColumn prefWidth="87.0" style="-fx-background-color: #D4D4D4;" text="Entry Time" />
+                  <TableColumn prefWidth="81.0" text="Exit Time" />
+                  <TableColumn prefWidth="79.0" style="-fx-background-color: #D4D4D4;" text="Status" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <VBox layoutX="21.0" layoutY="488.0" prefHeight="154.0" prefWidth="658.0">
+         <children>
+            <AnchorPane prefHeight="151.0" prefWidth="649.0">
+               <children>
+                  <Text layoutX="10.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visitor ID :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="10.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="10.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Purpose :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="10.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Host :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="361.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entry Time :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="361.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exit Time :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="361.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="110.0" layoutY="7.0" prefHeight="32.0" prefWidth="174.0" text="-----" />
+                  <Label layoutX="110.0" layoutY="44.0" prefHeight="32.0" prefWidth="174.0" text="-----" />
+                  <Label layoutX="110.0" layoutY="80.0" prefHeight="32.0" prefWidth="174.0" text="-----" />
+                  <Label layoutX="110.0" layoutY="113.0" prefHeight="32.0" prefWidth="174.0" text="-----" />
+                  <Label layoutX="449.0" layoutY="18.0" prefHeight="32.0" prefWidth="159.0" text="-----" />
+                  <Label layoutX="449.0" layoutY="55.0" prefHeight="32.0" prefWidth="159.0" text="-----" />
+                  <Label layoutX="449.0" layoutY="90.0" prefHeight="32.0" prefWidth="159.0" text="-----" />
+               </children>
+            </AnchorPane>
+            <Separator prefHeight="6.0" prefWidth="626.0" />
+         </children>
+      </VBox>
+      <HBox layoutX="21.0" layoutY="85.0" prefHeight="57.0" prefWidth="658.0">
+         <children>
+            <AnchorPane prefHeight="57.0" prefWidth="658.0">
+               <children>
+                  <Text layoutX="22.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Date :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <DatePicker layoutX="112.0" layoutY="10.0" prefHeight="32.0" prefWidth="182.0" promptText="Pick a date" />
+                  <Button layoutX="309.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #D4D4D4;" text="Load Log">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox layoutX="21.0" layoutY="433.0" prefHeight="57.0" prefWidth="658.0">
+         <children>
+            <AnchorPane prefHeight="57.0" prefWidth="661.0">
+               <children>
+                  <Text layoutX="10.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select ID :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <TextField layoutX="94.0" layoutY="13.0" prefHeight="32.0" prefWidth="182.0" promptText="Enter Visitor ID">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor></TextField>
+                  <Button layoutX="308.0" layoutY="12.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #D4D4D4;" text="View Details">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="4.0" layoutY="53.0" prefHeight="5.0" prefWidth="658.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

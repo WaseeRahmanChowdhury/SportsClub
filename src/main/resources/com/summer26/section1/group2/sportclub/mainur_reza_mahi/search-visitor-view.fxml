@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<!--
+    SearchVisitor.fxml — Receptionist Dashboard
+    Load into center area when "Search Visitor" button is clicked.
+
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/SearchVisitor.fxml"));
+    Parent view = loader.load();
+    contentArea.getChildren().setAll(view);
+-->
+
+<AnchorPane prefHeight="651.0" prefWidth="696.0" style="-fx-background-color: #F5F5F5;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.mainur_reza_mahi.SearchVisitorController">
+   <children>
+      <HBox layoutX="18.0" layoutY="90.0" prefHeight="44.0" prefWidth="661.0">
+         <children>
+            <AnchorPane prefHeight="44.0" prefWidth="663.0">
+               <children>
+                  <TextField layoutX="144.0" layoutY="5.0" prefHeight="32.0" prefWidth="195.0" promptText="Enter Visitor Name or VIS-XXXX">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <Text layoutX="6.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name or Visitor ID :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="362.0" layoutY="5.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="121.0" style="-fx-background-color: #D4D4D4;" text="Search Visitor">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="495.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="121.0" style="-fx-background-color: #D4D4D4;" text="Clear">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <Text layoutX="22.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register Visitor" wrappingWidth="147.8671875">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Text>
+      <Separator layoutX="20.0" layoutY="79.0" prefHeight="5.0" prefWidth="658.0" />
+      <VBox layoutX="19.0" layoutY="166.0" prefHeight="226.0" prefWidth="658.0">
+         <children>
+            <TableView prefHeight="226.0" prefWidth="658.0">
+              <columns>
+                <TableColumn prefWidth="92.0" style="-fx-background-color: #D4D4D4;" text="Visitor ID" />
+                <TableColumn prefWidth="149.0" text="Full Name" />
+                  <TableColumn prefWidth="99.0" style="-fx-background-color: #D4D4D4;" text="Contact" />
+                  <TableColumn prefWidth="99.0" text="Purpose" />
+                  <TableColumn prefWidth="109.0" style="-fx-background-color: #D4D4D4;" text="Host Staff" />
+                  <TableColumn prefWidth="109.0" text="Visit Date" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <VBox layoutX="23.0" layoutY="457.0" prefHeight="152.0" prefWidth="651.0">
+         <children>
+            <AnchorPane prefHeight="151.0" prefWidth="649.0">
+               <children>
+                  <Text layoutX="10.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visitor ID :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="10.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="10.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="360.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Purpose :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="360.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Host Staff :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="360.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visit Date :">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="110.0" layoutY="7.0" prefHeight="32.0" prefWidth="174.0" text="-----" />
+                  <Label layoutX="110.0" layoutY="44.0" prefHeight="32.0" prefWidth="174.0" text="-----" />
+                  <Label layoutX="110.0" layoutY="80.0" prefHeight="32.0" prefWidth="174.0" text="-----" />
+                  <Label layoutX="462.0" layoutY="7.0" prefHeight="32.0" prefWidth="159.0" text="-----" />
+                  <Label layoutX="462.0" layoutY="45.0" prefHeight="32.0" prefWidth="159.0" text="-----" />
+                  <Label layoutX="462.0" layoutY="80.0" prefHeight="32.0" prefWidth="159.0" text="-----" />
+               </children>
+            </AnchorPane>
+            <Separator prefHeight="6.0" prefWidth="626.0" />
+         </children>
+      </VBox>
+      <Separator layoutX="20.0" layoutY="452.0" prefHeight="5.0" prefWidth="658.0" />
+      <Text layoutX="22.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visitor Details :" wrappingWidth="147.8671875">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

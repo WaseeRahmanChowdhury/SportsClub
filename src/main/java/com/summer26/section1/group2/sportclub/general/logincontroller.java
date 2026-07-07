@@ -68,6 +68,7 @@ public class logincontroller {
             case "Receptionist":
                 SceneSwitcher.switchScene(actionEvent,
                         "/com/summer26/section1/group2/sportclub/mainur_reza_mahi/receptionist-dashboard.fxml");
+                break;
             case "Canteen Manager":
                 logininfo.setText("Dashboard for '" + selectedRole + "' is not set up yet.");
                 break;

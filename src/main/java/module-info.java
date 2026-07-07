@@ -11,4 +11,6 @@ module com.summer26.section1.group2.sportclub {
     opens com.summer26.section1.group2.sportclub.general to javafx.fxml;
     exports com.summer26.section1.group2.sportclub.Mahidul;
     opens com.summer26.section1.group2.sportclub.Mahidul to javafx.fxml;
+    opens com.summer26.section1.group2.sportclub.mainur_reza_mahi to javafx.fxml;
+    exports com.summer26.section1.group2.sportclub.mainur_reza_mahi;
 }
