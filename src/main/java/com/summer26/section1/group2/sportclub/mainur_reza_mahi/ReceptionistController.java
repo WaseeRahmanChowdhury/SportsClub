@@ -1,10 +1,15 @@
 package com.summer26.section1.group2.sportclub.mainur_reza_mahi;
 
+import com.summer26.section1.group2.sportclub.general.LogoutHandler;
+import com.summer26.section1.group2.sportclub.general.SceneSwitcher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class ReceptionistController {
 
@@ -13,9 +18,7 @@ public class ReceptionistController {
 
     private void loadView(String fxmlFile) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(
-                    "/com/summer26/section1/group2/sportclub/mainur_reza_mahi/" + fxmlFile
-            ));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/summer26/section1/group2/sportclub/mainur_reza_mahi/" + fxmlFile));
 
             Parent view = loader.load();
 
@@ -78,6 +81,19 @@ public class ReceptionistController {
 
     @FXML
     public void logoutButtonOA(ActionEvent actionEvent) {
-        loadView("login-view.fxml");
+        LogoutHandler.handleLogout(actionEvent);
     }
+
+    @FXML
+    private void logoutButtonOA() {
+        try {
+            // NOTE: update this path/filename if your login FXML lives somewhere
+            // other than /com/summer26/section1/group2/sportclub/general/login.fxml
+            SceneSwitcher.switchScene((Stage) contentArea.getScene().getWindow(), "/com/summer26/section1/group2/sportclub/general/login.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+            // displays a user-facing error message (e.g. via an alert or status label)
+        }
+    }
+
 }
