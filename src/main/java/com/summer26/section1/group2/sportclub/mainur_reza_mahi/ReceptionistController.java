@@ -66,7 +66,7 @@ public class ReceptionistController {
 
     @FXML
     public void viewAppointmentButtonOA(ActionEvent actionEvent) {
-        loadView("view-appointments-view.fxml");
+        loadView("view-appointment-view.fxml");
     }
 
     @FXML
