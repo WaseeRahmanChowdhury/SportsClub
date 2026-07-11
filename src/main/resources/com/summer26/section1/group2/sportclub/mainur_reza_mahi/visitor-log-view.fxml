@@ -97,7 +97,7 @@
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <DatePicker layoutX="112.0" layoutY="10.0" prefHeight="32.0" prefWidth="182.0" promptText="Pick a date" />
+                  <DatePicker layoutX="112.0" layoutY="10.0" prefHeight="32.0" prefWidth="182.0" promptText="MM/DD/YYYY" />
                   <Button layoutX="309.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #D4D4D4;" text="Load Log">
                      <font>
                         <Font size="14.0" />

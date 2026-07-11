@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.mainur_reza_mahi.ManageAppointmentsController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="651.0" prefWidth="696.0">
+         <children>
+            <HBox layoutX="14.0" layoutY="14.0" prefHeight="82.0" prefWidth="672.0">
+               <children>
+                  <AnchorPane prefHeight="82.0" prefWidth="675.0">
+                     <children>
+                        <Text layoutX="19.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Appointments" wrappingWidth="216.8671875">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Text>
+                        <Separator layoutX="19.0" layoutY="79.0" prefHeight="6.0" prefWidth="626.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <VBox layoutX="35.0" layoutY="138.0" prefHeight="253.0" prefWidth="626.0">
+               <children>
+                  <TableView prefHeight="253.0" prefWidth="626.0">
+                     <columns>
+                        <TableColumn prefWidth="96.0" style="-fx-background-color: #D4D4D4;" text="Appt. ID" />
+                        <TableColumn prefWidth="175.0" text="Full Name" />
+                        <TableColumn prefWidth="114.0" style="-fx-background-color: #D4D4D4;" text="Date" />
+                        <TableColumn prefWidth="117.0" text="Host Staff" />
+                        <TableColumn prefWidth="123.0" style="-fx-background-color: #D4D4D4;" text="Purpose" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            <HBox layoutX="35.0" layoutY="399.0" prefHeight="135.0" prefWidth="626.0">
+               <children>
+                  <AnchorPane prefHeight="100.0" prefWidth="634.0">
+                     <children>
+                        <Text layoutX="3.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select ID :">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <TextField layoutX="87.0" layoutY="32.0" prefHeight="32.0" prefWidth="182.0" promptText="Enter Appt. ID">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextField>
+                        <Button layoutX="340.0" layoutY="89.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #E81123;" text="Cancel Appointment" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="87.0" layoutY="89.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #4196E1;" text="Update Appointment" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <HBox layoutX="35.0" layoutY="103.0" prefHeight="28.0" prefWidth="200.0">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="2.0" layoutY="4.0" style="-fx-font-size: 13; -fx-text-fill: #2C5F8A; -fx-font-weight: bold;" text="Pending Appointments :" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
