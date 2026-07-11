@@ -82,8 +82,11 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <DatePicker layoutX="361.0" layoutY="137.0" prefHeight="32.0" prefWidth="249.0" promptText="Select Date" />
-                  <ComboBox layoutX="20.0" layoutY="137.0" prefHeight="32.0" prefWidth="249.0" promptText="Who are they meeting ?" />
+                  <DatePicker layoutX="361.0" layoutY="137.0" prefHeight="32.0" prefWidth="249.0" promptText="MM/DD/YYYY" />
+                  <ComboBox layoutX="20.0" layoutY="137.0" prefHeight="32.0" prefWidth="249.0" promptText="Who are they meeting ?">
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor></ComboBox>
                </children>
             </AnchorPane>
          </children>
@@ -96,11 +99,17 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button layoutX="430.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #059669;" text="Book Appointment" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </AnchorPane>

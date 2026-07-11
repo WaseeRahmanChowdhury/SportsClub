@@ -42,11 +42,17 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button layoutX="495.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="121.0" style="-fx-background-color: #D4D4D4;" text="Clear">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </AnchorPane>

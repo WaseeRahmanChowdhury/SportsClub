@@ -52,13 +52,22 @@
                             <Cursor fx:constant="TEXT" />
                         </cursor>
                     </TextField>
-                    <ComboBox layoutX="160.0" layoutY="181.0" prefHeight="32.0" prefWidth="267.0" />
+                    <ComboBox layoutX="160.0" layoutY="181.0" prefHeight="32.0" prefWidth="267.0">
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor></ComboBox>
                     <Button layoutX="160.0" layoutY="282.0" mnemonicParsing="false" onAction="#dailyReportButtonOA" prefHeight="32.0" prefWidth="209.0" style="-fx-background-color: #4196E1;" text="Register Visitor" textFill="WHITE">
                         <font>
                             <Font name="System Bold" size="14.0" />
                         </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                     </Button>
-                  <ComboBox layoutX="160.0" layoutY="226.0" prefHeight="32.0" prefWidth="267.0" promptText="Select host staff name" />
+                  <ComboBox layoutX="160.0" layoutY="226.0" prefHeight="32.0" prefWidth="267.0" promptText="Select host staff name">
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor></ComboBox>
                </children>
             </AnchorPane>
          </children>
