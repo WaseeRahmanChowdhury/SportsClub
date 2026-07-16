@@ -79,20 +79,19 @@ public class coach_Dashboard {
         }
     }
 
-    @FXML
-    private void logout() {
-        try {
-            // NOTE: update this path/filename if your login FXML lives somewhere
-            // other than /com/summer26/section1/group2/sportclub/general/login.fxml
-            SceneSwitcher.switchScene(
-                    (Stage) mainpane.getScene().getWindow(),
-                    "/com/summer26/section1/group2/sportclub/general/login.fxml"
-            );
-        } catch (IOException e) {
-            e.printStackTrace();
-            // displays a user-facing error message (e.g. via an alert or status label)
-        }
-    }
+//    @FXML
+//    private void logout() {
+//        try {
+//            // other than /com/summer26/section1/group2/sportclub/general/login.fxml
+//            SceneSwitcher.switchScene(
+//                    (Stage) mainpane.getScene().getWindow(),
+//                    "/com/summer26/section1/group2/sportclub/general/login.fxml"
+//            );
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            // displays a user-facing error message (e.g. via an alert or status label)
+//        }
+//    }
 
     @FXML
     private void logout(ActionEvent event) {
