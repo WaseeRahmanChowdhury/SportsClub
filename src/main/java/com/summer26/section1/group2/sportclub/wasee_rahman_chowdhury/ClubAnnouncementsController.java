@@ -128,12 +128,12 @@ public class ClubAnnouncementsController {
             this.content = content;
         }
 
-        public String getAudience() {
-            return audience;
-        }
-
-        public void setAudience(String audience) {
-            this.audience = audience;
-        }
+//        public String getAudience() {
+//            return audience;
+//        }
+//
+//        public void setAudience(String audience) {
+//            this.audience = audience;
+//        }
     }
 }

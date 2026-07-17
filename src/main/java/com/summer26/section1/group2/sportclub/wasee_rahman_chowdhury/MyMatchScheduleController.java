@@ -43,7 +43,7 @@ public class MyMatchScheduleController {
 
     /*
      * event-4: Load all scheduled matches assigned to the player.
-     *  Replace with real data source (e.g. database or file lookup
+     *  Replace with real data source (file lookup
      * filtered by the logged-in player's ID).
      */
     private void loadScheduledMatches() {
