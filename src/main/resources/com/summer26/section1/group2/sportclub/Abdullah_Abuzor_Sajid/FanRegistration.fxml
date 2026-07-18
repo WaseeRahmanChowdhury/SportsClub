@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid.FanRegistrationController"
+            prefHeight="440.0" prefWidth="440.0">
+    <children>
+
+        <Label layoutX="20.0" layoutY="15.0" text="Fan Membership Registration">
+            <font>
+                <Font name="Arial Bold" size="16.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="20.0" layoutY="65.0" text="Full Name:" />
+        <TextField fx:id="fullNameField" layoutX="170.0" layoutY="60.0" prefWidth="230.0" />
+
+        <Label layoutX="20.0" layoutY="105.0" text="Email Address:" />
+        <TextField fx:id="emailField" layoutX="170.0" layoutY="100.0" prefWidth="230.0" />
+
+        <Label layoutX="20.0" layoutY="145.0" text="Phone Number:" />
+        <TextField fx:id="phoneNumberField" layoutX="170.0" layoutY="140.0" prefWidth="230.0" />
+
+        <Label layoutX="20.0" layoutY="185.0" text="Date of Birth:" />
+        <DatePicker fx:id="dateOfBirthField" layoutX="170.0" layoutY="180.0" prefWidth="230.0" />
+
+        <Label layoutX="20.0" layoutY="225.0" text="Favorite Player ID:" />
+        <TextField fx:id="favoritePlayerField" layoutX="170.0" layoutY="220.0" prefWidth="230.0" promptText="optional" />
+
+        <Label fx:id="statusLabel" layoutX="20.0" layoutY="270.0" prefWidth="400.0" wrapText="true" textFill="GREEN" />
+
+        <Button layoutX="300.0" layoutY="380.0" prefWidth="110.0" prefHeight="30.0" text="Register" onAction="#register" />
+
+    </children>
+</AnchorPane>

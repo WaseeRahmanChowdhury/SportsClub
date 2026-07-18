@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid.OurPlayersController"
+            prefHeight="420.0" prefWidth="620.0">
+    <children>
+
+        <Label layoutX="20.0" layoutY="15.0" text="Our Players">
+            <font>
+                <Font name="Arial Bold" size="16.0" />
+            </font>
+        </Label>
+
+        <!-- Player list: fixed-width left column that grows taller with the window. -->
+        <ListView fx:id="playerListView" prefWidth="230.0"
+                  AnchorPane.topAnchor="55.0" AnchorPane.leftAnchor="20.0" AnchorPane.bottomAnchor="20.0" />
+
+        <!-- Profile detail area: fills all remaining width/height to the right of the list. -->
+        <AnchorPane AnchorPane.topAnchor="55.0" AnchorPane.leftAnchor="270.0"
+                    AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
+            <children>
+                <Label fx:id="nameLabel" wrapText="true"
+                       AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <font>
+                        <Font name="Arial Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="dobLabel" AnchorPane.topAnchor="35.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                <Label fx:id="nationalityLabel" AnchorPane.topAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                <Label fx:id="heightWeightLabel" AnchorPane.topAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                <Label fx:id="careerStatsLabel" wrapText="true"
+                       AnchorPane.topAnchor="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                <Label fx:id="currentSeasonStatsLabel" wrapText="true"
+                       AnchorPane.topAnchor="160.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                <Label fx:id="achievementsLabel" wrapText="true"
+                       AnchorPane.topAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            </children>
+        </AnchorPane>
+
+    </children>
+</AnchorPane>

@@ -30,12 +30,15 @@ public class RegisterStaffMemberController {
             return;
         }
 
-        String staffId = StaffDirectory.registerStaffMember(
+        String staffId = StaffMember.registerStaffMember(
                 fullNameField.getText().trim(),
                 roleField.getText().trim(),
                 departmentField.getText().trim(),
                 phoneNumberField.getText().trim()
         );
+
+        ActivityLog.log(ActivityLog.TYPE_STAFF,
+                "Registered staff member " + fullNameField.getText().trim() + " (" + staffId + ")", "Admin");
 
         statusLabel.setTextFill(Color.GREEN);
         statusLabel.setText("Staff member registered successfully. Member ID: " + staffId);

@@ -35,11 +35,14 @@ public class ScheduleMatchController {
             return;
         }
 
-        String matchId = MatchSchedule.scheduleMatch(
+        String matchId = Match.scheduleMatch(
                 matchDate,
                 opponentClubNameField.getText().trim(),
                 venueNameField.getText().trim()
         );
+
+        ActivityLog.log(ActivityLog.TYPE_MATCH,
+                "Scheduled match vs " + opponentClubNameField.getText().trim() + " (" + matchId + ")", "Admin");
 
         statusLabel.setTextFill(Color.GREEN);
         statusLabel.setText("Match scheduled. Match ID: " + matchId);

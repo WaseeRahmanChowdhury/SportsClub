@@ -27,5 +27,6 @@
       <ComboBox fx:id="usercombobox" layoutX="226.0" layoutY="93.0" prefWidth="150.0" promptText="Select user" />
       <Button fx:id="loginbutton" layoutX="266.0" layoutY="187.0" mnemonicParsing="false" onAction="#Login" text="Login" />
       <Label fx:id="logininfo" layoutX="227.0" layoutY="245.0" text="Please fill in all the fields" />
+      <Button fx:id="fanRegisterButton" layoutX="227.0" layoutY="272.0" mnemonicParsing="false" onAction="#openFanRegistration" text="New Fan? Register Here" style="-fx-background-color: transparent; -fx-text-fill: #2c5aa0; -fx-underline: true; -fx-font-size: 12px; -fx-padding: 2 0 2 0; -fx-cursor: hand;" />
    </children>
 </AnchorPane>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid.LeagueTableController"
+            prefHeight="560.0" prefWidth="680.0">
+    <children>
+
+        <Label layoutX="20.0" layoutY="15.0" text="League Table">
+            <font>
+                <Font name="Arial Bold" size="16.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="20.0" layoutY="55.0" text="Competition:" />
+        <ComboBox fx:id="competitionCombo" layoutX="120.0" layoutY="50.0" prefWidth="260.0" onAction="#onCompetitionChanged" />
+
+        <!-- Standings table gets all extra vertical space as the window grows; the fixture
+             history strip below it stays a fixed height, pinned to the bottom. -->
+        <TableView fx:id="standingsTable"
+                   AnchorPane.topAnchor="90.0" AnchorPane.leftAnchor="20.0"
+                   AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="250.0">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="teamColumn" text="Team" prefWidth="180.0" />
+                <TableColumn fx:id="playedColumn" text="P" prefWidth="45.0" />
+                <TableColumn fx:id="winsColumn" text="W" prefWidth="45.0" />
+                <TableColumn fx:id="drawsColumn" text="D" prefWidth="45.0" />
+                <TableColumn fx:id="lossesColumn" text="L" prefWidth="45.0" />
+                <TableColumn fx:id="goalsForColumn" text="GF" prefWidth="50.0" />
+                <TableColumn fx:id="goalsAgainstColumn" text="GA" prefWidth="50.0" />
+                <TableColumn fx:id="goalDiffColumn" text="GD" prefWidth="50.0" />
+                <TableColumn fx:id="pointsColumn" text="Pts" prefWidth="50.0" />
+            </columns>
+        </TableView>
+
+        <AnchorPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+                    prefHeight="250.0">
+            <children>
+                <Label fx:id="fixtureHistoryLabel" layoutX="20.0" layoutY="10.0" prefWidth="400.0">
+                    <font>
+                        <Font name="Arial Bold" size="13.0" />
+                    </font>
+                </Label>
+
+                <ListView fx:id="fixtureHistoryListView"
+                          AnchorPane.topAnchor="35.0" AnchorPane.leftAnchor="20.0"
+                          AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="15.0" />
+            </children>
+        </AnchorPane>
+
+    </children>
+</AnchorPane>

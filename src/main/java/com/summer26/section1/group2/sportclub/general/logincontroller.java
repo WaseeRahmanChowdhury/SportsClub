@@ -3,7 +3,11 @@ package com.summer26.section1.group2.sportclub.general;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import java.io.IOException;
 
 public class logincontroller {
@@ -14,6 +18,8 @@ public class logincontroller {
     private Button loginbutton;
     @FXML
     private Label logininfo;
+    @FXML
+    private Button fanRegisterButton;
 
 
     @FXML
@@ -60,8 +66,13 @@ public class logincontroller {
                         "/com/summer26/section1/group2/sportclub/Mahidul/Medical.fxml");
                 break;
 
-            // add these once other dashboard FXML files exist
+
             case "Fan":
+                SceneSwitcher.switchScene(actionEvent,
+                        "/com/summer26/section1/group2/sportclub/Abdullah_Abuzor_Sajid/fan-dashboard.fxml");
+                break;
+
+            // add these once other dashboard FXML files exist
             case "Equipment Manager":
             case "Match Official Liaison":
             case "Finance Officer":
@@ -79,4 +90,24 @@ public class logincontroller {
                 break;
         }
     }
+
+    // event-1: Fan opens the fan membership registration page (no login required)
+    @FXML
+    public void openFanRegistration(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                    "/com/summer26/section1/group2/sportclub/Abdullah_Abuzor_Sajid/FanRegistration.fxml"));
+            Parent root = loader.load();
+
+            Stage formStage = new Stage();
+            formStage.setTitle("Fan Membership Registration");
+            formStage.initModality(Modality.APPLICATION_MODAL);
+            formStage.initOwner(fanRegisterButton.getScene().getWindow());
+            formStage.setScene(new Scene(root));
+            formStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

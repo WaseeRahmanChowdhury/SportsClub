@@ -1,5 +1,6 @@
 package com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid;
 
+import com.summer26.section1.group2.sportclub.general.LogoutHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,9 +9,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-import com.summer26.section1.group2.sportclub.general.LogoutHandler;
-
-public class AdminDashboardController {
+public class FanDashboardController {
 
     @FXML
     private AnchorPane contentArea;
@@ -21,45 +20,44 @@ public class AdminDashboardController {
     }
 
     @FXML
-    private void registerStaff() {
-        loadView("RegisterStaffMember.fxml");
+    private void buyTicket() {
+        loadView("BuyTicket.fxml");
     }
 
     @FXML
-    private void scheduleMatch() {
-        loadView("ScheduleMatch.fxml");
+    private void matchSchedule() {
+        loadView("FanMatchSchedule.fxml");
     }
 
     @FXML
-    private void staffDirectory() {
-        loadView("StaffDirectoryList.fxml");
+    private void ourPlayers() {
+        loadView("OurPlayers.fxml");
     }
 
     @FXML
-    private void clubActivityLog() {
-        loadView("ClubActivityLog.fxml");
+    private void feedback() {
+        loadView("SubmitFeedback.fxml");
     }
 
     @FXML
-    private void transfer() {
-        loadView("InitiateTransfer.fxml");
+    private void leagueTable() {
+        loadView("LeagueTable.fxml");
     }
 
     @FXML
-    private void postAnnouncement() {
-        loadView("PostAnnouncement.fxml");
+    private void clubShop() {
+        loadView("ClubShop.fxml");
     }
 
     @FXML
-    private void sponsershipManagement() {
-        loadView("SponsorshipManagement.fxml");
+    private void matchResults() {
+        loadView("MatchResults.fxml");
     }
 
-    @FXML
-    private void ticketBookingList() {
-        loadView("TicketBookingList.fxml");
-    }
-
+    /*
+     * Loads the given FXML file (located in this same package/resource folder)
+     * into contentArea, replacing whatever is currently displayed.
+     */
     private void loadView(String fxmlFileName) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFileName));

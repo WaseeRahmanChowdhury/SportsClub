@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid.SponsorshipManagementController"
+            prefHeight="400.0" prefWidth="580.0">
+    <children>
+
+        <Label layoutX="20.0" layoutY="15.0" text="Sponsorship Management">
+            <font>
+                <Font name="Arial Bold" size="16.0" />
+            </font>
+        </Label>
+
+        <Button fx:id="addSponsorButton" layoutX="440.0" layoutY="15.0" prefWidth="120.0" text="Add New Sponsor" onAction="#openAddSponsor" />
+
+        <TableView fx:id="sponsorTable"
+                   AnchorPane.topAnchor="60.0" AnchorPane.leftAnchor="20.0"
+                   AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="nameColumn" text="Sponsor Name" prefWidth="170.0" />
+                <TableColumn fx:id="amountColumn" text="Annual Amount (BDT)" prefWidth="140.0" />
+                <TableColumn fx:id="startDateColumn" text="Contract Start" prefWidth="110.0" />
+                <TableColumn fx:id="endDateColumn" text="Contract End" prefWidth="110.0" />
+            </columns>
+        </TableView>
+
+    </children>
+</AnchorPane>
