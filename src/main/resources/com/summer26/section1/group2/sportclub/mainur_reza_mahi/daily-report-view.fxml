@@ -117,7 +117,7 @@
                     <columns>
                       <TableColumn prefWidth="175.0" text="Purpose" />
                       <TableColumn prefWidth="163.0" style="-fx-background-color: #D4D4D4;" text="Count" />
-                        <TableColumn prefWidth="179.0" text="Parcentage" />
+                        <TableColumn prefWidth="179.0" text="Percentage" />
                     </columns>
                   </TableView>
                </children>

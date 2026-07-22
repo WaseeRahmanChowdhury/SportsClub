@@ -53,7 +53,7 @@
               <columns>
                 <TableColumn prefWidth="83.0" text="Item ID" />
                 <TableColumn prefWidth="142.0" style="-fx-background-color: #D4D4D4;" text="Item Name" />
-                  <TableColumn prefWidth="96.0" text="Catagory" />
+                  <TableColumn prefWidth="96.0" text="Category" />
                   <TableColumn prefWidth="95.0" style="-fx-background-color: #D4D4D4;" text="Price (BDT)" />
                   <TableColumn prefWidth="107.0" text="Stock" />
                   <TableColumn prefWidth="102.0" style="-fx-background-color: #D4D4D4;" text="Status" />
