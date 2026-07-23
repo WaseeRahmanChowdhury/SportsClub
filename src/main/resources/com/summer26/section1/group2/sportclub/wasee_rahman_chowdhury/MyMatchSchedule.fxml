@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.MyMatchScheduleController"
-            prefHeight="530.0" prefWidth="490.0">
+<AnchorPane prefHeight="530.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.MyMatchScheduleController">
    <children>
 
       <Label layoutX="20.0" layoutY="15.0" text="My Match Schedule">
@@ -19,18 +16,15 @@
          </font>
       </Label>
 
-      <TableView fx:id="matchTable" layoutX="20.0" layoutY="55.0" prefWidth="450.0" prefHeight="440.0">
+      <TableView fx:id="matchTable" layoutX="20.0" layoutY="55.0" prefHeight="440.0" prefWidth="450.0">
          <columns>
-            <TableColumn fx:id="colDate"        text="Date"        prefWidth="80.0" />
-            <TableColumn fx:id="colDay"         text="Day"         prefWidth="70.0" />
-            <TableColumn fx:id="colKickoff"     text="Kickoff"     prefWidth="65.0" />
-            <TableColumn fx:id="colOpponent"    text="Opponent Club" prefWidth="100.0" />
-            <TableColumn fx:id="colVenue"       text="Venue"       prefWidth="70.0" />
-            <TableColumn fx:id="colCompetition" text="Competition" prefWidth="65.0" />
+            <TableColumn fx:id="colDate" prefWidth="128.66668701171875" text="Date" />
+            <TableColumn fx:id="colOpponent" prefWidth="113.33331298828125" text="Opponent" />
+            <TableColumn fx:id="colVenue" prefWidth="207.33331298828125" text="Venue" />
          </columns>
       </TableView>
 
-      <Button layoutX="370.0" layoutY="500.0" prefWidth="100.0" prefHeight="27.0" text="Refresh" onAction="#refreshSchedule" />
+      <Button layoutX="370.0" layoutY="500.0" onAction="#loadMatchSchedule" prefHeight="27.0" prefWidth="100.0" text="Load Schedule" />
 
    </children>
 </AnchorPane>
