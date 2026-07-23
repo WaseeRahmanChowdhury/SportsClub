@@ -2,6 +2,7 @@ package com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -15,30 +16,20 @@ public class MyMatchScheduleController {
     @FXML
     private TableColumn<MatchRow, String> colDate;
     @FXML
-    private TableColumn<MatchRow, String> colDay;
-    @FXML
-    private TableColumn<MatchRow, String> colKickoff;
-    @FXML
-    private TableColumn<MatchRow, String> colOpponent;
-    @FXML
     private TableColumn<MatchRow, String> colVenue;
-    @FXML
-    private TableColumn<MatchRow, String> colCompetition;
 
     private final ObservableList<MatchRow> matchData = FXCollections.observableArrayList();
+    @FXML
+    private TableColumn colOpponent;
 
     @FXML
     private void initialize() {
         colDate.setCellValueFactory(new PropertyValueFactory<>("matchDate"));
-        colDay.setCellValueFactory(new PropertyValueFactory<>("day"));
-        colKickoff.setCellValueFactory(new PropertyValueFactory<>("kickoffTime"));
         colOpponent.setCellValueFactory(new PropertyValueFactory<>("opponentClub"));
         colVenue.setCellValueFactory(new PropertyValueFactory<>("venue"));
-        colCompetition.setCellValueFactory(new PropertyValueFactory<>("competitionName"));
 
         matchTable.setItems(matchData);
 
-        loadScheduledMatches();
     }
 
     /*
@@ -46,14 +37,18 @@ public class MyMatchScheduleController {
      *  Replace with real data source (file lookup
      * filtered by the logged-in player's ID).
      */
-    private void loadScheduledMatches() {
-        matchData.clear();
-        // fill matchData with the player's scheduled matches
-    }
+//    private void loadScheduledMatches() {
+//        matchData.clear();
+//        // fill matchData with the player's scheduled matches
+//    }
+
+//    @FXML
+//    private void refreshSchedule() {
+//        loadScheduledMatches();
+//    }
 
     @FXML
-    private void refreshSchedule() {
-        loadScheduledMatches();
+    public void loadMatchSchedule(ActionEvent actionEvent) {
     }
 
     /*
@@ -89,22 +84,6 @@ public class MyMatchScheduleController {
             this.matchDate = matchDate;
         }
 
-        public String getDay() {
-            return day;
-        }
-
-        public void setDay(String day) {
-            this.day = day;
-        }
-
-        public String getKickoffTime() {
-            return kickoffTime;
-        }
-
-        public void setKickoffTime(String kickoffTime) {
-            this.kickoffTime = kickoffTime;
-        }
-
         public String getOpponentClub() {
             return opponentClub;
         }
@@ -121,12 +100,6 @@ public class MyMatchScheduleController {
             this.venue = venue;
         }
 
-        public String getCompetitionName() {
-            return competitionName;
-        }
 
-        public void setCompetitionName(String competitionName) {
-            this.competitionName = competitionName;
-        }
     }
 }
