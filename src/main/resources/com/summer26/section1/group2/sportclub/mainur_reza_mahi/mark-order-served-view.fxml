@@ -13,7 +13,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="651.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.mainur_reza_mahi.MarkOrderServedController">
    <children>
       <AnchorPane prefHeight="104.0" prefWidth="696.0">
@@ -31,13 +30,13 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TableView layoutY="39.0" prefHeight="200.0" prefWidth="626.0">
+                  <TableView fx:id="pendingOrdersTC" layoutY="39.0" prefHeight="200.0" prefWidth="626.0">
                      <columns>
-                        <TableColumn prefWidth="93.0" text="Order ID" />
-                        <TableColumn prefWidth="163.0" style="-fx-background-color: #D4D4D4;" text="Customer" />
-                        <TableColumn prefWidth="111.0" text="Type" />
-                        <TableColumn prefWidth="124.0" style="-fx-background-color: #D4D4D4;" text="Total (BDT)" />
-                        <TableColumn prefWidth="134.0" text="Order Time" />
+                        <TableColumn fx:id="orderIdTC" prefWidth="93.0" text="Order ID" />
+                        <TableColumn fx:id="customerTC" prefWidth="163.0" style="-fx-background-color: #D4D4D4;" text="Customer" />
+                        <TableColumn fx:id="customerTypeTC" prefWidth="111.0" text="Type" />
+                        <TableColumn fx:id="totalPriceTC" prefWidth="124.0" style="-fx-background-color: #D4D4D4;" text="Total (BDT)" />
+                        <TableColumn fx:id="orderTimeTC" prefWidth="134.0" text="Order Time" />
                         <TableColumn minWidth="0.0" prefWidth="0.0" style="-fx-background-color: #D4D4D4;" />
                      </columns>
                   </TableView>
@@ -49,12 +48,12 @@
          <children>
             <AnchorPane prefHeight="100.0" prefWidth="634.0">
                <children>
-                  <TextField layoutX="106.0" layoutY="24.0" prefHeight="30.0" prefWidth="168.0" promptText="ORD-XXXX">
+                  <TextField fx:id="orderIdTF" layoutX="106.0" layoutY="24.0" prefHeight="30.0" prefWidth="168.0" promptText="ORD-XXXX">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <Button layoutX="299.0" layoutY="24.0" prefHeight="30.0" prefWidth="180" style="-fx-background-color: #6495ED;" text="Mark as Served" textFill="WHITE">
+                  <Button layoutX="299.0" layoutY="24.0" onAction="#markAsServedButtonOA" prefHeight="30.0" prefWidth="180" style="-fx-background-color: #6495ED;" text="Mark as Served" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

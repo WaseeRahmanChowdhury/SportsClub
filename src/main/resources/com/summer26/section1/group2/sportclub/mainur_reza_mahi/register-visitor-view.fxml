@@ -42,21 +42,21 @@
                             <Font size="14.0" />
                         </font>
                     </Text>
-                    <TextField layoutX="160.0" layoutY="91.0" prefHeight="32.0" prefWidth="267.0" promptText="Enter visitor full name">
+                    <TextField fx:id="visitorNameTF" layoutX="160.0" layoutY="91.0" prefHeight="32.0" prefWidth="267.0" promptText="Enter visitor full name">
                         <cursor>
                             <Cursor fx:constant="TEXT" />
                         </cursor>
                     </TextField>
-                    <TextField layoutX="160.0" layoutY="137.0" prefHeight="32.0" prefWidth="267.0" promptText=" e.g. 01XXXXXXXXX">
+                    <TextField fx:id="contactNumberTF" layoutX="160.0" layoutY="137.0" prefHeight="32.0" prefWidth="267.0" promptText=" e.g. 01XXXXXXXXX">
                         <cursor>
                             <Cursor fx:constant="TEXT" />
                         </cursor>
                     </TextField>
-                    <ComboBox layoutX="160.0" layoutY="181.0" prefHeight="32.0" prefWidth="267.0">
+                    <ComboBox fx:id="purposeOfVisitCB" layoutX="160.0" layoutY="181.0" prefHeight="32.0" prefWidth="267.0">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor></ComboBox>
-                    <Button layoutX="160.0" layoutY="282.0" mnemonicParsing="false" onAction="#dailyReportButtonOA" prefHeight="32.0" prefWidth="209.0" style="-fx-background-color: #4196E1;" text="Register Visitor" textFill="WHITE">
+                    <Button layoutX="160.0" layoutY="282.0" mnemonicParsing="false" onAction="#registerVisitorButtonOA" prefHeight="32.0" prefWidth="209.0" style="-fx-background-color: #4196E1;" text="Register Visitor" textFill="WHITE">
                         <font>
                             <Font name="System Bold" size="14.0" />
                         </font>
@@ -64,7 +64,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                     </Button>
-                  <ComboBox layoutX="160.0" layoutY="226.0" prefHeight="32.0" prefWidth="267.0" promptText="Select host staff name">
+                  <ComboBox fx:id="hostStaffNameCB" layoutX="160.0" layoutY="226.0" prefHeight="32.0" prefWidth="267.0" promptText="Select host staff name">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor></ComboBox>

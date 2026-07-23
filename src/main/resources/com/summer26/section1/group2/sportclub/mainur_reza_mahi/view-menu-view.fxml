@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="651.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.mainur_reza_mahi.ViewMenuController">
    <children>
       <HBox prefHeight="100.0" prefWidth="696.0">
@@ -29,13 +28,13 @@
          <children>
             <AnchorPane prefHeight="100.0" prefWidth="703.0">
                <children>
-                  <ComboBox layoutX="168.0" layoutY="35.0" prefHeight="32.0" prefWidth="227.0" promptText="All">
+                  <ComboBox fx:id="filterByCategoryCB" layoutX="177.0" layoutY="36.0" prefHeight="30.0" prefWidth="180.0" promptText="All">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </ComboBox>
                   <Label layoutX="38.0" layoutY="41.0" minWidth="115.0" prefHeight="19.0" prefWidth="115.0" style="-fx-font-size: 13; -fx-text-fill: #1a1a1a; -fx-min-width: 130;" text="Filter by Category :" />
-                  <Button layoutX="458.0" layoutY="36.0" prefHeight="30.0" prefWidth="180" style="-fx-background-color: #6495ED;" text="Filter Item" textFill="WHITE">
+                  <Button layoutX="396.0" layoutY="36.0" onAction="#filterItemButtonOA" prefHeight="30.0" prefWidth="180" style="-fx-background-color: #6495ED;" text="Filter Item" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -49,14 +48,14 @@
       </HBox>
       <VBox layoutX="35.0" layoutY="216.0" prefHeight="246.0" prefWidth="626.0">
          <children>
-            <TableView prefHeight="255.0" prefWidth="626.0">
+            <TableView fx:id="viewMenuTC" prefHeight="255.0" prefWidth="626.0">
               <columns>
-                <TableColumn prefWidth="83.0" text="Item ID" />
-                <TableColumn prefWidth="142.0" style="-fx-background-color: #D4D4D4;" text="Item Name" />
-                  <TableColumn prefWidth="96.0" text="Category" />
-                  <TableColumn prefWidth="95.0" style="-fx-background-color: #D4D4D4;" text="Price (BDT)" />
-                  <TableColumn prefWidth="107.0" text="Stock" />
-                  <TableColumn prefWidth="102.0" style="-fx-background-color: #D4D4D4;" text="Status" />
+                <TableColumn fx:id="itemIdTC" prefWidth="83.0" text="Item ID" />
+                <TableColumn fx:id="itemNameTC" prefWidth="142.0" style="-fx-background-color: #D4D4D4;" text="Item Name" />
+                  <TableColumn fx:id="categoryTC" prefWidth="96.0" text="Category" />
+                  <TableColumn fx:id="priceTC" prefWidth="95.0" style="-fx-background-color: #D4D4D4;" text="Price (BDT)" />
+                  <TableColumn fx:id="stockTC" prefWidth="107.0" text="Stock" />
+                  <TableColumn fx:id="statusTC" prefWidth="102.0" style="-fx-background-color: #D4D4D4;" text="Status" />
               </columns>
             </TableView>
          </children>

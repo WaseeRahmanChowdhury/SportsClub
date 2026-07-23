@@ -33,13 +33,13 @@
             </HBox>
             <VBox layoutX="35.0" layoutY="138.0" prefHeight="253.0" prefWidth="626.0">
                <children>
-                  <TableView prefHeight="253.0" prefWidth="626.0">
+                  <TableView fx:id="pendingAppointmentsTC" prefHeight="253.0" prefWidth="626.0">
                      <columns>
-                        <TableColumn prefWidth="96.0" style="-fx-background-color: #D4D4D4;" text="Appt. ID" />
-                        <TableColumn prefWidth="175.0" text="Full Name" />
-                        <TableColumn prefWidth="114.0" style="-fx-background-color: #D4D4D4;" text="Date" />
-                        <TableColumn prefWidth="117.0" text="Host Staff" />
-                        <TableColumn prefWidth="123.0" style="-fx-background-color: #D4D4D4;" text="Purpose" />
+                        <TableColumn fx:id="appointmentIdTC" prefWidth="96.0" style="-fx-background-color: #D4D4D4;" text="Appt. ID" />
+                        <TableColumn fx:id="fullNameTC" prefWidth="175.0" text="Full Name" />
+                        <TableColumn fx:id="dateTC" prefWidth="114.0" style="-fx-background-color: #D4D4D4;" text="Date" />
+                        <TableColumn fx:id="hostStaffTC" prefWidth="117.0" text="Host Staff" />
+                        <TableColumn fx:id="purposeTC" prefWidth="123.0" style="-fx-background-color: #D4D4D4;" text="Purpose" />
                      </columns>
                   </TableView>
                </children>
@@ -53,12 +53,12 @@
                               <Font size="14.0" />
                            </font>
                         </Text>
-                        <TextField layoutX="87.0" layoutY="32.0" prefHeight="32.0" prefWidth="182.0" promptText="Enter Appt. ID">
+                        <TextField fx:id="appointmentIdTF" layoutX="87.0" layoutY="32.0" prefHeight="32.0" prefWidth="182.0" promptText="Enter Appt. ID">
                            <cursor>
                               <Cursor fx:constant="TEXT" />
                            </cursor>
                         </TextField>
-                        <Button layoutX="340.0" layoutY="89.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #E81123;" text="Cancel Appointment" textFill="WHITE">
+                        <Button layoutX="340.0" layoutY="89.0" mnemonicParsing="false" onAction="#cancelAppointmentButtonOA" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #E81123;" text="Cancel Appointment" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -66,7 +66,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button layoutX="87.0" layoutY="89.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #4196E1;" text="Update Appointment" textFill="WHITE">
+                        <Button layoutX="87.0" layoutY="89.0" mnemonicParsing="false" onAction="#updateAppointmentButtonOA" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #4196E1;" text="Update Appointment" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>

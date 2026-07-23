@@ -32,22 +32,22 @@
          <children>
             <AnchorPane prefHeight="310.0" prefWidth="626.0">
                <children>
-                  <TextField layoutX="20.0" layoutY="47.0" prefHeight="32.0" prefWidth="249.0" promptText="Enter Full Name">
+                  <TextField fx:id="visitorNameTF" layoutX="20.0" layoutY="47.0" prefHeight="32.0" prefWidth="249.0" promptText="Enter Full Name">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <TextField layoutX="20.0" layoutY="227.0" prefHeight="32.0" prefWidth="249.0" promptText="e.g., 14:30 or 2:30 PM">
+                  <TextField fx:id="appointmentTimeTF" layoutX="20.0" layoutY="227.0" prefHeight="32.0" prefWidth="249.0" promptText="e.g., 14:30 or 2:30 PM">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <TextField layoutX="362.0" layoutY="47.0" prefHeight="32.0" prefWidth="249.0" promptText="e.g., 017XXXXXXXX">
+                  <TextField fx:id="contactNumberTF" layoutX="362.0" layoutY="47.0" prefHeight="32.0" prefWidth="249.0" promptText="e.g., 017XXXXXXXX">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <TextField alignment="TOP_LEFT" layoutX="362.0" layoutY="224.0" prefHeight="73.0" prefWidth="249.0" promptText="Brief details of meeting purpose ...">
+                  <TextField fx:id="purposeOfMeetingTA" alignment="TOP_LEFT" layoutX="362.0" layoutY="224.0" prefHeight="73.0" prefWidth="249.0" promptText="Brief details of meeting purpose ...">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
@@ -82,8 +82,8 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <DatePicker layoutX="361.0" layoutY="137.0" prefHeight="32.0" prefWidth="249.0" promptText="MM/DD/YYYY" />
-                  <ComboBox layoutX="20.0" layoutY="137.0" prefHeight="32.0" prefWidth="249.0" promptText="Who are they meeting ?">
+                  <DatePicker fx:id="appointmentDateDP" layoutX="361.0" layoutY="137.0" prefHeight="32.0" prefWidth="249.0" promptText="MM/DD/YYYY" />
+                  <ComboBox fx:id="hostStaffCB" layoutX="20.0" layoutY="137.0" prefHeight="32.0" prefWidth="249.0" promptText="Who are they meeting ?">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor></ComboBox>
@@ -95,7 +95,7 @@
          <children>
             <AnchorPane prefHeight="100.0" prefWidth="628.0">
                <children>
-                  <Button layoutX="257.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="153.0" style="-fx-background-color: #D4D4D4;" text="Clear All">
+                  <Button layoutX="257.0" layoutY="6.0" mnemonicParsing="false" onAction="#clearAllButtonOA" prefHeight="32.0" prefWidth="153.0" style="-fx-background-color: #D4D4D4;" text="Clear All">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -103,7 +103,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button layoutX="430.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #059669;" text="Book Appointment" textFill="WHITE">
+                  <Button layoutX="430.0" layoutY="6.0" mnemonicParsing="false" onAction="#bookAppointmentButtonOA" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #059669;" text="Book Appointment" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>

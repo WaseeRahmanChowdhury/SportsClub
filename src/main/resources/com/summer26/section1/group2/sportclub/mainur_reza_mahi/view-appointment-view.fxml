@@ -23,14 +23,14 @@
       <Separator layoutX="19.0" layoutY="89.0" prefHeight="5.0" prefWidth="658.0" />
       <VBox layoutX="19.0" layoutY="173.0" prefHeight="228.0" prefWidth="658.0">
          <children>
-            <TableView prefHeight="226.0" prefWidth="658.0">
+            <TableView fx:id="viewAppointmentsTC" prefHeight="226.0" prefWidth="658.0">
                <columns>
-                  <TableColumn prefWidth="92.0" style="-fx-background-color: #D4D4D4;" text="Appt. ID" />
-                  <TableColumn prefWidth="149.0" text="Visitor Name" />
-                  <TableColumn prefWidth="99.0" style="-fx-background-color: #D4D4D4;" text="Host Staff" />
-                  <TableColumn prefWidth="99.0" text="Time" />
-                  <TableColumn prefWidth="109.0" style="-fx-background-color: #D4D4D4;" text="Purpose" />
-                  <TableColumn prefWidth="109.0" text="Status" />
+                  <TableColumn fx:id="appointmentIdTC" prefWidth="92.0" style="-fx-background-color: #D4D4D4;" text="Appt. ID" />
+                  <TableColumn fx:id="visitorNameTC" prefWidth="149.0" text="Visitor Name" />
+                  <TableColumn fx:id="hostStaffTC" prefWidth="99.0" style="-fx-background-color: #D4D4D4;" text="Host Staff" />
+                  <TableColumn fx:id="timeTC" prefWidth="99.0" text="Time" />
+                  <TableColumn fx:id="purposeTC" prefWidth="109.0" style="-fx-background-color: #D4D4D4;" text="Purpose" />
+                  <TableColumn fx:id="statusTC" prefWidth="109.0" text="Status" />
                </columns>
             </TableView>
          </children>
@@ -44,8 +44,8 @@
                         <Font size="14.0" />
                      </font>
                   </Text>
-                  <DatePicker layoutX="113.0" layoutY="6.0" prefHeight="32.0" prefWidth="174.0" promptText="MM/DD/YYYY" />
-                  <Button layoutX="335.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="162.0" style="-fx-background-color: #D4D4D4;" text="Load Appointments">
+                  <DatePicker fx:id="appointmentFilterDP" layoutX="113.0" layoutY="6.0" prefHeight="32.0" prefWidth="174.0" promptText="MM/DD/YYYY" />
+                  <Button layoutX="335.0" layoutY="6.0" mnemonicParsing="false" onAction="#loadAppointmentsButtonOA" prefHeight="32.0" prefWidth="162.0" style="-fx-background-color: #D4D4D4;" text="Load Appointments">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -66,7 +66,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="34.0" prefHeight="52.0" prefWidth="51.0" text="N/A">
+                  <Label fx:id="totalAppointmentLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="34.0" prefHeight="52.0" prefWidth="51.0" text="N/A">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -84,7 +84,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="34.0" prefHeight="52.0" prefWidth="51.0" text="N/A" textFill="#e67e22">
+                  <Label fx:id="pendingLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="34.0" prefHeight="52.0" prefWidth="51.0" text="N/A" textFill="#e67e22">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -102,7 +102,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="34.0" prefHeight="52.0" prefWidth="51.0" text="N/A" textFill="#27ae60">
+                  <Label fx:id="completedLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="34.0" prefHeight="52.0" prefWidth="51.0" text="N/A" textFill="#27ae60">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -120,7 +120,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="34.0" prefHeight="52.0" prefWidth="51.0" text="N/A" textFill="#c0392b">
+                  <Label fx:id="cancelledLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="34.0" prefHeight="52.0" prefWidth="51.0" text="N/A" textFill="#c0392b">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>

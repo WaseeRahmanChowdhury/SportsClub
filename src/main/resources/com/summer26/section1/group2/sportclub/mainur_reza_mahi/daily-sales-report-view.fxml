@@ -12,7 +12,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="651.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.mainur_reza_mahi.DailySalesReportController">
    <children>
       <AnchorPane layoutX="6.0" prefHeight="145.0" prefWidth="685.0">
@@ -22,13 +21,13 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <DatePicker layoutX="130.0" layoutY="86.0" prefHeight="32.0" prefWidth="174.0" promptText="MM/DD/YYYY">
+            <DatePicker fx:id="reportDateDP" layoutX="130.0" layoutY="86.0" prefHeight="32.0" prefWidth="174.0" promptText="MM/DD/YYYY">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </DatePicker>
             <Separator layoutX="19.0" layoutY="73.0" prefHeight="5.0" prefWidth="658.0" />
-            <Button layoutX="355.0" layoutY="86.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="162.0" style="-fx-background-color: #6495ED;" text="Generate Report" textFill="WHITE">
+            <Button layoutX="355.0" layoutY="86.0" mnemonicParsing="false" onAction="#generateReportButtonOA" prefHeight="32.0" prefWidth="162.0" style="-fx-background-color: #6495ED;" text="Generate Report" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -59,7 +58,7 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="31.0" prefHeight="52.0" prefWidth="51.0" text="N/A">
+                        <Label fx:id="totalOrderServedLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="31.0" prefHeight="52.0" prefWidth="51.0" text="N/A">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
@@ -75,7 +74,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="34.0" prefHeight="52.0" prefWidth="51.0" text="N/A" textFill="#e67e22">
+                  <Label fx:id="totalItemSoldLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="34.0" prefHeight="52.0" prefWidth="51.0" text="N/A" textFill="#e67e22">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -89,7 +88,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="34.0" prefHeight="52.0" prefWidth="51.0" text="N/A" textFill="#27ae60">
+                  <Label fx:id="totalRevenueLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="47.0" layoutY="34.0" prefHeight="52.0" prefWidth="51.0" text="N/A" textFill="#27ae60">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -103,7 +102,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="34.0" prefHeight="52.0" prefWidth="145.0" text="N/A" textFill="#c0392b">
+                  <Label fx:id="bestSellingItemLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="34.0" prefHeight="52.0" prefWidth="145.0" text="N/A" textFill="#c0392b">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -119,11 +118,11 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <TableView layoutX="70.0" layoutY="47.0" prefHeight="142.0" prefWidth="518.0">
+            <TableView fx:id="categoryBreakdownTC" layoutX="70.0" layoutY="47.0" prefHeight="142.0" prefWidth="518.0">
                <columns>
-                  <TableColumn prefWidth="175.0" text="Category" />
-                  <TableColumn prefWidth="163.0" style="-fx-background-color: #D4D4D4;" text="Item Sold" />
-                  <TableColumn prefWidth="179.0" text="Revenue" />
+                  <TableColumn fx:id="categoryTC" prefWidth="175.0" text="Category" />
+                  <TableColumn fx:id="itemSoldTC" prefWidth="163.0" style="-fx-background-color: #D4D4D4;" text="Item Sold" />
+                  <TableColumn fx:id="revenueTC" prefWidth="179.0" text="Revenue" />
                </columns>
             </TableView>
          </children>
