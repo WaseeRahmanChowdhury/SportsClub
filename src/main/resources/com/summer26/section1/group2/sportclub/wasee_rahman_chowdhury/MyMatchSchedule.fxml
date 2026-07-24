@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="530.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.MyMatchScheduleController">
+<AnchorPane prefHeight="600.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.MyMatchScheduleController">
    <children>
 
       <Label layoutX="20.0" layoutY="15.0" text="My Match Schedule">
@@ -16,7 +18,18 @@
          </font>
       </Label>
 
-      <TableView fx:id="matchTable" layoutX="20.0" layoutY="55.0" prefHeight="440.0" prefWidth="450.0">
+      <Label layoutX="20.0" layoutY="55.0" text="Match Date:" />
+      <DatePicker fx:id="datePicker" layoutX="120.0" layoutY="51.0" prefWidth="150.0" />
+
+      <Label layoutX="20.0" layoutY="90.0" text="Opponent Club:" />
+      <TextField fx:id="opponentField" layoutX="120.0" layoutY="86.0" prefWidth="150.0" />
+
+      <Label layoutX="20.0" layoutY="125.0" text="Venue:" />
+      <TextField fx:id="venueField" layoutX="120.0" layoutY="121.0" prefWidth="150.0" />
+
+      <Button layoutX="290.0" layoutY="86.0" onAction="#saveMatch" prefHeight="27.0" prefWidth="150.0" text="Save Match" />
+
+      <TableView fx:id="matchTable" layoutX="20.0" layoutY="165.0" prefHeight="380.0" prefWidth="450.0">
          <columns>
             <TableColumn fx:id="colDate" prefWidth="128.66668701171875" text="Date" />
             <TableColumn fx:id="colOpponent" prefWidth="113.33331298828125" text="Opponent" />
@@ -24,7 +37,7 @@
          </columns>
       </TableView>
 
-      <Button layoutX="370.0" layoutY="500.0" onAction="#loadMatchSchedule" prefHeight="27.0" prefWidth="100.0" text="Load Schedule" />
+      <Button layoutX="370.0" layoutY="560.0" onAction="#loadMatchSchedule" prefHeight="27.0" prefWidth="100.0" text="Load Schedule" />
 
    </children>
 </AnchorPane>

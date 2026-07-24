@@ -7,7 +7,7 @@ module com.summer26.section1.group2.sportclub {
 
 
     opens com.summer26.section1.group2.sportclub to javafx.fxml;
-    opens com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury to javafx.fxml;
+    opens com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury to javafx.fxml, java.base;
     opens com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid to javafx.fxml, javafx.base;
     exports com.summer26.section1.group2.sportclub;
     opens com.summer26.section1.group2.sportclub.general to javafx.fxml;
