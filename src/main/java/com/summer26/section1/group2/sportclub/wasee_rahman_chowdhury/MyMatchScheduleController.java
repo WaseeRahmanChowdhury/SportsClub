@@ -1,13 +1,8 @@
 package com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -23,47 +18,32 @@ public class MyMatchScheduleController {
 
     private static final String FILE_NAME = "MatchSchedule.bin";
 
-    @FXML
+    @javafx.fxml.FXML
     private TableView<MatchRow> matchTable;
-
-    @FXML
+    @javafx.fxml.FXML
     private TableColumn<MatchRow, LocalDate> colDate;
-    @FXML
-    private TableColumn<MatchRow, String> colVenue;
-
-    @FXML
+    @javafx.fxml.FXML
     private TableColumn<MatchRow, String> colOpponent;
-
-    @FXML
+    @javafx.fxml.FXML
+    private TableColumn<MatchRow, String> colVenue;
+    @javafx.fxml.FXML
     private DatePicker datePicker;
-    @FXML
+    @javafx.fxml.FXML
     private TextField opponentField;
-    @FXML
+    @javafx.fxml.FXML
     private TextField venueField;
 
     private ArrayList<MatchRow> matchData = new ArrayList<>();
 
-    @FXML
-    private void initialize() {
-
-        colDate.setCellValueFactory(cellData ->
-                new SimpleObjectProperty<>(cellData.getValue().getMatchDate()));
-
-        colOpponent.setCellValueFactory(cellData ->
-                new SimpleStringProperty(cellData.getValue().getOpponentClub()));
-
-        colVenue.setCellValueFactory(cellData ->
-                new SimpleStringProperty(cellData.getValue().getVenue()));
+    public void initialize() {
+        colDate.setCellValueFactory(new PropertyValueFactory<>("matchDate"));
+        colOpponent.setCellValueFactory(new PropertyValueFactory<>("opponentClub"));
+        colVenue.setCellValueFactory(new PropertyValueFactory<>("venue"));
 
         loadMatchSchedule(null);
     }
 
-    /*
-     * event-3: Player enters match details and saves it.
-     * The match is appended to the list already stored in the bin file,
-     * then the whole list is written back to the file.
-     */
-    @FXML
+    @javafx.fxml.FXML
     public void saveMatch(ActionEvent actionEvent) {
         LocalDate date = datePicker.getValue();
         String opponent = opponentField.getText();
@@ -83,7 +63,6 @@ public class MyMatchScheduleController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            // displays a user-facing error message (e.g. via an alert or status label)
         }
 
         datePicker.setValue(null);
@@ -93,11 +72,7 @@ public class MyMatchScheduleController {
         loadMatchSchedule(null);
     }
 
-    /*
-     * event-4: Load all scheduled matches assigned to the player
-     * by reading them back from the bin file and showing them in the table.
-     */
-    @FXML
+    @javafx.fxml.FXML
     public void loadMatchSchedule(ActionEvent actionEvent) {
         matchData = readMatchesFromFile();
         matchTable.getItems().setAll(matchData);
@@ -112,9 +87,7 @@ public class MyMatchScheduleController {
             matches = (ArrayList<MatchRow>) objectIn.readObject();
 
         } catch (EOFException e) {
-            // file exists but is empty, so there is nothing to read yet
         } catch (IOException e) {
-            // file does not exist yet, so there is nothing to read yet
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (ClassCastException e) {
@@ -124,10 +97,6 @@ public class MyMatchScheduleController {
         return matches;
     }
 
-    /*
-     * Simple representation of one row of the match schedule table
-     * (event-5: match date, opponent club, venue).
-     */
     public static class MatchRow implements Serializable {
         private LocalDate matchDate;
         private String opponentClub;
