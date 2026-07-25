@@ -1,11 +1,20 @@
 package com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TicketBooking {
+public class TicketBooking implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private final String bookingId;
     private final String fanMembershipId;
     private final String fanName;
@@ -17,8 +26,8 @@ public class TicketBooking {
     private String bookingStatus;
 
     public TicketBooking(String bookingId, String fanMembershipId, String fanName, String matchId,
-                          String matchName, String ticketCategory, int quantity, double totalAmount,
-                          String bookingStatus) {
+                         String matchName, String ticketCategory, int quantity, double totalAmount,
+                         String bookingStatus) {
         this.bookingId = bookingId;
         this.fanMembershipId = fanMembershipId;
         this.fanName = fanName;
@@ -80,9 +89,46 @@ public class TicketBooking {
     private static final int STAND_CAPACITY = 200;
     private static final int GALLERY_CAPACITY = 500;
 
-    private static final List<TicketBooking> bookings = new ArrayList<>();
+    private static final String DATA_FILE = "TicketBooking.bin";
+    private static final List<TicketBooking> bookings = loadBookings();
     // matchId -> (category -> tickets remaining)
     private static final Map<String, Map<String, Integer>> inventoryByMatch = new HashMap<>();
+
+    static {
+        // Replay loaded bookings against inventory so remaining capacity reflects tickets already sold.
+        for (TicketBooking booking : bookings) {
+            Map<String, Integer> stock = inventoryFor(booking.getMatchId());
+            int remaining = stock.getOrDefault(booking.getTicketCategory(), 0);
+            stock.put(booking.getTicketCategory(), remaining - booking.getQuantity());
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private static List<TicketBooking> loadBookings() {
+        File file = new File(DATA_FILE);
+        if (!file.exists()) {
+            return new ArrayList<>();
+        }
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
+            return (List<TicketBooking>) in.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    private static void saveBookings() {
+        File file = new File(DATA_FILE);
+        File parentDir = file.getParentFile();
+        if (parentDir != null && !parentDir.exists()) {
+            parentDir.mkdirs();
+        }
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
+            out.writeObject(bookings);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static double getUnitPrice(String ticketCategory) {
         return switch (ticketCategory) {
@@ -109,7 +155,7 @@ public class TicketBooking {
 
     // event-11/12: process payment, deduct seats, generate e-ticket with booking ID
     public static TicketBooking bookTicket(String fanMembershipId, String fanName, String matchId,
-                                            String matchName, String ticketCategory, int quantity) {
+                                           String matchName, String ticketCategory, int quantity) {
         Map<String, Integer> stock = inventoryFor(matchId);
         int available = stock.getOrDefault(ticketCategory, 0);
         if (quantity > available) {
@@ -122,6 +168,7 @@ public class TicketBooking {
         TicketBooking booking = new TicketBooking(bookingId, fanMembershipId, fanName, matchId,
                 matchName, ticketCategory, quantity, totalAmount, "Confirmed");
         bookings.add(booking);
+        saveBookings();
         return booking;
     }
 

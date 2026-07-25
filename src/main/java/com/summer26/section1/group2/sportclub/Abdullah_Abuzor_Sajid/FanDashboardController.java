@@ -1,6 +1,5 @@
 package com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid;
 
-import com.summer26.section1.group2.sportclub.general.LogoutHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+
+import com.summer26.section1.group2.sportclub.general.LogoutHandler;
 
 public class FanDashboardController {
 
@@ -17,6 +18,11 @@ public class FanDashboardController {
     @FXML
     private void signOut(ActionEvent event) {
         LogoutHandler.handleLogout(event);
+    }
+
+    @FXML
+    private void findMembershipId() {
+        loadView("FindMembershipId.fxml");
     }
 
     @FXML
