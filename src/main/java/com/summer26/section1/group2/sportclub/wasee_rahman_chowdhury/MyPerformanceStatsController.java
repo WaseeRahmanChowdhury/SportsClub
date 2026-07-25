@@ -1,89 +1,128 @@
 package com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
+import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
 
 public class MyPerformanceStatsController {
 
-    @FXML
-    private ComboBox<String> timeRangeCombo;
+    private static final String FILE_NAME = "PerformanceStat.bin";
 
-    @FXML
+    @javafx.fxml.FXML
     private TableView<PerformanceRow> statsTable;
 
-    @FXML
+    @javafx.fxml.FXML
     private TableColumn<PerformanceRow, Number> colAppearances;
-    @FXML
+    @javafx.fxml.FXML
     private TableColumn<PerformanceRow, Number> colGoals;
-    @FXML
-    private TableColumn<PerformanceRow, Number> colAssists;
-    @FXML
-    private TableColumn<PerformanceRow, Number> colYellowCards;
-    @FXML
-    private TableColumn<PerformanceRow, Number> colRedCards;
-    @FXML
+    @javafx.fxml.FXML
     private TableColumn<PerformanceRow, Number> colMinutes;
 
-    private final ObservableList<PerformanceRow> statsData = FXCollections.observableArrayList();
+    @javafx.fxml.FXML
+    private TextField appearancesField;
+    @javafx.fxml.FXML
+    private TextField goalsField;
+    @javafx.fxml.FXML
+    private TextField minutesField;
 
-    @FXML
-    private void initialize() {
-        // event-4: time range filter options
-        timeRangeCombo.setItems(FXCollections.observableArrayList("Last Match", "This Season", "All Time"));
-        timeRangeCombo.getSelectionModel().selectFirst();
+    private ArrayList<PerformanceRow> statsData = new ArrayList<>();
 
+    public void initialize() {
         colAppearances.setCellValueFactory(new PropertyValueFactory<>("appearances"));
         colGoals.setCellValueFactory(new PropertyValueFactory<>("goals"));
-        colAssists.setCellValueFactory(new PropertyValueFactory<>("assists"));
-        colYellowCards.setCellValueFactory(new PropertyValueFactory<>("yellowCards"));
-        colRedCards.setCellValueFactory(new PropertyValueFactory<>("redCards"));
         colMinutes.setCellValueFactory(new PropertyValueFactory<>("minutesPlayed"));
 
-        statsTable.setItems(statsData);
-
-        loadPerformanceStats(timeRangeCombo.getValue());
-    }
-
-    @FXML
-    private void onTimeRangeSelected() {
-        loadPerformanceStats(timeRangeCombo.getValue());
+        loadPerformanceStats();
     }
 
     /*
-     * event-5: Display performance statistics in a table based on the selected time range filter.
-     * Replace with a real data source filtered by the logged-in player and selected range.
+     * Player enters stats for match and saves it.
+     * The new stat is appended to the list already stored in bin file,
+     * then whole list is written back to file.
      */
-    private void loadPerformanceStats(String timeRange) {
-        statsData.clear();
-        // populate statsData based on timeRange ("Last Match", "This Season", "All Time")
+    @javafx.fxml.FXML
+    public void saveStat(ActionEvent actionEvent) {
+        int appearances = Integer.parseInt(appearancesField.getText());
+        int goals = Integer.parseInt(goalsField.getText());
+        int minutesPlayed = Integer.parseInt(minutesField.getText());
+
+        ArrayList<PerformanceRow> currentStats = readStatsFromFile();
+        currentStats.add(new PerformanceRow(appearances, goals, minutesPlayed));
+
+        try (FileOutputStream fileOut = new FileOutputStream(FILE_NAME);
+             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
+
+            objectOut.writeObject(currentStats);
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        appearancesField.clear();
+        goalsField.clear();
+        minutesField.clear();
+
+        loadPerformanceStats();
     }
 
     /*
-     * Simplerepresentation of one row of performance statistics.
+     * event-5: Display performance statistics in a table.
+     * Loads the stats saved so far from the bin file and shows them in the table.
      */
-    public static class PerformanceRow {
+    private void loadPerformanceStats() {
+        statsData = readStatsFromFile();
+        statsTable.getItems().setAll(statsData);
+    }
+
+    private ArrayList<PerformanceRow> readStatsFromFile() {
+        ArrayList<PerformanceRow> stats = new ArrayList<>();
+
+        try (FileInputStream fileIn = new FileInputStream(FILE_NAME);
+             ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
+
+            stats = (ArrayList<PerformanceRow>) objectIn.readObject();
+
+        }
+        catch (EOFException e) {
+        }
+        catch (IOException e) {
+        }
+        catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch (ClassCastException e) {
+            e.printStackTrace();
+        }
+
+        return stats;
+    }
+
+
+    //Reprresentation of one row of performance stats.
+
+    public static class PerformanceRow implements Serializable {
         private int appearances;
         private int goals;
-        private int assists;
-        private int yellowCards;
-        private int redCards;
         private int minutesPlayed;
 
         public PerformanceRow() {
         }
 
-        public PerformanceRow(int appearances, int goals, int assists,
-                               int yellowCards, int redCards, int minutesPlayed) {
+        public PerformanceRow(int appearances, int goals, int minutesPlayed) {
             this.appearances = appearances;
             this.goals = goals;
-            this.assists = assists;
-            this.yellowCards = yellowCards;
-            this.redCards = redCards;
             this.minutesPlayed = minutesPlayed;
         }
 
@@ -101,30 +140,6 @@ public class MyPerformanceStatsController {
 
         public void setGoals(int goals) {
             this.goals = goals;
-        }
-
-        public int getAssists() {
-            return assists;
-        }
-
-        public void setAssists(int assists) {
-            this.assists = assists;
-        }
-
-        public int getYellowCards() {
-            return yellowCards;
-        }
-
-        public void setYellowCards(int yellowCards) {
-            this.yellowCards = yellowCards;
-        }
-
-        public int getRedCards() {
-            return redCards;
-        }
-
-        public void setRedCards(int redCards) {
-            this.redCards = redCards;
         }
 
         public int getMinutesPlayed() {
