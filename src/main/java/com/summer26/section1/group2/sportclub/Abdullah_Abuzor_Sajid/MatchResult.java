@@ -20,8 +20,8 @@ public class MatchResult {
     private final List<MatchEvent> events;
 
     public MatchResult(String resultId, String competition, LocalDate matchDate, String homeTeam, String awayTeam,
-                        int homeScore, int awayScore, String venue, String referee, int attendance,
-                        List<MatchEvent> events) {
+                       int homeScore, int awayScore, String venue, String referee, int attendance,
+                       List<MatchEvent> events) {
         this.resultId = resultId;
         this.competition = competition;
         this.matchDate = matchDate;
@@ -96,60 +96,60 @@ public class MatchResult {
             new MatchResult("RES-0001", COMPETITION_BPL, LocalDate.of(2026, 3, 6),
                     "Bashundhara Kings", "Abahani Limited", 3, 1,
                     "Bashundhara Kings Arena", "Mahmudul Islam", 15000, List.of(
-                    new MatchEvent(12, "Goal", "Sabbir Ahmed (Home)"),
-                    new MatchEvent(34, "Yellow Card", "Jamal Bhuiyan (Home)"),
-                    new MatchEvent(51, "Goal", "Away Forward (Away)"),
-                    new MatchEvent(67, "Goal", "Rakib Hossain (Home)"),
-                    new MatchEvent(80, "Goal", "Sabbir Ahmed (Home)"))),
+                    new GoalEvent(12, "Sabbir Ahmed (Home)"),
+                    new CardEvent(34, "Jamal Bhuiyan (Home)", "Yellow"),
+                    new GoalEvent(51, "Away Forward (Away)"),
+                    new GoalEvent(67, "Rakib Hossain (Home)"),
+                    new GoalEvent(80, "Sabbir Ahmed (Home)"))),
 
             new MatchResult("RES-0002", COMPETITION_BPL, LocalDate.of(2026, 3, 13),
                     "Mohammedan SC", "Bashundhara Kings", 0, 0,
                     "Bir Shreshtha Stadium", "Anisur Rahman", 8000, List.of(
-                    new MatchEvent(29, "Yellow Card", "Emeka Obi (Away)"),
-                    new MatchEvent(72, "Yellow Card", "Home Defender (Home)"))),
+                    new CardEvent(29, "Emeka Obi (Away)", "Yellow"),
+                    new CardEvent(72, "Home Defender (Home)", "Yellow"))),
 
             new MatchResult("RES-0003", COMPETITION_BPL, LocalDate.of(2026, 3, 20),
                     "Bashundhara Kings", "Sheikh Russel KC", 2, 2,
                     "Bashundhara Kings Arena", "Kamrul Hasan", 12000, List.of(
-                    new MatchEvent(8, "Goal", "Rakib Hossain (Home)"),
-                    new MatchEvent(22, "Goal", "Away Forward (Away)"),
-                    new MatchEvent(58, "Goal", "Emeka Obi (Home)"),
-                    new MatchEvent(85, "Goal", "Away Midfielder (Away)"),
-                    new MatchEvent(90, "Red Card", "Away Defender (Away)"))),
+                    new GoalEvent(8, "Rakib Hossain (Home)"),
+                    new GoalEvent(22, "Away Forward (Away)"),
+                    new GoalEvent(58, "Emeka Obi (Home)"),
+                    new GoalEvent(85, "Away Midfielder (Away)"),
+                    new CardEvent(90, "Away Defender (Away)", "Red"))),
 
             new MatchResult("RES-0004", COMPETITION_BPL, LocalDate.of(2026, 3, 27),
                     "Abahani Limited", "Mohammedan SC", 1, 0,
                     "Bangabandhu National Stadium", "Zahid Hossain", 20000, List.of(
-                    new MatchEvent(44, "Goal", "Home Striker (Home)"))),
+                    new GoalEvent(44, "Home Striker (Home)"))),
 
             new MatchResult("RES-0005", COMPETITION_BPL, LocalDate.of(2026, 4, 3),
                     "Sheikh Russel KC", "Rahmatganj MFS", 1, 3,
                     "Sheikh Russel Stadium", "Nasir Uddin", 5000, List.of(
-                    new MatchEvent(15, "Goal", "Away Striker (Away)"),
-                    new MatchEvent(38, "Goal", "Home Forward (Home)"),
-                    new MatchEvent(63, "Goal", "Away Striker (Away)"),
-                    new MatchEvent(77, "Goal", "Away Midfielder (Away)"))),
+                    new GoalEvent(15, "Away Striker (Away)"),
+                    new GoalEvent(38, "Home Forward (Home)"),
+                    new GoalEvent(63, "Away Striker (Away)"),
+                    new GoalEvent(77, "Away Midfielder (Away)"))),
 
             new MatchResult("RES-0006", COMPETITION_BPL, LocalDate.of(2026, 4, 10),
                     "Rahmatganj MFS", "Bashundhara Kings", 0, 2,
                     "Rahmatganj Stadium", "Faisal Ahmed", 6000, List.of(
-                    new MatchEvent(40, "Goal", "Sabbir Ahmed (Away)"),
-                    new MatchEvent(70, "Goal", "Rakib Hossain (Away)"))),
+                    new GoalEvent(40, "Sabbir Ahmed (Away)"),
+                    new GoalEvent(70, "Rakib Hossain (Away)"))),
 
             new MatchResult("RES-0007", COMPETITION_FEDERATION_CUP, LocalDate.of(2026, 2, 18),
                     "Bashundhara Kings", "Chittagong Abahani", 4, 0,
                     "Bashundhara Kings Arena", "Mahmudul Islam", 10000, List.of(
-                    new MatchEvent(10, "Goal", "Sabbir Ahmed (Home)"),
-                    new MatchEvent(31, "Goal", "Emeka Obi (Home)"),
-                    new MatchEvent(55, "Goal", "Rakib Hossain (Home)"),
-                    new MatchEvent(89, "Goal", "Sabbir Ahmed (Home)"))),
+                    new GoalEvent(10, "Sabbir Ahmed (Home)"),
+                    new GoalEvent(31, "Emeka Obi (Home)"),
+                    new GoalEvent(55, "Rakib Hossain (Home)"),
+                    new GoalEvent(89, "Sabbir Ahmed (Home)"))),
 
             new MatchResult("RES-0008", COMPETITION_SUPER_CUP, LocalDate.of(2026, 1, 22),
                     "Abahani Limited", "Bashundhara Kings", 2, 1,
                     "Bangabandhu National Stadium", "Kamrul Hasan", 18000, List.of(
-                    new MatchEvent(19, "Goal", "Home Forward (Home)"),
-                    new MatchEvent(48, "Goal", "Sabbir Ahmed (Away)"),
-                    new MatchEvent(84, "Goal", "Home Forward (Home)")))
+                    new GoalEvent(19, "Home Forward (Home)"),
+                    new GoalEvent(48, "Sabbir Ahmed (Away)"),
+                    new GoalEvent(84, "Home Forward (Home)")))
     ));
 
     // event-5/6: fetch all completed match results, optionally filtered by competition
