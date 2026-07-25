@@ -1,9 +1,18 @@
 package com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StaffMember {
+public class StaffMember implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private final String staffId;
     private String fullName;
     private String role;
@@ -56,11 +65,40 @@ public class StaffMember {
 
     // --- Staff directory (all registered staff members) ---
 
-    private static final List<StaffMember> staffMembers = new ArrayList<>();
+    private static final String DATA_FILE = "StaffMember.bin";
+    private static final List<StaffMember> staffMembers = loadStaffMembers();
+
+    @SuppressWarnings("unchecked")
+    private static List<StaffMember> loadStaffMembers() {
+        File file = new File(DATA_FILE);
+        if (!file.exists()) {
+            return new ArrayList<>();
+        }
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
+            return (List<StaffMember>) in.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    private static void saveStaffMembers() {
+        File file = new File(DATA_FILE);
+        File parentDir = file.getParentFile();
+        if (parentDir != null && !parentDir.exists()) {
+            parentDir.mkdirs();
+        }
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
+            out.writeObject(staffMembers);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static String registerStaffMember(String fullName, String role, String department, String phoneNumber) {
         String staffId = String.format("STF-%04d", staffMembers.size() + 1);
         staffMembers.add(new StaffMember(staffId, fullName, role, department, phoneNumber));
+        saveStaffMembers();
         return staffId;
     }
 
@@ -104,6 +142,7 @@ public class StaffMember {
         member.setRole(role);
         member.setDepartment(department);
         member.setPhoneNumber(phoneNumber);
+        saveStaffMembers();
         return true;
     }
 }

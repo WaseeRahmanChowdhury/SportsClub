@@ -74,8 +74,11 @@ public class logincontroller {
 
             // add these once other dashboard FXML files exist
             case "Equipment Manager":
+                break;
             case "Match Official Liaison":
+                break;
             case "Finance Officer":
+                break;
             case "Receptionist":
                 SceneSwitcher.switchScene(actionEvent,
                         "/com/summer26/section1/group2/sportclub/mainur_reza_mahi/receptionist-dashboard.fxml");
