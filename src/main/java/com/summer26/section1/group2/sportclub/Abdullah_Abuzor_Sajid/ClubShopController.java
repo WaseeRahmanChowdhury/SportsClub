@@ -87,12 +87,6 @@ public class ClubShopController {
             return;
         }
 
-        // event-10: validate delivery address is not empty
-        if (deliveryAddressField.getText().isBlank()) {
-            statusLabel.setText("Delivery address cannot be empty.");
-            return;
-        }
-
         MerchOrder order = MerchOrder.placeOrder(
                 fan.getFanMembershipId(), item, quantity,
                 deliveryAddressField.getText().trim(), paymentMethodCombo.getValue());

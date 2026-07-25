@@ -42,7 +42,8 @@ public class ClubActivityLogController {
                 ActivityLog.TYPE_TRAINING,
                 ActivityLog.TYPE_STAFF,
                 ActivityLog.TYPE_ANNOUNCEMENT,
-                ActivityLog.TYPE_SPONSORSHIP
+                ActivityLog.TYPE_SPONSORSHIP,
+                ActivityLog.TYPE_TRANSFER
         ));
         activityTypeCombo.setValue(ActivityLog.TYPE_ALL);
 

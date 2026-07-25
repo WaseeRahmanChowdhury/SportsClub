@@ -48,6 +48,7 @@ public class ActivityLog {
     public static final String TYPE_STAFF = "Staff";
     public static final String TYPE_ANNOUNCEMENT = "Announcement";
     public static final String TYPE_SPONSORSHIP = "Sponsorship";
+    public static final String TYPE_TRANSFER = "Transfer";
 
     private static final String DATA_FILE = "ActivityLog.txt";
     private static final List<ActivityLog> activities = loadActivities();

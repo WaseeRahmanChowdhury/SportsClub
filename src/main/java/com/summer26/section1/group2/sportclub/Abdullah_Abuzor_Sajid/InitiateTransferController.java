@@ -69,6 +69,10 @@ public class InitiateTransferController {
                 effectiveDate
         );
 
+        ActivityLog.log(ActivityLog.TYPE_TRANSFER,
+                "Initiated " + directionCombo.getValue() + " transfer for player "
+                        + playerIdField.getText().trim() + " (" + transferId + ")", "Admin");
+
         statusLabel.setTextFill(Color.GREEN);
         statusLabel.setText("Transfer initiated. Transfer ID: " + transferId + ". Finance Officer has been notified.");
     }
