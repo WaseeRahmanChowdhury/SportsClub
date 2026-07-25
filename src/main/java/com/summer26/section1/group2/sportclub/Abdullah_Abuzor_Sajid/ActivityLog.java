@@ -1,5 +1,11 @@
 package com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,10 +49,54 @@ public class ActivityLog {
     public static final String TYPE_ANNOUNCEMENT = "Announcement";
     public static final String TYPE_SPONSORSHIP = "Sponsorship";
 
-    private static final List<ActivityLog> activities = new ArrayList<>();
+    private static final String DATA_FILE = "ActivityLog.txt";
+    private static final List<ActivityLog> activities = loadActivities();
+
+    private static List<ActivityLog> loadActivities() {
+        List<ActivityLog> loaded = new ArrayList<>();
+        File file = new File(DATA_FILE);
+        if (!file.exists()) {
+            return loaded;
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.isBlank()) {
+                    continue;
+                }
+                String[] parts = line.split("\\|", 4);
+                if (parts.length < 4) {
+                    continue;
+                }
+                loaded.add(new ActivityLog(LocalDateTime.parse(parts[0]), parts[1], parts[2], parts[3]));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return loaded;
+    }
+
+    // Appends one line for this activity instead of rewriting the whole file.
+    private static void appendActivity(ActivityLog activity) {
+        File file = new File(DATA_FILE);
+        File parentDir = file.getParentFile();
+        if (parentDir != null && !parentDir.exists()) {
+            parentDir.mkdirs();
+        }
+        String line = activity.getActivityDate() + "|" + activity.getActivityType() + "|"
+                + activity.getActivityTitle() + "|" + activity.getCreatedBy();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+            writer.write(line);
+            writer.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void log(String activityType, String activityTitle, String createdBy) {
-        activities.add(new ActivityLog(LocalDateTime.now(), activityType, activityTitle, createdBy));
+        ActivityLog activity = new ActivityLog(LocalDateTime.now(), activityType, activityTitle, createdBy);
+        activities.add(activity);
+        appendActivity(activity);
     }
 
     // event-6: load matching activity records for the selected activity type

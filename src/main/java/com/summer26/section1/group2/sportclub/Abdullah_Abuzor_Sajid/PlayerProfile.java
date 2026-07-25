@@ -1,10 +1,19 @@
 package com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerProfile {
+public class PlayerProfile implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private final String playerId;
     private final String fullName;
     private final int squadNumber;
@@ -21,8 +30,8 @@ public class PlayerProfile {
     private final String achievements;
 
     public PlayerProfile(String playerId, String fullName, int squadNumber, String position, String nationality,
-                          LocalDate dateOfBirth, int heightCm, int weightKg, int careerMatches, int careerGoals,
-                          int careerAssists, int currentSeasonMatches, int currentSeasonGoals, String achievements) {
+                         LocalDate dateOfBirth, int heightCm, int weightKg, int careerMatches, int careerGoals,
+                         int careerAssists, int currentSeasonMatches, int currentSeasonGoals, String achievements) {
         this.playerId = playerId;
         this.fullName = fullName;
         this.squadNumber = squadNumber;
@@ -97,25 +106,68 @@ public class PlayerProfile {
 
     // --- Player profile directory (public player profiles) ---
 
+    private static final String DATA_FILE = "PlayerProfile.bin";
+
     // event-4: fetch all active players' public profile data
-    // Seed data - no other feature currently populates real player records.
-    private static final List<PlayerProfile> players = new ArrayList<>(List.of(
-            new PlayerProfile("PLY-000001", "Rakib Hossain", 10, "MID", "Bangladesh",
-                    LocalDate.of(1998, 4, 12), 175, 68, 142, 28, 34, 18, 6,
-                    "BPL Top Assist Provider 2024"),
-            new PlayerProfile("PLY-000002", "Sabbir Ahmed", 9, "FWD", "Bangladesh",
-                    LocalDate.of(1999, 9, 3), 180, 74, 130, 61, 20, 19, 12,
-                    "BPL Top Scorer 2023"),
-            new PlayerProfile("PLY-000003", "Jamal Bhuiyan", 4, "DEF", "Bangladesh",
-                    LocalDate.of(1990, 11, 25), 183, 79, 210, 8, 5, 17, 1,
-                    "Club Captain, 200+ appearances"),
-            new PlayerProfile("PLY-000004", "Anisur Rahman", 1, "GK", "Bangladesh",
-                    LocalDate.of(1995, 2, 17), 188, 82, 165, 0, 0, 18, 0,
-                    "Golden Glove BPL 2022"),
-            new PlayerProfile("PLY-000005", "Emeka Obi", 7, "FWD", "Nigeria",
-                    LocalDate.of(1997, 6, 30), 178, 72, 95, 47, 15, 18, 14,
-                    "Federation Cup Top Scorer 2024")
-    ));
+    // Dummy/seed data - no other feature currently populates real player records.
+    // Written to PlayerProfile.bin once on first run, then loaded from that file on every run after.
+    private static final List<PlayerProfile> players = loadOrSeedPlayers();
+
+    private static List<PlayerProfile> loadOrSeedPlayers() {
+        File file = new File(DATA_FILE);
+        if (file.exists()) {
+            List<PlayerProfile> loaded = loadPlayers(file);
+            if (loaded != null) {
+                return loaded;
+            }
+        }
+        List<PlayerProfile> seedData = buildSeedPlayers();
+        savePlayers(seedData);
+        return seedData;
+    }
+
+    @SuppressWarnings("unchecked")
+    private static List<PlayerProfile> loadPlayers(File file) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
+            return (List<PlayerProfile>) in.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private static void savePlayers(List<PlayerProfile> data) {
+        File file = new File(DATA_FILE);
+        File parentDir = file.getParentFile();
+        if (parentDir != null && !parentDir.exists()) {
+            parentDir.mkdirs();
+        }
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
+            out.writeObject(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static List<PlayerProfile> buildSeedPlayers() {
+        return new ArrayList<>(List.of(
+                new PlayerProfile("PLY-000001", "Rakib Hossain", 10, "MID", "Bangladesh",
+                        LocalDate.of(1998, 4, 12), 175, 68, 142, 28, 34, 18, 6,
+                        "BPL Top Assist Provider 2024"),
+                new PlayerProfile("PLY-000002", "Sabbir Ahmed", 9, "FWD", "Bangladesh",
+                        LocalDate.of(1999, 9, 3), 180, 74, 130, 61, 20, 19, 12,
+                        "BPL Top Scorer 2023"),
+                new PlayerProfile("PLY-000003", "Jamal Bhuiyan", 4, "DEF", "Bangladesh",
+                        LocalDate.of(1990, 11, 25), 183, 79, 210, 8, 5, 17, 1,
+                        "Club Captain, 200+ appearances"),
+                new PlayerProfile("PLY-000004", "Anisur Rahman", 1, "GK", "Bangladesh",
+                        LocalDate.of(1995, 2, 17), 188, 82, 165, 0, 0, 18, 0,
+                        "Golden Glove BPL 2022"),
+                new PlayerProfile("PLY-000005", "Emeka Obi", 7, "FWD", "Nigeria",
+                        LocalDate.of(1997, 6, 30), 178, 72, 95, 47, 15, 18, 14,
+                        "Federation Cup Top Scorer 2024")
+        ));
+    }
 
     public static List<PlayerProfile> getPlayers() {
         return players;

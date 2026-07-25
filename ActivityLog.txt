@@ -1,0 +1,2 @@
+2026-07-25T22:27:22.983599100|Sponsorship|Added sponsor Addidas (SPN-0001)|Admin
+2026-07-25T22:27:47.574185400|Announcement|Posted announcement: Hello|Admin
