@@ -58,7 +58,7 @@ public class MerchandiseItem implements Serializable {
 
     // --- Merchandise catalog (all club shop items) ---
 
-    private static final String DATA_FILE = "MerchandiseItem.bin";
+    private static final String DATA_FILE = "Sajid_Data/MerchandiseItem.bin";
 
     // Dummy/seed data - no feature creates real merchandise records.
     // Written to MerchandiseItem.bin once on first run, then loaded from that file on every run after.

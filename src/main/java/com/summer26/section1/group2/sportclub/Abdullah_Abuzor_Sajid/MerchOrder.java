@@ -68,7 +68,7 @@ public class MerchOrder implements Serializable {
 
     // --- Merch order registry (all placed club shop orders) ---
 
-    private static final String DATA_FILE = "MerchOrder.bin";
+    private static final String DATA_FILE = "Sajid_Data/MerchOrder.bin";
     private static final List<MerchOrder> orders = loadOrders();
 
     @SuppressWarnings("unchecked")
