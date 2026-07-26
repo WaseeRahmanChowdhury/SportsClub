@@ -106,7 +106,7 @@ public class PlayerProfile implements Serializable {
 
     // --- Player profile directory (public player profiles) ---
 
-    private static final String DATA_FILE = "PlayerProfile.bin";
+    private static final String DATA_FILE = "Sajid_Data/PlayerProfile.bin";
 
     // event-4: fetch all active players' public profile data
     // Dummy/seed data - no other feature currently populates real player records.

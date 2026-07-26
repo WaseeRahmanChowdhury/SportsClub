@@ -50,7 +50,7 @@ public class ActivityLog {
     public static final String TYPE_SPONSORSHIP = "Sponsorship";
     public static final String TYPE_TRANSFER = "Transfer";
 
-    private static final String DATA_FILE = "ActivityLog.txt";
+    private static final String DATA_FILE = "Sajid_Data/ActivityLog.txt";
     private static final List<ActivityLog> activities = loadActivities();
 
     private static List<ActivityLog> loadActivities() {

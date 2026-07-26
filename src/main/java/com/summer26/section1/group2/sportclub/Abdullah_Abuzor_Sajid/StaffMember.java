@@ -65,7 +65,7 @@ public class StaffMember implements Serializable {
 
     // --- Staff directory (all registered staff members) ---
 
-    private static final String DATA_FILE = "StaffMember.bin";
+    private static final String DATA_FILE = "Sajid_Data/StaffMember.bin";
     private static final List<StaffMember> staffMembers = loadStaffMembers();
 
     @SuppressWarnings("unchecked")

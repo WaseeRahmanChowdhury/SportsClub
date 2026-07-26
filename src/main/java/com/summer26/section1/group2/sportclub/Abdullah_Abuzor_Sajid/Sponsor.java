@@ -63,7 +63,7 @@ public class Sponsor implements Serializable {
 
     // --- Sponsor registry (all club sponsors) ---
 
-    private static final String DATA_FILE = "Sponsor.bin";
+    private static final String DATA_FILE = "Sajid_Data/Sponsor.bin";
     private static final List<Sponsor> sponsors = loadSponsors();
 
     @SuppressWarnings("unchecked")
