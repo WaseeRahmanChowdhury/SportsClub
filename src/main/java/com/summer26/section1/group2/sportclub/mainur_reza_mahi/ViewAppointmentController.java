@@ -9,27 +9,27 @@ import javafx.scene.control.TableView;
 public class ViewAppointmentController
 {
     @javafx.fxml.FXML
-    private TableColumn timeTC;
+    private TableColumn<Appointment,String> timeTC;
     @javafx.fxml.FXML
-    private TableColumn hostStaffTC;
+    private TableColumn<Appointment,String> hostStaffTC;
     @javafx.fxml.FXML
-    private TableColumn visitorNameTC;
+    private TableColumn<Appointment,String> visitorNameTC;
     @javafx.fxml.FXML
-    private TableView viewAppointmentsTC;
+    private TableView<Appointment> viewAppointmentsTC;
     @javafx.fxml.FXML
     private Label totalAppointmentLabel;
     @javafx.fxml.FXML
-    private TableColumn statusTC;
+    private TableColumn<Appointment,String> statusTC;
     @javafx.fxml.FXML
     private Label pendingLabel;
     @javafx.fxml.FXML
     private Label completedLabel;
     @javafx.fxml.FXML
-    private TableColumn appointmentIdTC;
+    private TableColumn<Appointment,String> appointmentIdTC;
     @javafx.fxml.FXML
     private DatePicker appointmentFilterDP;
     @javafx.fxml.FXML
-    private TableColumn purposeTC;
+    private TableColumn<Appointment,String> purposeTC;
     @javafx.fxml.FXML
     private Label cancelledLabel;
 

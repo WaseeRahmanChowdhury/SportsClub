@@ -20,14 +20,7 @@ public class CanteenManagerController
     private void loadView(String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/summer26/section1/group2/sportclub/mainur_reza_mahi/" + fxmlFile));
-
             Parent view = loader.load();
-
-            AnchorPane.setTopAnchor(view, 0.0);
-            AnchorPane.setBottomAnchor(view, 0.0);
-            AnchorPane.setLeftAnchor(view, 0.0);
-            AnchorPane.setRightAnchor(view, 0.0);
-
             contentAreaCM.getChildren().setAll(view);
 
         } catch (Exception e) {

@@ -11,25 +11,25 @@ public class SearchVisitorController
 {
 
     @javafx.fxml.FXML
-    private TableColumn hostStaffTC;
+    private TableColumn<Visitor,String> hostStaffTC;
     @javafx.fxml.FXML
-    private TableColumn fullNameTC;
+    private TableColumn<Visitor,String> fullNameTC;
     @javafx.fxml.FXML
-    private TableColumn visitDateTC;
+    private TableColumn<Visitor,String> visitDateTC;
     @javafx.fxml.FXML
-    private TableColumn visitorIdTC;
+    private TableColumn<Visitor,String> visitorIdTC;
     @javafx.fxml.FXML
-    private TableColumn contactNumberTC;
+    private TableColumn<Visitor,String> contactNumberTC;
     @javafx.fxml.FXML
     private TextField nameOrIdFilterTF;
     @javafx.fxml.FXML
-    private TableView searchVisitorTC;
+    private TableView<Visitor> searchVisitorTC;
     @javafx.fxml.FXML
     private Label contactNoLabel;
     @javafx.fxml.FXML
     private Label visitDateLabel;
     @javafx.fxml.FXML
-    private TableColumn purposeTC;
+    private TableColumn<Visitor,String> purposeTC;
     @javafx.fxml.FXML
     private Label purposeLabel;
     @javafx.fxml.FXML

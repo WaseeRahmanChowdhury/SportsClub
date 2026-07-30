@@ -8,9 +8,9 @@ public class VisitorLogController
 {
 
     @javafx.fxml.FXML
-    private TableView visitorLogTC;
+    private TableView<Visitor> visitorLogTC;
     @javafx.fxml.FXML
-    private TableColumn fullNameTC;
+    private TableColumn<Visitor,String> fullNameTC;
     @javafx.fxml.FXML
     private TextField idSelectionTF;
     @javafx.fxml.FXML
@@ -18,21 +18,21 @@ public class VisitorLogController
     @javafx.fxml.FXML
     private DatePicker visitingDateFilterDP;
     @javafx.fxml.FXML
-    private TableColumn visitorIdTC;
+    private TableColumn<Visitor,String> visitorIdTC;
     @javafx.fxml.FXML
     private Label exitTimeLabel;
     @javafx.fxml.FXML
     private Label entryTimeLabel;
     @javafx.fxml.FXML
-    private TableColumn exitTimeTC;
+    private TableColumn<Visitor,String> exitTimeTC;
     @javafx.fxml.FXML
-    private TableColumn statusTC;
+    private TableColumn<Visitor,String> statusTC;
     @javafx.fxml.FXML
-    private TableColumn entryTimeTC;
+    private TableColumn<Visitor,String> entryTimeTC;
     @javafx.fxml.FXML
-    private TableColumn purposeTC;
+    private TableColumn<Visitor,String> purposeTC;
     @javafx.fxml.FXML
-    private TableColumn hostTC;
+    private TableColumn<Visitor,String> hostTC;
     @javafx.fxml.FXML
     private Label purposeLabel;
     @javafx.fxml.FXML

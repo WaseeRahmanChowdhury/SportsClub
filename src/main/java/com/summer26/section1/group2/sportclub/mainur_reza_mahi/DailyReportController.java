@@ -9,21 +9,21 @@ import javafx.scene.control.TableView;
 public class DailyReportController
 {
     @javafx.fxml.FXML
-    private TableColumn percentageTC;
+    private TableColumn<Visitor,Integer> percentageTC;
     @javafx.fxml.FXML
     private Label commonPurposeLabel;
     @javafx.fxml.FXML
-    private TableView purposeBreakdownTC;
+    private TableView<Visitor> purposeBreakdownTC;
     @javafx.fxml.FXML
     private Label currentlyInsideLabel;
     @javafx.fxml.FXML
-    private TableColumn countTC;
+    private TableColumn<Visitor,Integer> countTC;
     @javafx.fxml.FXML
     private Label totalLeftLabel;
     @javafx.fxml.FXML
     private Label totalVisitorsLabel;
     @javafx.fxml.FXML
-    private TableColumn purposeTC;
+    private TableColumn<Visitor,String> purposeTC;
     @javafx.fxml.FXML
     private DatePicker reportDateDP;
 

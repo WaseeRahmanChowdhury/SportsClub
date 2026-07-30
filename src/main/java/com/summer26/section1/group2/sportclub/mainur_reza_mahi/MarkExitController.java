@@ -8,19 +8,19 @@ import javafx.scene.control.TextField;
 public class MarkExitController
 {
     @javafx.fxml.FXML
-    private TableColumn visitorIdTC;
+    private TableColumn<Visitor,String> visitorIdTC;
     @javafx.fxml.FXML
-    private TableColumn hostStaffTC;
+    private TableColumn<Visitor,String> hostStaffTC;
     @javafx.fxml.FXML
     private TextField visitorIdTF;
     @javafx.fxml.FXML
-    private TableView markExitTC;
+    private TableView<Visitor> markExitTC;
     @javafx.fxml.FXML
-    private TableColumn fullNameTC;
+    private TableColumn<Visitor,String> fullNameTC;
     @javafx.fxml.FXML
-    private TableColumn entryTimeTC;
+    private TableColumn<Visitor,String> entryTimeTC;
     @javafx.fxml.FXML
-    private TableColumn purposeTC;
+    private TableColumn<Visitor,String> purposeTC;
 
     @javafx.fxml.FXML
     public void initialize() {
