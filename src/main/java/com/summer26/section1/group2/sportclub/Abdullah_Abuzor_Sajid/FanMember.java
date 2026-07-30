@@ -64,7 +64,7 @@ public class FanMember implements Serializable {
 
     // --- Fan membership registry (all registered fans) ---
 
-    private static final String DATA_FILE = "FanMember.bin";
+    private static final String DATA_FILE = "Sajid_Data/FanMember.bin";
     private static final List<FanMember> fanMembers = loadFanMembers();
     private static final Random RANDOM = new Random();
 

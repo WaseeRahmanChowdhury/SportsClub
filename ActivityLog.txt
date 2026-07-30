@@ -1,6 +1,0 @@
-2026-07-25T22:27:22.983599100|Sponsorship|Added sponsor Addidas (SPN-0001)|Admin
-2026-07-25T22:27:47.574185400|Announcement|Posted announcement: Hello|Admin
-2026-07-25T23:28:17.470079100|Staff|Registered staff member Louis Vaan Gaal (STF-0002)|Admin
-2026-07-25T23:28:53.753411700|Transfer|Initiated Incoming transfer for player 11 (TRF-0002)|Admin
-2026-07-25T23:29:18.609375600|Announcement|Posted announcement: New Signing!|Admin
-2026-07-25T23:29:57.145503600|Sponsorship|Added sponsor Nike (SPN-0002)|Admin

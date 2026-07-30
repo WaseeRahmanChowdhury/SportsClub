@@ -1,0 +1,8 @@
+2026-07-26T21:54:56.242916300|Staff|Registered staff member Jose Mourinho (STF-0001)|Admin
+2026-07-26T21:55:16.765457500|Match|Scheduled match vs Manchester United (MCH-0001)|Admin
+2026-07-26T21:55:53.412205100|Match|Scheduled match vs Liverpool (MCH-0002)|Admin
+2026-07-26T21:56:36.144938|Transfer|Initiated Incoming transfer for player 11 (TRF-0001)|Admin
+2026-07-26T21:57:18.161164500|Transfer|Initiated Outgoing transfer for player 7 (TRF-0002)|Admin
+2026-07-26T21:58:02.995765200|Announcement|Posted announcement: New Signing|Admin
+2026-07-26T21:58:58.806234200|Sponsorship|Added sponsor Addidas (SPN-0001)|Admin
+2026-07-26T21:59:21.598936900|Sponsorship|Added sponsor Nike (SPN-0002)|Admin

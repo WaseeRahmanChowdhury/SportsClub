@@ -89,7 +89,7 @@ public class TicketBooking implements Serializable {
     private static final int STAND_CAPACITY = 200;
     private static final int GALLERY_CAPACITY = 500;
 
-    private static final String DATA_FILE = "TicketBooking.bin";
+    private static final String DATA_FILE = "Sajid_Data/TicketBooking.bin";
     private static final List<TicketBooking> bookings = loadBookings();
     // matchId -> (category -> tickets remaining)
     private static final Map<String, Map<String, Integer>> inventoryByMatch = new HashMap<>();

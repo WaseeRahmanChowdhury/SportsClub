@@ -100,7 +100,7 @@ public class MatchResult implements Serializable {
     public static final String COMPETITION_FEDERATION_CUP = "Federation Cup";
     public static final String COMPETITION_SUPER_CUP = "Super Cup";
 
-    private static final String DATA_FILE = "MatchResult.bin";
+    private static final String DATA_FILE = "Sajid_Data/MatchResult.bin";
 
     // event-5: completed match results - dummy/seed data, no other feature currently populates real results.
     // Written to MatchResult.bin once on first run, then loaded from that file on every run after.

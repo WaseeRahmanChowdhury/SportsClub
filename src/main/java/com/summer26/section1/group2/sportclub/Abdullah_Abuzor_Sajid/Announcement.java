@@ -63,7 +63,7 @@ public class Announcement implements Serializable {
 
     // --- Announcement board (all posted announcements) ---
 
-    private static final String DATA_FILE = "Announcement.bin";
+    private static final String DATA_FILE = "Sajid_Data/Announcement.bin";
     private static final List<Announcement> announcements = loadAnnouncements();
 
     @SuppressWarnings("unchecked")
