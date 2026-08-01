@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<AnchorPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.MyContractAndSalaryController"
             prefHeight="530.0" prefWidth="490.0">
@@ -19,19 +19,19 @@
          </font>
       </Label>
 
-      <!-- event-5: contract summary -->
-      <Label layoutX="20.0" layoutY="60.0" text="Contract Start Date:" />
-      <Label fx:id="contractStartDateLabel" layoutX="220.0" layoutY="60.0" prefWidth="200.0" />
+      <Label layoutX="20.0" layoutY="60.0" text="Month:" />
+      <TextField fx:id="monthTF" layoutX="220.0" layoutY="56.0" prefWidth="200.0" />
 
-      <Label layoutX="20.0" layoutY="85.0" text="Contract End Date:" />
-      <Label fx:id="contractEndDateLabel" layoutX="220.0" layoutY="85.0" prefWidth="200.0" />
+      <Label layoutX="20.0" layoutY="95.0" text="Net Salary Paid:" />
+      <TextField fx:id="netSalaryPaidTF" layoutX="220.0" layoutY="91.0" prefWidth="200.0" />
 
-      <Label layoutX="20.0" layoutY="110.0" text="Weekly Wage:" />
-      <Label fx:id="weeklyWageLabel" layoutX="220.0" layoutY="110.0" prefWidth="200.0" />
+      <Label layoutX="20.0" layoutY="130.0" text="Payment Date:" />
+      <DatePicker fx:id="paymentDateDP" layoutX="220.0" layoutY="126.0" prefWidth="200.0" />
 
-      <!-- event-6: salary history table -->
-      <Label layoutX="20.0" layoutY="150.0" text="Salary History" />
-      <TableView fx:id="salaryHistoryTable" layoutX="20.0" layoutY="175.0" prefWidth="450.0" prefHeight="320.0">
+      <Button layoutX="220.0" layoutY="165.0" prefWidth="200.0" text="Add Salary Record" onAction="#addSalaryRecordOA" />
+
+      <Label layoutX="20.0" layoutY="205.0" text="Salary History" />
+      <TableView fx:id="salaryHistoryTable" layoutX="20.0" layoutY="230.0" prefWidth="450.0" prefHeight="270.0">
          <columns>
             <TableColumn fx:id="colMonth"        text="Month"          prefWidth="150.0" />
             <TableColumn fx:id="colNetSalaryPaid" text="Net Salary Paid" prefWidth="150.0" />

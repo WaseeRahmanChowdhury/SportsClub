@@ -8,17 +8,17 @@ import javafx.scene.control.TextField;
 public class ManageAppointmentsController
 {
     @javafx.fxml.FXML
-    private TableColumn hostStaffTC;
+    private TableColumn<Appointment,String> hostStaffTC;
     @javafx.fxml.FXML
-    private TableColumn fullNameTC;
+    private TableColumn<Appointment,String> fullNameTC;
     @javafx.fxml.FXML
-    private TableView pendingAppointmentsTC;
+    private TableView<Appointment> pendingAppointmentsTC;
     @javafx.fxml.FXML
-    private TableColumn appointmentIdTC;
+    private TableColumn<Appointment,String> appointmentIdTC;
     @javafx.fxml.FXML
-    private TableColumn dateTC;
+    private TableColumn<Appointment,String> dateTC;
     @javafx.fxml.FXML
-    private TableColumn purposeTC;
+    private TableColumn<Appointment,String> purposeTC;
     @javafx.fxml.FXML
     private TextField appointmentIdTF;
 

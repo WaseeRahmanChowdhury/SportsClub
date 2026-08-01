@@ -1,21 +1,29 @@
 package com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.io.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class MyContractAndSalaryController {
 
     @FXML
-    private Label contractStartDateLabel;
+    private TextField monthTF;
     @FXML
-    private Label contractEndDateLabel;
+    private TextField netSalaryPaidTF;
     @FXML
-    private Label weeklyWageLabel;
+    private DatePicker paymentDateDP;
+    @FXML
+    private Button addSalaryRecordButton;
 
     @FXML
     private TableView<SalaryRow> salaryHistoryTable;
@@ -27,7 +35,9 @@ public class MyContractAndSalaryController {
     @FXML
     private TableColumn<SalaryRow, String> colPaymentDate;
 
-    private final ObservableList<SalaryRow> salaryData = FXCollections.observableArrayList();
+    private final ArrayList<SalaryRow> salaryData = new ArrayList<>();
+
+    private static final String FILE_NAME = "SalaryPayment.bin";
 
     @FXML
     private void initialize() {
@@ -35,30 +45,95 @@ public class MyContractAndSalaryController {
         colNetSalaryPaid.setCellValueFactory(new PropertyValueFactory<>("netSalaryPaid"));
         colPaymentDate.setCellValueFactory(new PropertyValueFactory<>("paymentDate"));
 
-        salaryHistoryTable.setItems(salaryData);
+        loadSalaryDataFromFile();
 
-        loadContractAndSalaryData();
+        salaryHistoryTable.getItems().addAll(salaryData);
+    }
+
+    @FXML
+    public void addSalaryRecordOA(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+
+        String month = monthTF.getText();
+        String netSalaryPaidText = netSalaryPaidTF.getText();
+        LocalDate paymentDate = paymentDateDP.getValue();
+
+        if (month == null || month.isEmpty()) {
+            alert.setContentText("ERROR: Month cannot be empty.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (netSalaryPaidText == null || netSalaryPaidText.isEmpty()) {
+            alert.setContentText("ERROR: Net Salary Paid cannot be empty.");
+            alert.showAndWait();
+            return;
+        }
+
+        double netSalaryPaid;
+        try {
+            netSalaryPaid = Double.parseDouble(netSalaryPaidText);
+        } catch (NumberFormatException e) {
+            alert.setContentText("ERROR: Net Salary Paid must be a valid number.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (netSalaryPaid <= 0) {
+            alert.setContentText("ERROR: Net Salary Paid must be greater than zero.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (paymentDate == null) {
+            alert.setContentText("ERROR: Payment Date must be selected.");
+            alert.showAndWait();
+            return;
+        }
+
+        SalaryRow row = new SalaryRow(month, String.valueOf(netSalaryPaid), paymentDate.toString());
+
+        salaryData.add(row);
+        salaryHistoryTable.getItems().add(row);
+
+        saveSalaryDataToFile();
+
+        monthTF.clear();
+        netSalaryPaidTF.clear();
+        paymentDateDP.setValue(null);
+    }
+
+    private void saveSalaryDataToFile() {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
+            out.writeObject(salaryData);
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("ERROR: Could not save salary data to file.");
+            alert.showAndWait();
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void loadSalaryDataFromFile() {
+        File file = new File(FILE_NAME);
+        if (!file.exists()) {
+            return;
+        }
+
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(FILE_NAME))) {
+            ArrayList<SalaryRow> loadedData = (ArrayList<SalaryRow>) in.readObject();
+            salaryData.addAll(loadedData);
+        } catch (IOException | ClassNotFoundException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("ERROR: Could not load salary data from file.");
+            alert.showAndWait();
+        }
     }
 
     /*
-     * event-4: Load the player's contract details from the secure contract data file.
-     * event-5: Display contract summary (start date, end date, weekly wage).
-     * event-6: Display salary history in a table.
-     * Replace with real data source.
+     * Simple representation of one row of salary history.
      */
-    private void loadContractAndSalaryData() {
-        contractStartDateLabel.setText("");
-        contractEndDateLabel.setText("");
-        weeklyWageLabel.setText("");
-
-        salaryData.clear();
-        // populate contract labels and salaryData from the contract/salary data source
-    }
-
-    /*
-     * Simple  representation of one row of salary history.
-     */
-    public static class SalaryRow {
+    public static class SalaryRow implements Serializable {
         private String month;
         private String netSalaryPaid;
         private String paymentDate;

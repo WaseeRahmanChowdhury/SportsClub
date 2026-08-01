@@ -10,7 +10,7 @@ public class ScheduleAppointmentController
     @javafx.fxml.FXML
     private TextField contactNumberTF;
     @javafx.fxml.FXML
-    private ComboBox hostStaffCB;
+    private ComboBox<String> hostStaffCB;
     @javafx.fxml.FXML
     private DatePicker appointmentDateDP;
     @javafx.fxml.FXML
