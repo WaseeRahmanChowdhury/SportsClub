@@ -3,6 +3,8 @@ module com.summer26.section1.group2.sportclub {
     requires javafx.fxml;
     requires java.desktop;
     requires javafx.graphics;
+    //requires com.summer26.section1.group2.sportclub;
+    //requires com.summer26.section1.group2.sportclub;
 
 
 

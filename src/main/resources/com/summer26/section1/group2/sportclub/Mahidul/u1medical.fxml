@@ -8,8 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="412.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Mahidul.MedicalController">
+<AnchorPane prefHeight="412.0" prefWidth="639.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Mahidul.u1medicalController">
    <children>
       <Label layoutX="14.0" layoutY="16.0" prefHeight="18.0" prefWidth="106.0" text="         Name" />
       <TextField fx:id="namefx" layoutX="120.0" layoutY="12.0" />
@@ -25,5 +24,7 @@
       <ComboBox fx:id="avalility_status" layoutX="449.0" layoutY="87.0" prefWidth="150.0" />
       <TextArea fx:id="outfutfx" layoutX="220.0" layoutY="198.0" prefHeight="200.0" prefWidth="246.0" />
       <Button layoutX="319.0" layoutY="152.0" mnemonicParsing="false" onAction="#result" text="Add the result" />
+      <Button layoutX="518.0" layoutY="152.0" mnemonicParsing="false" onAction="#clear" text="clear" />
+      <Button layoutX="518.0" layoutY="193.0" mnemonicParsing="false" onAction="#next" text="next" />
    </children>
 </AnchorPane>

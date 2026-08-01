@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="miain" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Mahidul.EquipmentManagerController">
+   <children>
+      <VBox layoutX="28.0" layoutY="25.0" prefHeight="362.0" prefWidth="276.0">
+         <children>
+            <AnchorPane prefHeight="365.0" prefWidth="276.0">
+               <children>
+                  <Label layoutX="27.0" layoutY="6.0" prefHeight="18.0" prefWidth="202.0" text="                    Equipment_Manager" />
+                  <Button layoutX="1.0" layoutY="35.0" mnemonicParsing="false" onAction="#AddEquipment" prefHeight="26.0" prefWidth="288.0" text="Add Equipment" />
+                  <Button layoutX="1.0" layoutY="68.0" mnemonicParsing="false" onAction="#IssueEquipment" prefHeight="26.0" prefWidth="288.0" text="IssueEquipment" />
+                  <Button layoutX="1.0" layoutY="110.0" mnemonicParsing="false" onAction="#PROCUREMENTREQUEST" prefHeight="26.0" prefWidth="288.0" text="PROCUREMENT REQUEST" />
+                  <Button layoutX="1.0" layoutY="154.0" mnemonicParsing="false" onAction="#EquipmentMaintenance" prefHeight="26.0" prefWidth="288.0" text="Equipment Maintenance" />
+                  <Button layoutX="3.0" layoutY="198.0" mnemonicParsing="false" onAction="#InventoryReport" prefHeight="26.0" prefWidth="288.0" text="InventoryReport" />
+                  <Button layoutX="3.0" layoutY="237.0" mnemonicParsing="false" onAction="#EquipmentReturn" prefHeight="26.0" prefWidth="288.0" text="EquipmentReturn" />
+                  <Button layoutX="3.0" layoutY="274.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="288.0" text="Button" />
+                  <Button layoutX="3.0" layoutY="321.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="288.0" text="Button" />
+                  <Separator layoutX="47.0" layoutY="23.0" prefWidth="200.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <Button layoutX="443.0" layoutY="37.0" mnemonicParsing="false" onAction="#sign_out" text="sign_0ut" />
+   </children>
+</AnchorPane>
