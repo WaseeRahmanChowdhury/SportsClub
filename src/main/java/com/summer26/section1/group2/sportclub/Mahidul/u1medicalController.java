@@ -1,15 +1,21 @@
 package com.summer26.section1.group2.sportclub.Mahidul;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class MedicalController
+import java.io.IOException;
+
+public class u1medicalController
 {
     @javafx.fxml.FXML
-    private ComboBox <String>combofx;
+    private ComboBox<String> combofx;
     @javafx.fxml.FXML
     private TextField namefx;
     @javafx.fxml.FXML
@@ -57,4 +63,24 @@ public class MedicalController
         }
     }
 
+    @javafx.fxml.FXML
+    public void next(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("updateRecovary.fxml"));
+
+        Stage stage = (Stage) idfx.getScene().getWindow();
+
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @javafx.fxml.FXML
+    public void clear(ActionEvent actionEvent) {
+        idfx.clear();
+        namefx.clear();
+        recovaryfx.clear();
+        combofx.setValue(null);
+        avalility_status.setValue(null);
+        dob.setValue(null);
+        outfutfx.clear();
+    }
 }

@@ -24,14 +24,8 @@
             <Label text="Date of Birth:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
             <DatePicker fx:id="dateOfBirthField" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="250.0"/>
 
-            <Label text="Nationality:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-            <TextField fx:id="nationalityField" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="250.0"/>
-
-            <Label text="Playing Position:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-            <ComboBox fx:id="playingPositionCombo" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="250.0"/>
-
-            <Label text="Squad Number:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-            <TextField fx:id="squadNumberField" GridPane.rowIndex="4" GridPane.columnIndex="1" prefWidth="250.0"/>
+            <Label text="Playing Position:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="playingPositionCombo" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="250.0"/>
         </GridPane>
 
         <Button text="Register Player" onAction="#addNewPlayer" mnemonicParsing="false"/>

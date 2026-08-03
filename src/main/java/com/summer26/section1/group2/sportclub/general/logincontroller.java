@@ -63,8 +63,9 @@ public class logincontroller {
 
             case "Medical Staff":
                 SceneSwitcher.switchScene(actionEvent,
-                        "/com/summer26/section1/group2/sportclub/Mahidul/Medical.fxml");
+                        "/com/summer26/section1/group2/sportclub/Mahidul/admin1_dashboard.fxml");
                 break;
+
 
 
             case "Fan":
@@ -74,6 +75,8 @@ public class logincontroller {
 
             // add these once other dashboard FXML files exist
             case "Equipment Manager":
+                SceneSwitcher.switchScene(actionEvent,
+                        "/com/summer26/section1/group2/sportclub/Mahidul/EquipmentManager.fxml");
                 break;
             case "Match Official Liaison":
                 break;

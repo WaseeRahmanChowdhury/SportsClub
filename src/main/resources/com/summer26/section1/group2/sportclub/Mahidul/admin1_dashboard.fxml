@@ -9,11 +9,16 @@
    <children>
       <Button layoutX="470.0" layoutY="35.0" mnemonicParsing="false" onAction="#signoutAction" text="Signout" />
       <Label layoutX="57.0" layoutY="69.0" prefHeight="18.0" prefWidth="268.0" text="                          please select the option" />
-      <VBox layoutX="8.0" layoutY="94.0" prefHeight="263.0" prefWidth="365.0">
+      <VBox layoutX="8.0" layoutY="94.0" prefHeight="215.0" prefWidth="366.0">
          <children>
             <Button mnemonicParsing="false" onAction="#MedicalStaffRecordAnInjuryAssessment" prefHeight="26.0" prefWidth="434.0" text="Medical Staff Record An Injury Assessment" />
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="434.0" text="Medical Staff Update The Reccovary" />
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#Medical_Staff_update_the_Recovary" prefHeight="26.0" prefWidth="434.0" text="Medical Staff Update The Recovary" />
             <Button layoutX="10.0" layoutY="36.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="434.0" text="Medical Staff Record An Injury Assessment" />
+            <Button layoutX="10.0" layoutY="63.0" mnemonicParsing="false" onAction="#injuryStatisticsReport" prefHeight="26.0" prefWidth="434.0" text="Injury Statistics Report" />
+            <Button layoutX="10.0" layoutY="89.0" mnemonicParsing="false" onAction="#supply_Request" prefHeight="26.0" prefWidth="434.0" text="Supply Request" />
+            <Button layoutX="10.0" layoutY="116.0" mnemonicParsing="false" onAction="#PlayerMedicalHistory" prefHeight="26.0" prefWidth="434.0" text="PlayerMedicalHistory" />
+            <Button layoutX="10.0" layoutY="142.0" mnemonicParsing="false" onAction="#IssueMedicalClearance" prefHeight="26.0" prefWidth="434.0" text="IssueMedicalClearance" />
+            <Button layoutX="10.0" layoutY="168.0" mnemonicParsing="false" onAction="#PostMatchHealthCheck" prefHeight="26.0" prefWidth="434.0" text="PostMatchHealthCheck" />
          </children>
       </VBox>
       <Label layoutX="98.0" layoutY="6.0" prefHeight="18.0" prefWidth="262.0" text="                  Medical Staff " />

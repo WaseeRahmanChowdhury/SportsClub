@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="538.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Mahidul.PostMatchHealthCheackController">
+   <children>
+      <HBox layoutX="3.0" layoutY="-1.0" prefHeight="538.0" prefWidth="761.0">
+         <children>
+            <AnchorPane prefHeight="538.0" prefWidth="765.0">
+               <children>
+                  <VBox layoutX="5.0" layoutY="87.0" prefHeight="451.0" prefWidth="755.0">
+                     <children>
+                        <AnchorPane prefHeight="334.0" prefWidth="755.0">
+                           <children>
+                              <Label layoutX="135.0" layoutY="5.0" prefHeight="18.0" prefWidth="256.0" text="                                 Match" />
+                              <ComboBox fx:id="matchcombo" layoutX="113.0" layoutY="47.0" prefWidth="150.0" />
+                              <Label layoutX="27.0" layoutY="51.0" prefHeight="18.0" prefWidth="63.0" text="match" />
+                              <Separator layoutX="154.0" layoutY="22.0" prefWidth="200.0" />
+                              <Button layoutX="542.0" layoutY="248.0" mnemonicParsing="false" onAction="#claer" text="clear" />
+                              <Button layoutX="542.0" layoutY="293.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="52.0" text="save" />
+                              <Button layoutX="700.0" layoutY="294.0" mnemonicParsing="false" onAction="#back" text="Back" />
+                              <Label fx:id="resulfx" layoutX="580.0" layoutY="25.0" prefHeight="120.0" prefWidth="150.0" text="                 Result" />
+                              <TableView fx:id="table" layoutX="13.0" layoutY="123.0" prefHeight="199.0" prefWidth="314.0">
+                                <columns>
+                                  <TableColumn fx:id="idtable" prefWidth="75.0" text="id" />
+                                  <TableColumn fx:id="nametable" prefWidth="75.0" text="name" />
+                                    <TableColumn fx:id="statustable" prefWidth="75.0" text="status" />
+                                    <TableColumn fx:id="positiontable" prefWidth="75.0" text="Position" />
+                                </columns>
+                              </TableView>
+                              <Button layoutX="350.0" layoutY="294.0" mnemonicParsing="false" onAction="#assignStatus" text="assignStatus" />
+                              <Label layoutX="27.0" layoutY="87.0" prefHeight="18.0" prefWidth="63.0" text="Status" />
+                              <ComboBox fx:id="statuscombo" layoutX="113.0" layoutY="85.0" prefWidth="150.0" />
+                              <Button layoutX="370.0" layoutY="72.0" mnemonicParsing="false" onAction="#select" text="select" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <Label layoutX="144.0" layoutY="14.0" prefHeight="18.0" prefWidth="256.0" text="               Post-Match Health Check" />
+                  <Separator layoutX="163.0" layoutY="41.0" prefWidth="200.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
