@@ -30,9 +30,9 @@
             <TableView fx:id="allMenuItemTC" layoutY="39.0" prefHeight="200.0" prefWidth="626.0">
                <columns>
                   <TableColumn fx:id="itemIdTC" prefWidth="93.0" text="Item ID" />
-                  <TableColumn fx:id="itemNameTC" prefWidth="163.0" style="-fx-background-color: #D4D4D4;" text="Item Name" />
+                  <TableColumn fx:id="itemNameTC" prefWidth="163.0" text="Item Name" />
                   <TableColumn fx:id="categoryTC" prefWidth="111.0" text="Category" />
-                  <TableColumn fx:id="currentStockTC" prefWidth="124.0" style="-fx-background-color: #D4D4D4;" text="Current Stock" />
+                  <TableColumn fx:id="currentStockTC" prefWidth="124.0" text="Current Stock" />
                   <TableColumn fx:id="stausTC" prefWidth="134.0" text="Status" />
                   <TableColumn minWidth="0.0" prefWidth="0.0" style="-fx-background-color: #D4D4D4;" />
                </columns>

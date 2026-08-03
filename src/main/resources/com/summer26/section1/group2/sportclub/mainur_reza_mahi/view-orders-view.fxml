@@ -42,11 +42,11 @@
             <TableView fx:id="viewOrdersTC" prefHeight="200.0" prefWidth="200.0">
               <columns>
                 <TableColumn fx:id="orderIdTC" prefWidth="93.0" text="Order ID" />
-                <TableColumn fx:id="customerTC" prefWidth="119.0" style="-fx-background-color: #D4D4D4;" text="Customer" />
+                <TableColumn fx:id="customerTC" prefWidth="119.0" text="Customer" />
                   <TableColumn fx:id="customerTypeTC" prefWidth="109.0" text="Type" />
-                  <TableColumn fx:id="totalPriceTC" prefWidth="103.0" style="-fx-background-color: #D4D4D4;" text="Total (BDT)" />
+                  <TableColumn fx:id="totalPriceTC" prefWidth="103.0" text="Total (BDT)" />
                   <TableColumn fx:id="orderTimeTC" prefWidth="99.0" text="Order Time" />
-                  <TableColumn fx:id="statusTC" prefWidth="102.0" style="-fx-background-color: #D4D4D4;" text="Status" />
+                  <TableColumn fx:id="statusTC" prefWidth="102.0" text="Status" />
               </columns>
             </TableView>
          </children>
@@ -63,7 +63,7 @@
                   <TableView fx:id="itemSellingListTC" layoutX="83.0" layoutY="50.0" prefHeight="178.0" prefWidth="461.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="82.0">
                     <columns>
                       <TableColumn fx:id="itemNameTC" prefWidth="228.0" text="Item Name" />
-                      <TableColumn fx:id="quantityTC" prefWidth="232.0" style="-fx-background-color: #D4D4D4;" text="Quantity" />
+                      <TableColumn fx:id="quantityTC" prefWidth="232.0" text="Quantity" />
                     </columns>
                   </TableView>
                </children>

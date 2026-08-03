@@ -7,7 +7,6 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -26,18 +25,18 @@
          <children>
             <TableView fx:id="visitorLogTC" prefHeight="273.0" prefWidth="658.0">
               <columns>
-                <TableColumn fx:id="visitorIdTC" prefWidth="73.0" style="-fx-background-color: #D4D4D4;" text="Visitor ID" />
+                <TableColumn fx:id="visitorIdTC" prefWidth="73.0" text="Visitor ID" />
                 <TableColumn fx:id="fullNameTC" prefWidth="137.0" text="Full Name" />
-                  <TableColumn fx:id="purposeTC" style="-fx-background-color: #D4D4D4;" text="Purpose" />
+                  <TableColumn fx:id="purposeTC" text="Purpose" />
                   <TableColumn fx:id="hostTC" minWidth="0.0" prefWidth="120.0" text="Host" />
-                  <TableColumn fx:id="entryTimeTC" prefWidth="87.0" style="-fx-background-color: #D4D4D4;" text="Entry Time" />
+                  <TableColumn fx:id="entryTimeTC" prefWidth="87.0" text="Entry Time" />
                   <TableColumn fx:id="exitTimeTC" prefWidth="81.0" text="Exit Time" />
-                  <TableColumn fx:id="statusTC" prefWidth="79.0" style="-fx-background-color: #D4D4D4;" text="Status" />
+                  <TableColumn fx:id="statusTC" prefWidth="79.0" text="Status" />
               </columns>
             </TableView>
          </children>
       </VBox>
-      <VBox layoutX="21.0" layoutY="488.0" prefHeight="154.0" prefWidth="658.0">
+      <VBox layoutX="19.0" layoutY="433.0" prefHeight="154.0" prefWidth="658.0">
          <children>
             <AnchorPane prefHeight="151.0" prefWidth="649.0">
                <children>
@@ -110,31 +109,6 @@
             </AnchorPane>
          </children>
       </HBox>
-      <HBox layoutX="21.0" layoutY="433.0" prefHeight="57.0" prefWidth="658.0">
-         <children>
-            <AnchorPane prefHeight="57.0" prefWidth="661.0">
-               <children>
-                  <Text layoutX="10.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select ID :">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="idSelectionTF" layoutX="94.0" layoutY="13.0" prefHeight="32.0" prefWidth="182.0" promptText="Enter Visitor ID">
-                     <cursor>
-                        <Cursor fx:constant="TEXT" />
-                     </cursor></TextField>
-                  <Button layoutX="308.0" layoutY="12.0" mnemonicParsing="false" onAction="#showVisitorDetailsButtonOA" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #D4D4D4;" text="View Details">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Separator layoutX="4.0" layoutY="53.0" prefHeight="5.0" prefWidth="658.0" />
-               </children>
-            </AnchorPane>
-         </children>
-      </HBox>
+      <HBox layoutX="21.0" layoutY="433.0" prefHeight="57.0" prefWidth="658.0" />
    </children>
 </AnchorPane>

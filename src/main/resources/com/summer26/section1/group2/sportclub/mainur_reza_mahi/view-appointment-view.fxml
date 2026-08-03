@@ -25,11 +25,11 @@
          <children>
             <TableView fx:id="viewAppointmentsTC" prefHeight="226.0" prefWidth="658.0">
                <columns>
-                  <TableColumn fx:id="appointmentIdTC" prefWidth="92.0" style="-fx-background-color: #D4D4D4;" text="Appt. ID" />
+                  <TableColumn fx:id="appointmentIdTC" prefWidth="92.0" text="Appt. ID" />
                   <TableColumn fx:id="visitorNameTC" prefWidth="149.0" text="Visitor Name" />
-                  <TableColumn fx:id="hostStaffTC" prefWidth="99.0" style="-fx-background-color: #D4D4D4;" text="Host Staff" />
+                  <TableColumn fx:id="hostStaffTC" prefWidth="99.0" text="Host Staff" />
                   <TableColumn fx:id="timeTC" prefWidth="99.0" text="Time" />
-                  <TableColumn fx:id="purposeTC" prefWidth="109.0" style="-fx-background-color: #D4D4D4;" text="Purpose" />
+                  <TableColumn fx:id="purposeTC" prefWidth="109.0" text="Purpose" />
                   <TableColumn fx:id="statusTC" prefWidth="109.0" text="Status" />
                </columns>
             </TableView>

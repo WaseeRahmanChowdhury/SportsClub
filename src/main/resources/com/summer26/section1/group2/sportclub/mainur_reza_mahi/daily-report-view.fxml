@@ -116,7 +116,7 @@
                   <TableView fx:id="purposeBreakdownTC" layoutX="70.0" layoutY="47.0" prefHeight="142.0" prefWidth="518.0">
                     <columns>
                       <TableColumn fx:id="purposeTC" prefWidth="175.0" text="Purpose" />
-                      <TableColumn fx:id="countTC" prefWidth="163.0" style="-fx-background-color: #D4D4D4;" text="Count" />
+                      <TableColumn fx:id="countTC" prefWidth="163.0" text="Count" />
                         <TableColumn fx:id="percentageTC" prefWidth="179.0" text="Percentage" />
                     </columns>
                   </TableView>

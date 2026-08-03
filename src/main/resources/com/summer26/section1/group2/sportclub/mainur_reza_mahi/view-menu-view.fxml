@@ -51,11 +51,11 @@
             <TableView fx:id="viewMenuTC" prefHeight="255.0" prefWidth="626.0">
               <columns>
                 <TableColumn fx:id="itemIdTC" prefWidth="83.0" text="Item ID" />
-                <TableColumn fx:id="itemNameTC" prefWidth="142.0" style="-fx-background-color: #D4D4D4;" text="Item Name" />
+                <TableColumn fx:id="itemNameTC" prefWidth="142.0" text="Item Name" />
                   <TableColumn fx:id="categoryTC" prefWidth="96.0" text="Category" />
-                  <TableColumn fx:id="priceTC" prefWidth="95.0" style="-fx-background-color: #D4D4D4;" text="Price (BDT)" />
+                  <TableColumn fx:id="priceTC" prefWidth="95.0" text="Price (BDT)" />
                   <TableColumn fx:id="stockTC" prefWidth="107.0" text="Stock" />
-                  <TableColumn fx:id="statusTC" prefWidth="102.0" style="-fx-background-color: #D4D4D4;" text="Status" />
+                  <TableColumn fx:id="statusTC" prefWidth="102.0" text="Status" />
               </columns>
             </TableView>
          </children>

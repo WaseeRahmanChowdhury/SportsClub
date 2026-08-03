@@ -33,9 +33,9 @@
                   <TableView fx:id="pendingOrdersTC" layoutY="39.0" prefHeight="200.0" prefWidth="626.0">
                      <columns>
                         <TableColumn fx:id="orderIdTC" prefWidth="93.0" text="Order ID" />
-                        <TableColumn fx:id="customerTC" prefWidth="163.0" style="-fx-background-color: #D4D4D4;" text="Customer" />
+                        <TableColumn fx:id="customerTC" prefWidth="163.0" text="Customer" />
                         <TableColumn fx:id="customerTypeTC" prefWidth="111.0" text="Type" />
-                        <TableColumn fx:id="totalPriceTC" prefWidth="124.0" style="-fx-background-color: #D4D4D4;" text="Total (BDT)" />
+                        <TableColumn fx:id="totalPriceTC" prefWidth="124.0" text="Total (BDT)" />
                         <TableColumn fx:id="orderTimeTC" prefWidth="134.0" text="Order Time" />
                         <TableColumn minWidth="0.0" prefWidth="0.0" style="-fx-background-color: #D4D4D4;" />
                      </columns>

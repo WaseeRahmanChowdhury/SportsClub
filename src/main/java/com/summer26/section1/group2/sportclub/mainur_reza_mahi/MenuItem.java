@@ -1,8 +1,10 @@
 package com.summer26.section1.group2.sportclub.mainur_reza_mahi;
 
-public class MenuItem {
-    private String itemId , itemName , category , availability;
-    private double price ;
+import java.io.Serializable;
+
+public class MenuItem implements Serializable {
+    private String itemId, itemName, category, availability;
+    private double price;
     private int stockQty;
 
     public MenuItem(String itemId, String itemName, String category, String availability, double price, int stockQty) {

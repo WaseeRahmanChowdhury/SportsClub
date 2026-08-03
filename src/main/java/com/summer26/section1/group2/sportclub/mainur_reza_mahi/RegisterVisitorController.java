@@ -1,6 +1,7 @@
 package com.summer26.section1.group2.sportclub.mainur_reza_mahi;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
@@ -54,8 +55,8 @@ public class RegisterVisitorController
 
     @javafx.fxml.FXML
     public void registerVisitorButtonOA(ActionEvent actionEvent) {
-        int nextNumber = visitorList.size() + 1;
 
+        int nextNumber = visitorList.size() + 1;
         String visitorId = String.format("VIS-%04d", nextNumber);
         String fullName = visitorNameTF.getText();
         String contactNo = contactNumberTF.getText();
@@ -70,6 +71,13 @@ public class RegisterVisitorController
 
         visitorList.add(visitor);
 
+        if (fullName.isEmpty()||contactNo.isEmpty()||purpose.isEmpty()||hostStaff.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Please fill in all fields.");
+            alert.showAndWait();
+            return;
+        }
+
         try {
             FileOutputStream fos = new FileOutputStream(FILE_NAME);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -79,11 +87,13 @@ public class RegisterVisitorController
             e.printStackTrace();
         }
 
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Appointment booked successfully. ID: " + visitorId);
+        alert.showAndWait();
+
         visitorNameTF.clear();
         contactNumberTF.clear();
         purposeOfVisitCB.setValue(null);
         hostStaffNameCB.setValue(null);
-
-        System.out.println("Visitor registered: " + visitor);
     }
 }

@@ -80,12 +80,10 @@ public class ReceptionistController {
     @FXML
     private void logoutButtonOA() {
         try {
-            // NOTE: update this path/filename if your login FXML lives somewhere
-            // other than /com/summer26/section1/group2/sportclub/general/login.fxml
             SceneSwitcher.switchScene((Stage) contentArea.getScene().getWindow(), "/com/summer26/section1/group2/sportclub/general/login.fxml");
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
-            // displays a user-facing error message (e.g. via an alert or status label)
         }
     }
 

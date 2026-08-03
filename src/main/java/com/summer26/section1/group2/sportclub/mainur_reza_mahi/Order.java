@@ -1,6 +1,7 @@
 package com.summer26.section1.group2.sportclub.mainur_reza_mahi;
+import java.io.Serializable;
 
-public class Order {
+public class Order implements Serializable {
     private String orderId , customerName , customerType , orderDate , orderTime , status;
     private double totalPrice ;
 

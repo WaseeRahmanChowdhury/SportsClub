@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -28,34 +27,24 @@
             </AnchorPane>
          </children>
       </HBox>
-      <VBox layoutX="35.0" layoutY="126.0" prefHeight="247.0" prefWidth="626.0">
+      <VBox layoutX="33.0" layoutY="118.0" prefHeight="247.0" prefWidth="626.0">
          <children>
             <TableView fx:id="markExitTC" prefHeight="253.0" prefWidth="626.0">
               <columns>
-                <TableColumn fx:id="visitorIdTC" prefWidth="96.0" style="-fx-background-color: #D4D4D4;" text="Visitor ID" />
+                <TableColumn fx:id="visitorIdTC" prefWidth="96.0" text="Visitor ID" />
                 <TableColumn fx:id="fullNameTC" prefWidth="175.0" text="Full Name" />
-                  <TableColumn fx:id="purposeTC" prefWidth="114.0" style="-fx-background-color: #D4D4D4;" text="Purpose" />
+                  <TableColumn fx:id="purposeTC" prefWidth="114.0" text="Purpose" />
                   <TableColumn fx:id="hostStaffTC" prefWidth="117.0" text="Host Staff" />
-                  <TableColumn fx:id="entryTimeTC" prefWidth="123.0" style="-fx-background-color: #D4D4D4;" text="Entry Time" />
+                  <TableColumn fx:id="entryTimeTC" prefWidth="123.0" text="Entry Time" />
               </columns>
             </TableView>
          </children>
       </VBox>
-      <HBox layoutX="35.0" layoutY="391.0" prefHeight="100.0" prefWidth="626.0">
+      <HBox layoutX="33.0" layoutY="371.0" prefHeight="57.0" prefWidth="626.0">
          <children>
-            <AnchorPane prefHeight="100.0" prefWidth="634.0">
+            <AnchorPane prefHeight="100.0" prefWidth="628.0">
                <children>
-                  <Text layoutX="3.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select ID :">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="visitorIdTF" layoutX="87.0" layoutY="32.0" prefHeight="32.0" prefWidth="182.0" promptText="Enter Visitor ID">
-                     <cursor>
-                        <Cursor fx:constant="TEXT" />
-                     </cursor>
-                  </TextField>
-                  <Button layoutX="313.0" layoutY="32.0" mnemonicParsing="false" onAction="#confirmExitButtonOA" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #E81123;" text="Confirm Exit" textFill="WHITE">
+                  <Button layoutX="444.0" layoutY="13.0" mnemonicParsing="false" onAction="#confirmExitButtonOA" prefHeight="32.0" prefWidth="182.0" style="-fx-background-color: #E81123;" text="Confirm Exit" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -67,5 +56,6 @@
             </AnchorPane>
          </children>
       </HBox>
+      <HBox layoutX="33.0" layoutY="111.0" prefHeight="57.0" prefWidth="626.0" />
    </children>
 </AnchorPane>

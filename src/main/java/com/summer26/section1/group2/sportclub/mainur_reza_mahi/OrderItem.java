@@ -1,17 +1,29 @@
 package com.summer26.section1.group2.sportclub.mainur_reza_mahi;
 
-public class OrderItem {
+import java.io.Serializable;
 
-    private String itemName ;
-    private int quantity ;
-    private double unitPrice ;
-    private double subtotal ;
+public class OrderItem implements Serializable {
 
-    public OrderItem(String itemName, int quantity, double unitPrice, double subtotal) {
+    private String orderId;
+    private String itemName;
+    private int quantity;
+    private double unitPrice;
+    private double subtotal;
+
+    public OrderItem(String orderId, String itemName, int quantity, double unitPrice, double subtotal) {
+        this.orderId = orderId;
         this.itemName = itemName;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
         this.subtotal = subtotal;
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     public String getItemName() {
@@ -49,7 +61,8 @@ public class OrderItem {
     @Override
     public String toString() {
         return "OrderItem{" +
-                "itemName='" + itemName + '\'' +
+                "orderId='" + orderId + '\'' +
+                ", itemName='" + itemName + '\'' +
                 ", quantity=" + quantity +
                 ", unitPrice=" + unitPrice +
                 ", subtotal=" + subtotal +

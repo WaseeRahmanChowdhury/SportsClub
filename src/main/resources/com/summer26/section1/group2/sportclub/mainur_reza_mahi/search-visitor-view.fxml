@@ -68,11 +68,11 @@
          <children>
             <TableView fx:id="searchVisitorTC" prefHeight="226.0" prefWidth="658.0">
               <columns>
-                <TableColumn fx:id="visitorIdTC" prefWidth="92.0" style="-fx-background-color: #D4D4D4;" text="Visitor ID" />
+                <TableColumn fx:id="visitorIdTC" prefWidth="92.0" text="Visitor ID" />
                 <TableColumn fx:id="fullNameTC" prefWidth="149.0" text="Full Name" />
-                  <TableColumn fx:id="contactNumberTC" prefWidth="99.0" style="-fx-background-color: #D4D4D4;" text="Contact" />
+                  <TableColumn fx:id="contactNumberTC" prefWidth="99.0" text="Contact" />
                   <TableColumn fx:id="purposeTC" prefWidth="99.0" text="Purpose" />
-                  <TableColumn fx:id="hostStaffTC" prefWidth="109.0" style="-fx-background-color: #D4D4D4;" text="Host Staff" />
+                  <TableColumn fx:id="hostStaffTC" prefWidth="109.0" text="Host Staff" />
                   <TableColumn fx:id="visitDateTC" prefWidth="109.0" text="Visit Date" />
               </columns>
             </TableView>
