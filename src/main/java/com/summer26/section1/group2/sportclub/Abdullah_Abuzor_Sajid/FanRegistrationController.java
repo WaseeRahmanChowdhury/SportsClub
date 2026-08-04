@@ -8,12 +8,8 @@ import javafx.scene.paint.Color;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.regex.Pattern;
 
 public class FanRegistrationController {
-
-    private static final Pattern EMAIL_PATTERN = Pattern.compile("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
-    private static final Pattern PHONE_PATTERN = Pattern.compile("^01\\d{9}$");
 
     @FXML
     private TextField fullNameField;
@@ -40,14 +36,14 @@ public class FanRegistrationController {
         }
 
         String email = emailField.getText().trim();
-        if (!EMAIL_PATTERN.matcher(email).matches()) {
+        if (!ValidationUtils.isValidEmail(email)) {
             statusLabel.setText("Please enter a valid email address.");
             return;
         }
 
         // event-4: validate phone number is 11 digits starting with 01
         String phoneNumber = phoneNumberField.getText().trim();
-        if (!PHONE_PATTERN.matcher(phoneNumber).matches()) {
+        if (!ValidationUtils.isValidPhone(phoneNumber)) {
             statusLabel.setText("Phone number must be 11 digits starting with 01.");
             return;
         }

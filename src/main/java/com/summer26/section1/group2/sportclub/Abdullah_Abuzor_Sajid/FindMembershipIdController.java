@@ -5,11 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
-import java.util.regex.Pattern;
-
 public class FindMembershipIdController {
-
-    private static final Pattern EMAIL_PATTERN = Pattern.compile("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
 
     @FXML
     private TextField emailField;
@@ -30,7 +26,7 @@ public class FindMembershipIdController {
             return;
         }
 
-        if (!EMAIL_PATTERN.matcher(email).matches()) {
+        if (!ValidationUtils.isValidEmail(email)) {
             statusLabel.setText("Please enter a valid email address.");
             return;
         }

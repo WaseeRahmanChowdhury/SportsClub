@@ -19,6 +19,15 @@ public class StaffMember implements Serializable {
     private String department;
     private String phoneNumber;
 
+    // No-arg constructor (JavaBean convention): fields start empty and get filled in via setters.
+    public StaffMember() {
+        this.staffId = null;
+        this.fullName = null;
+        this.role = null;
+        this.department = null;
+        this.phoneNumber = null;
+    }
+
     public StaffMember(String staffId, String fullName, String role, String department, String phoneNumber) {
         this.staffId = staffId;
         this.fullName = fullName;
@@ -75,7 +84,12 @@ public class StaffMember implements Serializable {
             return new ArrayList<>();
         }
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
-            return (List<StaffMember>) in.readObject();
+            Object loaded = in.readObject();
+            // Defensive check: only trust the deserialized data if it's really a List.
+            if (loaded instanceof List<?> list) {
+                return (List<StaffMember>) list;
+            }
+            return new ArrayList<>();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
             return new ArrayList<>();

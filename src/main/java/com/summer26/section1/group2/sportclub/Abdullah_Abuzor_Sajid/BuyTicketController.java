@@ -8,12 +8,10 @@ import javafx.scene.paint.Color;
 import javafx.util.StringConverter;
 
 import java.time.format.DateTimeFormatter;
-import java.util.regex.Pattern;
 
 public class BuyTicketController {
 
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-    private static final Pattern PHONE_PATTERN = Pattern.compile("^01\\d{9}$");
 
     @FXML
     private TextField fanMembershipIdField;
@@ -129,7 +127,7 @@ public class BuyTicketController {
 
         // event-10: validate mobile banking number
         String mobileBankingNumber = mobileBankingField.getText().trim();
-        if (!PHONE_PATTERN.matcher(mobileBankingNumber).matches()) {
+        if (!ValidationUtils.isValidPhone(mobileBankingNumber)) {
             statusLabel.setText("Mobile banking number must be 11 digits starting with 01.");
             return;
         }

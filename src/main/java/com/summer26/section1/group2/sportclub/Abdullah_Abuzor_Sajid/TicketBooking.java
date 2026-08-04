@@ -39,6 +39,13 @@ public class TicketBooking implements Serializable {
         this.bookingStatus = bookingStatus;
     }
 
+    // Constructor overload: every new booking starts out "Confirmed"
+    public TicketBooking(String bookingId, String fanMembershipId, String fanName, String matchId,
+                         String matchName, String ticketCategory, int quantity, double totalAmount) {
+        this(bookingId, fanMembershipId, fanName, matchId, matchName, ticketCategory, quantity, totalAmount,
+                "Confirmed");
+    }
+
     public String getBookingId() {
         return bookingId;
     }
@@ -166,7 +173,7 @@ public class TicketBooking implements Serializable {
         double totalAmount = getUnitPrice(ticketCategory) * quantity;
         String bookingId = String.format("BKG-%04d", bookings.size() + 1);
         TicketBooking booking = new TicketBooking(bookingId, fanMembershipId, fanName, matchId,
-                matchName, ticketCategory, quantity, totalAmount, "Confirmed");
+                matchName, ticketCategory, quantity, totalAmount);
         bookings.add(booking);
         saveBookings();
         return booking;
