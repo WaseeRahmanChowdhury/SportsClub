@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.ManageAnnouncementsController"
+            prefHeight="650.0" prefWidth="500.0">
+
+    <Label layoutX="20.0" layoutY="15.0" text="Post Announcement">
+        <font>
+            <Font name="Arial Bold" size="18.0" />
+        </font>
+    </Label>
+
+    <Label layoutX="20.0" layoutY="60.0" text="Title:" />
+    <TextField fx:id="titleField" layoutX="150.0" layoutY="55.0" prefWidth="300.0" />
+
+    <Label layoutX="20.0" layoutY="100.0" text="Target Audience:" />
+    <ComboBox fx:id="targetAudienceCombo" layoutX="150.0" layoutY="95.0" prefWidth="300.0" />
+
+    <Label layoutX="20.0" layoutY="140.0" text="Content:" />
+    <TextArea fx:id="contentArea" layoutX="150.0" layoutY="135.0" prefWidth="300.0" prefHeight="80.0" wrapText="true" />
+
+    <Button layoutX="150.0" layoutY="225.0" text="Post Announcement" onAction="#postAnnouncement" />
+
+    <Label fx:id="statusLabel" layoutX="20.0" layoutY="260.0" prefWidth="450.0" wrapText="true" />
+
+    <Label layoutX="20.0" layoutY="300.0" text="All Announcements">
+        <font>
+            <Font name="Arial Bold" size="16.0" />
+        </font>
+    </Label>
+
+    <TextArea fx:id="announcementsDisplayArea" layoutX="20.0" layoutY="325.0" prefWidth="450.0" prefHeight="200.0" editable="false" wrapText="true" />
+
+    <Label layoutX="20.0" layoutY="535.0" text="Announcement ID:" />
+    <TextField fx:id="announcementIdField" layoutX="170.0" layoutY="530.0" prefWidth="200.0" />
+
+    <Button layoutX="20.0" layoutY="565.0" text="Publish/Unpublish" onAction="#togglePublishSelected" />
+
+    <Button layoutX="200.0" layoutY="565.0" text="Export Announcements to PDF" onAction="#exportToPdf" />
+
+</AnchorPane>

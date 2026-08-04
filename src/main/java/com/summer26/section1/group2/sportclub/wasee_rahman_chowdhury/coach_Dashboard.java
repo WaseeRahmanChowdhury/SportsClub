@@ -23,8 +23,8 @@ public class coach_Dashboard {
     }
 
     @FXML
-    private void openCreateLineup() {
-        loadView("CreateLineup.fxml");
+    private void openManageAnnouncements() {
+        loadView("ManageAnnouncements.fxml");
     }
 
     @FXML

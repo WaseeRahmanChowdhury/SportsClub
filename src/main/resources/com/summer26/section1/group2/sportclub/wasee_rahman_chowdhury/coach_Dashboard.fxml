@@ -20,7 +20,7 @@
         </Label>
 
         <Button text="Manage Roster" onAction="#openManageRoster" maxWidth="Infinity" prefHeight="50.0" mnemonicParsing="false"/>
-        <Button text="Create Lineup" onAction="#openCreateLineup" maxWidth="Infinity" prefHeight="50.0" mnemonicParsing="false"/>
+        <Button text="Manage Announcements" onAction="#openManageAnnouncements" maxWidth="Infinity" prefHeight="50.0" mnemonicParsing="false"/>
         <Button text="Schedule Training Session" onAction="#openScheduleTrainingSession" maxWidth="Infinity" prefHeight="50.0" mnemonicParsing="false"/>
         <Button text="Player Reports" onAction="#openPlayerReports" maxWidth="Infinity" prefHeight="50.0" mnemonicParsing="false"/>
         <Button text="Submit Match Analysis" onAction="#openSubmitMatchAnalysis" maxWidth="Infinity" prefHeight="50.0" mnemonicParsing="false"/>
