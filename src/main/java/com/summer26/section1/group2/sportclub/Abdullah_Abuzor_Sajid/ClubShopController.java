@@ -1,5 +1,7 @@
 package com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -31,8 +33,19 @@ public class ClubShopController {
         paymentMethodCombo.getItems().addAll("bKash", "Nagad", "COD");
         paymentMethodCombo.setValue("bKash");
 
-        itemCombo.valueProperty().addListener((obs, oldVal, newVal) -> updateSummary());
-        quantityField.textProperty().addListener((obs, oldVal, newVal) -> updateSummary());
+        itemCombo.valueProperty().addListener(new ChangeListener<MerchandiseItem>() {
+            @Override
+            public void changed(ObservableValue<? extends MerchandiseItem> obs, MerchandiseItem oldVal,
+                                MerchandiseItem newVal) {
+                updateSummary();
+            }
+        });
+        quantityField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> obs, String oldVal, String newVal) {
+                updateSummary();
+            }
+        });
     }
 
     private void updateSummary() {

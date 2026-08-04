@@ -1,10 +1,14 @@
 package com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.util.Callback;
 
 public class OurPlayersController {
 
@@ -34,22 +38,31 @@ public class OurPlayersController {
         playerRows.setAll(PlayerProfile.getPlayers());
         playerListView.setItems(playerRows);
 
-        playerListView.setCellFactory(list -> new javafx.scene.control.ListCell<>() {
+        playerListView.setCellFactory(new Callback<ListView<PlayerProfile>, ListCell<PlayerProfile>>() {
             @Override
-            protected void updateItem(PlayerProfile player, boolean empty) {
-                super.updateItem(player, empty);
-                if (empty || player == null) {
-                    setText(null);
-                } else {
-                    setText("#" + player.getSquadNumber() + "  " + player.getFullName()
-                            + "  (" + player.getPosition() + ", " + player.getNationality() + ")");
-                }
+            public ListCell<PlayerProfile> call(ListView<PlayerProfile> list) {
+                return new ListCell<PlayerProfile>() {
+                    @Override
+                    protected void updateItem(PlayerProfile player, boolean empty) {
+                        super.updateItem(player, empty);
+                        if (empty || player == null) {
+                            setText(null);
+                        } else {
+                            setText("#" + player.getSquadNumber() + "  " + player.getFullName()
+                                    + "  (" + player.getPosition() + ", " + player.getNationality() + ")");
+                        }
+                    }
+                };
             }
         });
 
-        playerListView.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> showProfile(newValue)
-        );
+        playerListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<PlayerProfile>() {
+            @Override
+            public void changed(ObservableValue<? extends PlayerProfile> observable, PlayerProfile oldValue,
+                                PlayerProfile newValue) {
+                showProfile(newValue);
+            }
+        });
     }
 
     // event-7/8: fan clicks a player card, display full profile

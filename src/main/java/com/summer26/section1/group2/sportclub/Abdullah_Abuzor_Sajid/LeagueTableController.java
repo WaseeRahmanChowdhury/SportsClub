@@ -1,5 +1,7 @@
 package com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
 import java.util.List;
 
@@ -67,23 +70,32 @@ public class LeagueTableController {
         standingsTable.setItems(standingsRows);
 
         // event-7: highlight the club's own row
-        standingsTable.setRowFactory(table -> new TableRow<>() {
+        standingsTable.setRowFactory(new Callback<TableView<TeamStanding>, TableRow<TeamStanding>>() {
             @Override
-            protected void updateItem(TeamStanding standing, boolean empty) {
-                super.updateItem(standing, empty);
-                if (empty || standing == null) {
-                    setStyle("");
-                } else if (standing.getTeamName().equals(MatchResult.OUR_CLUB)) {
-                    setStyle("-fx-background-color: #d6ecff; -fx-font-weight: bold;");
-                } else {
-                    setStyle("");
-                }
+            public TableRow<TeamStanding> call(TableView<TeamStanding> table) {
+                return new TableRow<TeamStanding>() {
+                    @Override
+                    protected void updateItem(TeamStanding standing, boolean empty) {
+                        super.updateItem(standing, empty);
+                        if (empty || standing == null) {
+                            setStyle("");
+                        } else if (standing.getTeamName().equals(MatchResult.OUR_CLUB)) {
+                            setStyle("-fx-background-color: #d6ecff; -fx-font-weight: bold;");
+                        } else {
+                            setStyle("");
+                        }
+                    }
+                };
             }
         });
 
-        standingsTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> showFixtureHistory(newValue)
-        );
+        standingsTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TeamStanding>() {
+            @Override
+            public void changed(ObservableValue<? extends TeamStanding> observable, TeamStanding oldValue,
+                                TeamStanding newValue) {
+                showFixtureHistory(newValue);
+            }
+        });
 
         loadStandings();
     }

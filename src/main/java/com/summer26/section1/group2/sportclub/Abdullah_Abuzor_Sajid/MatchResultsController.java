@@ -1,11 +1,15 @@
 package com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.util.Callback;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -44,22 +48,31 @@ public class MatchResultsController {
         competitionCombo.setValue(ALL_COMPETITIONS);
 
         resultsListView.setItems(resultRows);
-        resultsListView.setCellFactory(list -> new javafx.scene.control.ListCell<>() {
+        resultsListView.setCellFactory(new Callback<ListView<MatchResult>, ListCell<MatchResult>>() {
             @Override
-            protected void updateItem(MatchResult result, boolean empty) {
-                super.updateItem(result, empty);
-                if (empty || result == null) {
-                    setText(null);
-                } else {
-                    setText(result.getMatchDate() + "  " + result.getHomeTeam() + " " + result.getScoreLine()
-                            + " " + result.getAwayTeam() + "  [" + result.getCompetition() + "]");
-                }
+            public ListCell<MatchResult> call(ListView<MatchResult> list) {
+                return new ListCell<MatchResult>() {
+                    @Override
+                    protected void updateItem(MatchResult result, boolean empty) {
+                        super.updateItem(result, empty);
+                        if (empty || result == null) {
+                            setText(null);
+                        } else {
+                            setText(result.getMatchDate() + "  " + result.getHomeTeam() + " " + result.getScoreLine()
+                                    + " " + result.getAwayTeam() + "  [" + result.getCompetition() + "]");
+                        }
+                    }
+                };
             }
         });
 
-        resultsListView.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> showDetails(newValue)
-        );
+        resultsListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<MatchResult>() {
+            @Override
+            public void changed(ObservableValue<? extends MatchResult> observable, MatchResult oldValue,
+                                MatchResult newValue) {
+                showDetails(newValue);
+            }
+        });
 
         loadResults();
     }
@@ -76,7 +89,12 @@ public class MatchResultsController {
         String competitionFilter = ALL_COMPETITIONS.equals(selected) ? null : selected;
 
         List<MatchResult> results = new ArrayList<>(MatchResult.getResults(competitionFilter));
-        results.sort(Comparator.comparing(MatchResult::getMatchDate).reversed());
+        results.sort(new Comparator<MatchResult>() {
+            @Override
+            public int compare(MatchResult r1, MatchResult r2) {
+                return r2.getMatchDate().compareTo(r1.getMatchDate());
+            }
+        });
         resultRows.setAll(results);
 
         detailHeaderLabel.setText("");
@@ -104,7 +122,12 @@ public class MatchResultsController {
         attendanceLabel.setText("Attendance: " + result.getAttendance());
 
         List<MatchEvent> events = new ArrayList<>(result.getEvents());
-        events.sort(Comparator.comparingInt(MatchEvent::getMinute));
+        events.sort(new Comparator<MatchEvent>() {
+            @Override
+            public int compare(MatchEvent e1, MatchEvent e2) {
+                return e1.getMinute() - e2.getMinute();
+            }
+        });
 
         highlightsListView.getItems().clear();
         for (MatchEvent event : events) {

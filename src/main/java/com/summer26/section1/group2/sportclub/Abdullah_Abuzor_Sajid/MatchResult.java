@@ -9,9 +9,11 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 public class MatchResult implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -222,20 +224,30 @@ public class MatchResult implements Serializable {
     public static List<TeamStanding> computeStandings(String competition) {
         Map<String, TeamStanding> standingsByTeam = new LinkedHashMap<>();
 
+        Function<String, TeamStanding> newStanding = new Function<String, TeamStanding>() {
+            @Override
+            public TeamStanding apply(String teamName) {
+                return new TeamStanding(teamName);
+            }
+        };
+
         for (MatchResult result : getResults(competition)) {
-            TeamStanding home = standingsByTeam.computeIfAbsent(result.getHomeTeam(), TeamStanding::new);
-            TeamStanding away = standingsByTeam.computeIfAbsent(result.getAwayTeam(), TeamStanding::new);
+            TeamStanding home = standingsByTeam.computeIfAbsent(result.getHomeTeam(), newStanding);
+            TeamStanding away = standingsByTeam.computeIfAbsent(result.getAwayTeam(), newStanding);
             home.recordResult(result.getHomeScore(), result.getAwayScore());
             away.recordResult(result.getAwayScore(), result.getHomeScore());
         }
 
         List<TeamStanding> standings = new ArrayList<>(standingsByTeam.values());
         // event-7: sort by points descending, then goal difference as tiebreaker
-        standings.sort((a, b) -> {
-            if (b.getPoints() != a.getPoints()) {
-                return b.getPoints() - a.getPoints();
+        standings.sort(new Comparator<TeamStanding>() {
+            @Override
+            public int compare(TeamStanding a, TeamStanding b) {
+                if (b.getPoints() != a.getPoints()) {
+                    return b.getPoints() - a.getPoints();
+                }
+                return b.getGoalDifference() - a.getGoalDifference();
             }
-            return b.getGoalDifference() - a.getGoalDifference();
         });
         return standings;
     }

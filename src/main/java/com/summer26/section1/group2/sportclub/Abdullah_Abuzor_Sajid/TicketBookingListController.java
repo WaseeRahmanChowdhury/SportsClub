@@ -1,5 +1,7 @@
 package com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -54,9 +56,13 @@ public class TicketBookingListController {
 
         bookingTable.setItems(bookingRows);
 
-        bookingTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> showDetails(newValue)
-        );
+        bookingTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TicketBooking>() {
+            @Override
+            public void changed(ObservableValue<? extends TicketBooking> observable, TicketBooking oldValue,
+                                TicketBooking newValue) {
+                showDetails(newValue);
+            }
+        });
 
         // event-4: load all ticket booking records
         bookingRows.setAll(TicketBooking.getBookings());

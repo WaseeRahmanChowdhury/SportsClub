@@ -1,13 +1,17 @@
 package com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -47,8 +51,12 @@ public class ClubActivityLogController {
         ));
         activityTypeCombo.setValue(ActivityLog.TYPE_ALL);
 
-        dateColumn.setCellValueFactory(cellData ->
-                new javafx.beans.property.SimpleStringProperty(cellData.getValue().getActivityDate().format(DATE_FORMAT)));
+        dateColumn.setCellValueFactory(new Callback<CellDataFeatures<ActivityLog, String>, ObservableValue<String>>() {
+            @Override
+            public ObservableValue<String> call(CellDataFeatures<ActivityLog, String> cellData) {
+                return new SimpleStringProperty(cellData.getValue().getActivityDate().format(DATE_FORMAT));
+            }
+        });
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("activityType"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("activityTitle"));
         createdByColumn.setCellValueFactory(new PropertyValueFactory<>("createdBy"));

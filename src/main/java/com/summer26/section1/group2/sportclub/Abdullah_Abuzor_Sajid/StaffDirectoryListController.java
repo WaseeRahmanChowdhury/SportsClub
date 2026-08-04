@@ -1,5 +1,7 @@
 package com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -52,9 +54,13 @@ public class StaffDirectoryListController {
 
         staffTable.setItems(staffRows);
 
-        staffTable.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> populateEditFields(newValue)
-        );
+        staffTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<StaffMember>() {
+            @Override
+            public void changed(ObservableValue<? extends StaffMember> observable, StaffMember oldValue,
+                                StaffMember newValue) {
+                populateEditFields(newValue);
+            }
+        });
 
         // event-4: load all staff records from the staff directory
         staffRows.setAll(StaffMember.getStaffMembers());

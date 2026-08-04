@@ -86,8 +86,8 @@ public class StaffMember implements Serializable {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
             Object loaded = in.readObject();
             // Defensive check: only trust the deserialized data if it's really a List.
-            if (loaded instanceof List<?> list) {
-                return (List<StaffMember>) list;
+            if (loaded instanceof List) {
+                return (List<StaffMember>) loaded;
             }
             return new ArrayList<>();
         } catch (IOException | ClassNotFoundException e) {

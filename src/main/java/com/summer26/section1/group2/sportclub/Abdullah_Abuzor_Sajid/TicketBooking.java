@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 public class TicketBooking implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -138,12 +139,16 @@ public class TicketBooking implements Serializable {
     }
 
     public static double getUnitPrice(String ticketCategory) {
-        return switch (ticketCategory) {
-            case CATEGORY_VIP -> 2000.0;
-            case CATEGORY_STAND -> 800.0;
-            case CATEGORY_GALLERY -> 300.0;
-            default -> 0.0;
-        };
+        switch (ticketCategory) {
+            case CATEGORY_VIP:
+                return 2000.0;
+            case CATEGORY_STAND:
+                return 800.0;
+            case CATEGORY_GALLERY:
+                return 300.0;
+            default:
+                return 0.0;
+        }
     }
 
     public static int getAvailableQuantity(String matchId, String ticketCategory) {
@@ -151,12 +156,15 @@ public class TicketBooking implements Serializable {
     }
 
     private static Map<String, Integer> inventoryFor(String matchId) {
-        return inventoryByMatch.computeIfAbsent(matchId, id -> {
-            Map<String, Integer> stock = new HashMap<>();
-            stock.put(CATEGORY_VIP, VIP_CAPACITY);
-            stock.put(CATEGORY_STAND, STAND_CAPACITY);
-            stock.put(CATEGORY_GALLERY, GALLERY_CAPACITY);
-            return stock;
+        return inventoryByMatch.computeIfAbsent(matchId, new Function<String, Map<String, Integer>>() {
+            @Override
+            public Map<String, Integer> apply(String id) {
+                Map<String, Integer> stock = new HashMap<>();
+                stock.put(CATEGORY_VIP, VIP_CAPACITY);
+                stock.put(CATEGORY_STAND, STAND_CAPACITY);
+                stock.put(CATEGORY_GALLERY, GALLERY_CAPACITY);
+                return stock;
+            }
         });
     }
 
