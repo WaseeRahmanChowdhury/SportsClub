@@ -1,38 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.FixtureListController">
+            fx:controller="com.summer26.section1.group2.sportclub.wasee_rahman_chowdhury.FixtureListController"
+            prefHeight="700.0" prefWidth="700.0">
 
-    <VBox spacing="15.0" AnchorPane.topAnchor="30.0" AnchorPane.leftAnchor="40.0"
-          AnchorPane.rightAnchor="40.0" AnchorPane.bottomAnchor="30.0">
+    <Label layoutX="20.0" layoutY="15.0" text="Fixture List">
+        <font>
+            <Font name="Arial Bold" size="18.0" />
+        </font>
+    </Label>
 
-        <Label text="Fixture List" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    <Label layoutX="20.0" layoutY="60.0" text="Match Date:" />
+    <DatePicker fx:id="matchDatePicker" layoutX="120.0" layoutY="55.0" prefWidth="160.0" />
 
-        <HBox spacing="10.0" style="-fx-alignment: center-left;">
-            <Label text="Filter by Competition:"/>
-            <ComboBox fx:id="competitionFilterCombo" onAction="#onCompetitionFilterSelected" prefWidth="180.0"/>
-        </HBox>
+    <Label layoutX="300.0" layoutY="60.0" text="Opponent:" />
+    <TextField fx:id="opponentField" layoutX="380.0" layoutY="55.0" prefWidth="160.0" />
 
-        <TableView fx:id="fixtureTable" prefHeight="450.0">
-            <columns>
-                <TableColumn fx:id="colMatchDate" text="Match Date" prefWidth="110.0"/>
-                <TableColumn fx:id="colOpponent" text="Opponent" prefWidth="150.0"/>
-                <TableColumn fx:id="colVenue" text="Venue" prefWidth="150.0"/>
-                <TableColumn fx:id="colCompetition" text="Competition" prefWidth="130.0"/>
-                <TableColumn fx:id="colHomeAway" text="Home/Away" prefWidth="100.0"/>
-                <TableColumn fx:id="colLineupStatus" text="Lineup Status" prefWidth="110.0"/>
-            </columns>
-        </TableView>
+    <Label layoutX="20.0" layoutY="100.0" text="Venue:" />
+    <TextField fx:id="venueField" layoutX="120.0" layoutY="95.0" prefWidth="160.0" />
 
-    </VBox>
+    <Label layoutX="300.0" layoutY="100.0" text="Competition:" />
+    <ComboBox fx:id="competitionCombo" layoutX="380.0" layoutY="95.0" prefWidth="160.0" />
+
+    <Label layoutX="20.0" layoutY="140.0" text="Home/Away:" />
+    <ComboBox fx:id="homeAwayCombo" layoutX="120.0" layoutY="135.0" prefWidth="160.0" />
+
+    <Label layoutX="300.0" layoutY="140.0" text="Lineup Status:" />
+    <ComboBox fx:id="lineupStatusCombo" layoutX="380.0" layoutY="135.0" prefWidth="160.0" />
+
+    <Button layoutX="20.0" layoutY="180.0" text="Add Fixture" onAction="#addFixture" />
+
+    <Label fx:id="statusLabel" layoutX="20.0" layoutY="220.0" prefWidth="660.0" wrapText="true" />
+
+    <Label layoutX="20.0" layoutY="260.0" text="Filter by Competition:" />
+    <ComboBox fx:id="competitionFilterCombo" layoutX="180.0" layoutY="255.0" prefWidth="180.0" onAction="#onCompetitionFilterSelected" />
+
+    <TableView fx:id="fixtureTable" layoutX="20.0" layoutY="300.0" prefWidth="660.0" prefHeight="370.0">
+        <columns>
+            <TableColumn fx:id="colMatchDate" text="Match Date" prefWidth="110.0"/>
+            <TableColumn fx:id="colOpponent" text="Opponent" prefWidth="150.0"/>
+            <TableColumn fx:id="colVenue" text="Venue" prefWidth="150.0"/>
+            <TableColumn fx:id="colCompetition" text="Competition" prefWidth="130.0"/>
+            <TableColumn fx:id="colHomeAway" text="Home/Away" prefWidth="100.0"/>
+            <TableColumn fx:id="colLineupStatus" text="Lineup Status" prefWidth="110.0"/>
+        </columns>
+    </TableView>
 
 </AnchorPane>
