@@ -109,9 +109,69 @@ public class EquipmentManagerController
 
     @javafx.fxml.FXML
     public void InventoryReport(ActionEvent actionEvent) {
+        try {
+
+            Parent root = FXMLLoader.load(getClass().getResource("InventoryReport.fxml"));
+
+            miain.getChildren().clear();
+            miain.getChildren().add(root);
+
+        }
+        catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
     }
 
     @javafx.fxml.FXML
     public void EquipmentReturn(ActionEvent actionEvent) {
+        try {
+
+            Parent root = FXMLLoader.load(getClass().getResource("EquipmentReturn.fxml"));
+
+            miain.getChildren().clear();
+            miain.getChildren().add(root);
+
+        }
+        catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+    }
+
+    @javafx.fxml.FXML
+    public void LowStack(ActionEvent actionEvent) {
+        try {
+
+            Parent root = FXMLLoader.load(getClass().getResource("LowStock.fxml"));
+
+            miain.getChildren().clear();
+            miain.getChildren().add(root);
+
+        }
+        catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+    }
+
+    @javafx.fxml.FXML
+    public void kit(ActionEvent actionEvent) {
+        try {
+
+            Parent root = FXMLLoader.load(getClass().getResource("Kit.fxml"));
+
+            miain.getChildren().clear();
+            miain.getChildren().add(root);
+
+        }
+        catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
     }
 }

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="miain" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Mahidul.EquipmentManagerController">
+<AnchorPane fx:id="miain" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Mahidul.EquipmentManagerController">
    <children>
       <VBox layoutX="28.0" layoutY="25.0" prefHeight="362.0" prefWidth="276.0">
          <children>
@@ -16,8 +19,8 @@
                   <Button layoutX="1.0" layoutY="154.0" mnemonicParsing="false" onAction="#EquipmentMaintenance" prefHeight="26.0" prefWidth="288.0" text="Equipment Maintenance" />
                   <Button layoutX="3.0" layoutY="198.0" mnemonicParsing="false" onAction="#InventoryReport" prefHeight="26.0" prefWidth="288.0" text="InventoryReport" />
                   <Button layoutX="3.0" layoutY="237.0" mnemonicParsing="false" onAction="#EquipmentReturn" prefHeight="26.0" prefWidth="288.0" text="EquipmentReturn" />
-                  <Button layoutX="3.0" layoutY="274.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="288.0" text="Button" />
-                  <Button layoutX="3.0" layoutY="321.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="288.0" text="Button" />
+                  <Button layoutX="3.0" layoutY="274.0" mnemonicParsing="false" onAction="#kit" prefHeight="26.0" prefWidth="288.0" text="Kit" />
+                  <Button layoutX="3.0" layoutY="321.0" mnemonicParsing="false" onAction="#LowStack" prefHeight="26.0" prefWidth="288.0" text="LowStack" />
                   <Separator layoutX="47.0" layoutY="23.0" prefWidth="200.0" />
                </children>
             </AnchorPane>

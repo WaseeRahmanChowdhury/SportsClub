@@ -7,35 +7,31 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            prefHeight="720.0" prefWidth="1000.0"
-            fx:controller="com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid.AdminDashboardController">
+<BorderPane prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid.AdminDashboardController">
 
     <top>
         <AnchorPane prefHeight="64.0" style="-fx-border-color: transparent transparent #cccccc transparent; -fx-border-width: 0 0 1 0;">
             <children>
-                <Label text="Club Admin" style="-fx-font-size: 20px; -fx-font-weight: bold;"
-                       AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="20.0" />
-                <Button fx:id="signoutButton" text="Sign Out" onAction="#signOut"
-                        AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="16.0" />
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Club Admin" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="20.0" />
+                <Button fx:id="signoutButton" layoutX="867.0" layoutY="19.0" onAction="#signOut" text="Sign Out" AnchorPane.rightAnchor="70.60000000000002" AnchorPane.topAnchor="19.0" />
             </children>
         </AnchorPane>
     </top>
 
     <left>
-        <VBox spacing="8.0" prefWidth="230.0" style="-fx-border-color: transparent #cccccc transparent transparent; -fx-border-width: 0 1 0 0;">
+        <VBox prefWidth="230.0" spacing="8.0" style="-fx-border-color: transparent #cccccc transparent transparent; -fx-border-width: 0 1 0 0;">
             <padding>
-                <Insets top="18.0" left="14.0" right="14.0" bottom="18.0" />
+                <Insets bottom="18.0" left="14.0" right="14.0" top="18.0" />
             </padding>
             <children>
-                <Button fx:id="registerStaffButton" text="Register New Staff Member" onAction="#registerStaff" maxWidth="Infinity" prefHeight="42.0" mnemonicParsing="false" />
-                <Button fx:id="scheduleMatchButton" text="Schedule New Match" onAction="#scheduleMatch" maxWidth="Infinity" prefHeight="42.0" mnemonicParsing="false" />
-                <Button fx:id="staffDirectoryButton" text="Staff Directory" onAction="#staffDirectory" maxWidth="Infinity" prefHeight="42.0" mnemonicParsing="false" />
-                <Button fx:id="clubActivityLogButton" text="Club Activity Log" onAction="#clubActivityLog" maxWidth="Infinity" prefHeight="42.0" mnemonicParsing="false" />
-                <Button fx:id="transferButton" text="Transfers" onAction="#transfer" maxWidth="Infinity" prefHeight="42.0" mnemonicParsing="false" />
-                <Button fx:id="postAnnouncementButton" text="Post Announcement" onAction="#postAnnouncement" maxWidth="Infinity" prefHeight="42.0" mnemonicParsing="false" />
-                <Button fx:id="sponsershipManagementButton" text="Sponsorship Management" onAction="#sponsershipManagement" maxWidth="Infinity" prefHeight="42.0" mnemonicParsing="false" />
-                <Button fx:id="ticketBookingListButton" text="Ticket Booking List" onAction="#ticketBookingList" maxWidth="Infinity" prefHeight="42.0" mnemonicParsing="false" />
+                <Button fx:id="registerStaffButton" maxWidth="Infinity" mnemonicParsing="false" onAction="#registerStaff" prefHeight="42.0" text="Register New Staff Member" />
+                <Button fx:id="scheduleMatchButton" maxWidth="Infinity" mnemonicParsing="false" onAction="#scheduleMatch" prefHeight="42.0" text="Schedule New Match" />
+                <Button fx:id="staffDirectoryButton" maxWidth="Infinity" mnemonicParsing="false" onAction="#staffDirectory" prefHeight="42.0" text="Staff Directory" />
+                <Button fx:id="clubActivityLogButton" maxWidth="Infinity" mnemonicParsing="false" onAction="#clubActivityLog" prefHeight="42.0" text="Club Activity Log" />
+                <Button fx:id="transferButton" maxWidth="Infinity" mnemonicParsing="false" onAction="#transfer" prefHeight="42.0" text="Transfers" />
+                <Button fx:id="postAnnouncementButton" maxWidth="Infinity" mnemonicParsing="false" onAction="#postAnnouncement" prefHeight="42.0" text="Post Announcement" />
+                <Button fx:id="sponsershipManagementButton" maxWidth="Infinity" mnemonicParsing="false" onAction="#sponsershipManagement" prefHeight="42.0" text="Sponsorship Management" />
+                <Button fx:id="ticketBookingListButton" maxWidth="Infinity" mnemonicParsing="false" onAction="#ticketBookingList" prefHeight="42.0" text="Ticket Booking List" />
             </children>
         </VBox>
     </left>
@@ -43,7 +39,7 @@
     <center>
         <AnchorPane fx:id="contentArea">
             <children>
-                <Label layoutX="24.0" layoutY="20.0" text="Please select an option from the navigation menu" style="-fx-text-fill: #666666;" />
+                <Label layoutX="24.0" layoutY="20.0" style="-fx-text-fill: #666666;" text="Please select an option from the navigation menu" />
             </children>
         </AnchorPane>
     </center>
