@@ -8,3 +8,12 @@
 2026-07-26T21:59:21.598936900|Sponsorship|Added sponsor Nike (SPN-0002)|Admin
 2026-08-02T20:18:58.389043500|Announcement|Posted announcement: Testing|Admin
 2026-08-07T13:09:36.646609800|Sponsorship|Added sponsor Nike (SPN-0003)|Admin
+2026-08-07T13:51:08.297567400|Sponsorship|Updated sponsor record SPN-0003|Admin
+2026-08-07T13:51:22.606376500|Sponsorship|Updated sponsor record SPN-0003|Admin
+2026-08-07T13:51:32.646002500|Sponsorship|Updated sponsor record SPN-0003|Admin
+2026-08-07T13:51:40.624496600|Sponsorship|Updated sponsor record SPN-0003|Admin
+2026-08-07T13:52:14.950553200|Sponsorship|Deleted sponsor Puma (SPN-0003)|Admin
+2026-08-07T13:54:24.853915300|Sponsorship|Updated sponsor record SPN-0001|Admin
+2026-08-07T13:54:34.223116400|Sponsorship|Updated sponsor record SPN-0002|Admin
+2026-08-07T13:55:37.018635300|Sponsorship|Added sponsor Puma (SPN-0003)|Admin
+2026-08-07T13:55:44.987983900|Sponsorship|Updated sponsor record SPN-0003|Admin

@@ -15,12 +15,12 @@ public class Sponsor implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private final String sponsorId;
-    private final String companyName;
-    private final String contactPersonName;
-    private final String contactNumber;
-    private final double annualAmount;
-    private final LocalDate contractStartDate;
-    private final LocalDate contractEndDate;
+    private String companyName;
+    private String contactPersonName;
+    private String contactNumber;
+    private double annualAmount;
+    private LocalDate contractStartDate;
+    private LocalDate contractEndDate;
 
     public Sponsor(String sponsorId, String companyName, String contactPersonName, String contactNumber,
                    double annualAmount, LocalDate contractStartDate, LocalDate contractEndDate) {
@@ -41,24 +41,48 @@ public class Sponsor implements Serializable {
         return companyName;
     }
 
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
     public String getContactPersonName() {
         return contactPersonName;
+    }
+
+    public void setContactPersonName(String contactPersonName) {
+        this.contactPersonName = contactPersonName;
     }
 
     public String getContactNumber() {
         return contactNumber;
     }
 
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
     public double getAnnualAmount() {
         return annualAmount;
+    }
+
+    public void setAnnualAmount(double annualAmount) {
+        this.annualAmount = annualAmount;
     }
 
     public LocalDate getContractStartDate() {
         return contractStartDate;
     }
 
+    public void setContractStartDate(LocalDate contractStartDate) {
+        this.contractStartDate = contractStartDate;
+    }
+
     public LocalDate getContractEndDate() {
         return contractEndDate;
+    }
+
+    public void setContractEndDate(LocalDate contractEndDate) {
+        this.contractEndDate = contractEndDate;
     }
 
     // --- Sponsor registry (all club sponsors) ---
@@ -105,5 +129,43 @@ public class Sponsor implements Serializable {
 
     public static List<Sponsor> getSponsors() {
         return sponsors;
+    }
+
+    public static Sponsor findBySponsorId(String sponsorId) {
+        for (Sponsor sponsor : sponsors) {
+            if (sponsor.getSponsorId().equals(sponsorId)) {
+                return sponsor;
+            }
+        }
+        return null;
+    }
+
+    // event: Admin edits a sponsor's details and saves the updated record
+    public static boolean updateSponsor(String sponsorId, String companyName, String contactPersonName,
+                                        String contactNumber, double annualAmount,
+                                        LocalDate contractStartDate, LocalDate contractEndDate) {
+        Sponsor sponsor = findBySponsorId(sponsorId);
+        if (sponsor == null) {
+            return false;
+        }
+        sponsor.setCompanyName(companyName);
+        sponsor.setContactPersonName(contactPersonName);
+        sponsor.setContactNumber(contactNumber);
+        sponsor.setAnnualAmount(annualAmount);
+        sponsor.setContractStartDate(contractStartDate);
+        sponsor.setContractEndDate(contractEndDate);
+        saveSponsors();
+        return true;
+    }
+
+    // event: Admin removes a sponsor record entirely
+    public static boolean deleteSponsor(String sponsorId) {
+        Sponsor sponsor = findBySponsorId(sponsorId);
+        if (sponsor == null) {
+            return false;
+        }
+        sponsors.remove(sponsor);
+        saveSponsors();
+        return true;
     }
 }
