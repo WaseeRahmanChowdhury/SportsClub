@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Mahidul.EquipmentReturnController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.EquipmentReturnController">
    <children>
       <Label layoutX="188.0" layoutY="23.0" prefHeight="18.0" prefWidth="196.0" text="       Process Equipment Return" />
       <Separator layoutX="173.0" layoutY="41.0" prefWidth="200.0" />

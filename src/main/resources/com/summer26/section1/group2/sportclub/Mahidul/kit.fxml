@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Mahidul.KitController">
+   <children>
+      <Label layoutX="181.0" layoutY="24.0" prefHeight="18.0" prefWidth="175.0" text="           Kit Assignment " />
+      <Label layoutX="29.0" layoutY="74.0" prefHeight="18.0" prefWidth="96.0" text="Player Name" />
+      <Label layoutX="29.0" layoutY="119.0" prefHeight="18.0" prefWidth="96.0" text="Jersey Number" />
+      <Label layoutX="29.0" layoutY="158.0" prefHeight="18.0" prefWidth="96.0" text="Kit Size" />
+      <Label layoutX="29.0" layoutY="200.0" prefHeight="18.0" prefWidth="96.0" text="Kit Type" />
+      <ComboBox fx:id="playerComboBox" layoutX="106.0" layoutY="71.0" prefWidth="150.0" />
+      <ComboBox fx:id="kitSizeComboBox" layoutX="106.0" layoutY="154.0" prefWidth="150.0" />
+      <ComboBox fx:id="kitTypeComboBox" layoutX="105.0" layoutY="196.0" prefWidth="150.0" />
+      <TextField fx:id="jerseyNumberTextField" layoutX="120.0" layoutY="116.0" />
+      <Button layoutX="515.0" layoutY="346.0" mnemonicParsing="false" onAction="#Next" text="Next" />
+      <Button layoutX="25.0" layoutY="20.0" mnemonicParsing="false" onAction="#previous" text="Previous" />
+      <Button layoutX="169.0" layoutY="265.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
+      <Button layoutX="169.0" layoutY="333.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="61.0" text="clear" />
+      <Label fx:id="result" layoutX="400.0" layoutY="63.0" prefHeight="18.0" prefWidth="78.0" text="  result" />
+   </children>
+</AnchorPane>
