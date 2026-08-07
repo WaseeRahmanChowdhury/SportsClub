@@ -48,17 +48,16 @@ public class TakeOrderController
     @javafx.fxml.FXML
     public void initialize() {
 
-        // Step 1: fill the dropdowns
         customerTypeCB.getItems().addAll("Player", "Staff", "Coach");
         selectCategoryCB.getItems().addAll("Breakfast", "Launch", "Snack", "Beverage");
 
-        // Step 2: tell each cart column which field of OrderItem to show
+
         itemNameTC.setCellValueFactory(new PropertyValueFactory<>("itemName"));
         quantityTC.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         unitPriceTC.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
         subtotalTC.setCellValueFactory(new PropertyValueFactory<>("subtotal"));
 
-        // Step 3: load the menu items from file, so we can look up prices
+
         File file = new File(MENU_FILE);
         if (file.exists()) {
             try {
@@ -75,21 +74,20 @@ public class TakeOrderController
     @javafx.fxml.FXML
     public void addToOrderButtonOA(ActionEvent actionEvent) {
 
-        // Step 1: get what the manager typed
-        String itemId = itemIdTF.getText();
+        //get Input
         String quantityText = quantityTF.getText();
 
-        if (itemId.isEmpty() || quantityText.isEmpty()) {
+        if (itemIdTF.getText().isEmpty() || quantityText.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Please enter Item ID and Quantity.");
             alert.showAndWait();
             return;
         }
 
-        // Step 2: find the matching menu item by Item ID
+        // find the matching menu item by Item ID
         MenuItem foundItem = null;
         for (MenuItem m : menuItemList) {
-            if (m.getItemId().equals(itemId)) {
+            if (m.getItemId().equals(itemIdTF.getText())) {
                 foundItem = m;
             }
         }
@@ -101,27 +99,27 @@ public class TakeOrderController
             return;
         }
 
-        // Step 3: fill in item name automatically from the found item
+        // fill in item name automatically
         itemNameTF.setText(foundItem.getItemName());
 
-        // Step 4: calculate subtotal
-        int quantity = Integer.parseInt(quantityText);
+        // calculate subtotal
+        int quantity = Integer.parseInt(quantityTF.getText());
         double unitPrice = foundItem.getPrice();
         double subtotal = quantity * unitPrice;
 
-        // Step 5: create the OrderItem (orderId left empty for now, filled in when order is placed)
-        OrderItem item = new OrderItem("", foundItem.getItemName(), quantity, unitPrice, subtotal);
+        // create the OrderItem
+        OrderItem item = new OrderItem("", itemNameTF.getText(), quantity, unitPrice, subtotal);
         cartList.add(item);
 
-        // Step 6: refresh the cart table
+        // refresh the cart table
         currentOrderTC.getItems().clear();
         currentOrderTC.getItems().addAll(cartList);
 
-        // Step 7: update the total price
+        // update the total price
         totalPrice = totalPrice + subtotal;
         totalPriceLabel.setText("BDT : " + totalPrice);
 
-        // Step 8: clear the item input fields for the next item
+        //clear the all input fields
         itemIdTF.clear();
         itemNameTF.clear();
         quantityTF.clear();
@@ -130,7 +128,6 @@ public class TakeOrderController
     @javafx.fxml.FXML
     public void placeOrderButtonOA(ActionEvent actionEvent) {
 
-        // Step 1: get customer info
         String customerName = customerNameTF.getText();
         String customerType = customerTypeCB.getValue();
 
@@ -148,7 +145,7 @@ public class TakeOrderController
             return;
         }
 
-        // Step 2: load existing orders list, to generate the next order ID
+        // load existing orders list, to generate the next order ID
         ArrayList<Order> orderList = new ArrayList<>();
         File orderFile = new File(ORDER_FILE);
         if (orderFile.exists()) {
@@ -162,15 +159,12 @@ public class TakeOrderController
             }
         }
 
-        // Step 3: generate order ID based on list size
         int nextNumber = orderList.size() + 1;
         String orderId = String.format("ORD-%04d", nextNumber);
 
-        // Step 4: get today's date and current time
         String orderDate = LocalDate.now().format(DateTimeFormatter.ofPattern("MM-dd-yyyy"));
         String orderTime = LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss"));
 
-        // Step 5: create and save the Order
         Order order = new Order(orderId, customerName, customerType, orderDate, orderTime, "pending", totalPrice);
         orderList.add(order);
 
@@ -183,7 +177,7 @@ public class TakeOrderController
             e.printStackTrace();
         }
 
-        // Step 6: load existing order items list
+        // load existing order items list
         ArrayList<OrderItem> orderItemList = new ArrayList<>();
         File orderItemFile = new File(ORDER_ITEM_FILE);
         if (orderItemFile.exists()) {
@@ -197,7 +191,7 @@ public class TakeOrderController
             }
         }
 
-        // Step 7: give every item in the cart the new orderId, then save them all
+        // give every item in the cart the new orderId, then save them all
         for (OrderItem item : cartList) {
             item.setOrderId(orderId);
             orderItemList.add(item);
@@ -211,14 +205,6 @@ public class TakeOrderController
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        // Step 8: confirmation message
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Order placed successfully. Order ID: " + orderId);
-        alert.showAndWait();
-
-        // Step 9: clear everything for the next order
-        clearOrderButtonOA(actionEvent);
     }
 
     @javafx.fxml.FXML

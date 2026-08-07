@@ -86,28 +86,20 @@ public class MarkExitController
             return;
         }
 
+        String exitTime = LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss"));
+        selectedVisitor.setExitTime(exitTime);
+        selectedVisitor.setStatus("left");
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirm Exit");
-        alert.setContentText("Mark exit the visitor?");
-        Optional<ButtonType> result = alert.showAndWait();
-
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-
-            String exitTime = LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm:ss"));
-            selectedVisitor.setExitTime(exitTime);
-            selectedVisitor.setStatus("left");
-
-            try {
-                FileOutputStream fos = new FileOutputStream(FILE_NAME);
-                ObjectOutputStream oos = new ObjectOutputStream(fos);
-                oos.writeObject(visitorList);
-                oos.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            loadInsideVisitorsToday();
+        try {
+            FileOutputStream fos = new FileOutputStream(FILE_NAME);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(visitorList);
+            oos.close();
         }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        loadInsideVisitorsToday();
     }
 }

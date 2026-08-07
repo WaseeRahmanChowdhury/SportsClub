@@ -1,5 +1,6 @@
 package com.summer26.section1.group2.sportclub.mainur_reza_mahi;
 
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -71,7 +72,6 @@ public class VisitorLogController
                 e.printStackTrace();
             }
         }
-
 
         visitorLogTC.getSelectionModel().selectedItemProperty().addListener((obs, oldVisitor, newVisitor) -> {
             if (newVisitor != null) {

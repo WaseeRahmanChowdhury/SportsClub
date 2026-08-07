@@ -56,6 +56,5 @@
             </AnchorPane>
          </children>
       </HBox>
-      <HBox layoutX="33.0" layoutY="111.0" prefHeight="57.0" prefWidth="626.0" />
    </children>
 </AnchorPane>

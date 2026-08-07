@@ -46,7 +46,7 @@ public class AddMenuItemController
         stockTC.setCellValueFactory(new PropertyValueFactory<>("stockQty"));
         statusTC.setCellValueFactory(new PropertyValueFactory<>("availability"));
 
-        // Step 1: load existing menu items from file, if it exists
+        // load existing menu items from file, if it exists
         File file = new File(FILE_NAME);
         if (file.exists()) {
             try {
@@ -59,7 +59,7 @@ public class AddMenuItemController
             }
         }
 
-        // Step 2: show existing items in the table right away
+        // show existing items in the table
         currentMenuItemTC.getItems().clear();
         currentMenuItemTC.getItems().addAll(menuItemList);
     }
@@ -67,13 +67,16 @@ public class AddMenuItemController
     @javafx.fxml.FXML
     public void addMenuItemButtonOA(ActionEvent actionEvent) {
 
-        // Step 1: get the values the user entered
         String itemName = itemNameTF.getText();
         String category = selectCategoryCB.getValue();
         String priceText = priceTF.getText();
         String stockText = stockQuantityTF.getText();
+        double price = Double.parseDouble(priceText);
+        int stockQty = Integer.parseInt(stockText);
+        int nextNumber = menuItemList.size() + 1;
+        String itemId = String.format("ITM-%04d", nextNumber);
 
-        // Step 2: basic validation - check nothing is empty
+
         if (itemName.isEmpty() || category == null || priceText.isEmpty() || stockText.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Please fill in all fields.");
@@ -81,24 +84,13 @@ public class AddMenuItemController
             return;
         }
 
-        // Step 3: convert price and stock text into numbers
-        double price = Double.parseDouble(priceText);
-        int stockQty = Integer.parseInt(stockText);
-
-        // Step 4: generate item ID based on list size
-        int nextNumber = menuItemList.size() + 1;
-        String itemId = String.format("ITM-%04d", nextNumber);
-
-        // Step 5: decide availability based on stock quantity
         String availability = "Available";
         if (stockQty == 0) {
             availability = "Out of Stock";
         }
 
-        // Step 6: create the MenuItem object
         MenuItem menuItem = new MenuItem(itemId, itemName, category,availability , price ,stockQty);
 
-        // Step 7: add to list and save back to file
         menuItemList.add(menuItem);
 
         try {
@@ -110,11 +102,10 @@ public class AddMenuItemController
             e.printStackTrace();
         }
 
-        // Step 8: refresh the table
         currentMenuItemTC.getItems().clear();
         currentMenuItemTC.getItems().addAll(menuItemList);
 
-        // Step 9: clear the form
+
         itemNameTF.clear();
         selectCategoryCB.setValue(null);
         priceTF.clear();

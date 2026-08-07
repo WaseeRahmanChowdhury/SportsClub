@@ -83,26 +83,17 @@ public class ManageAppointmentsController
             a.showAndWait();
             return;
         }
+        selectedAppt.setStatus("cancelled");
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Cancel Appointment");
-        alert.setContentText("Cancel this appointment?");
-        Optional<ButtonType> result = alert.showAndWait();
-
-
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-            selectedAppt.setStatus("cancelled");
-
-
-            try {
-                FileOutputStream fos = new FileOutputStream(FILE_NAME);
-                ObjectOutputStream oos = new ObjectOutputStream(fos);
-                oos.writeObject(appointmentList);
-                oos.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            loadPendingAppointments();
+        try {
+            FileOutputStream fos = new FileOutputStream(FILE_NAME);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(appointmentList);
+            oos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        loadPendingAppointments();
     }
+
 }

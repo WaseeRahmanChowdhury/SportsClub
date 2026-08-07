@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="651.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.mainur_reza_mahi.DailySalesReportController">
+<AnchorPane prefHeight="651.0" prefWidth="696.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.mainur_reza_mahi.DailySalesReportController">
    <children>
-      <AnchorPane layoutX="6.0" prefHeight="145.0" prefWidth="685.0">
+      <AnchorPane layoutX="6.0" prefHeight="200.0" prefWidth="685.0">
          <children>
             <Label layoutX="19.0" layoutY="34.0" text="Daily Sales Report" textFill="#1a1a1a">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <DatePicker fx:id="reportDateDP" layoutX="130.0" layoutY="86.0" prefHeight="32.0" prefWidth="174.0" promptText="MM/DD/YYYY">
+            <DatePicker fx:id="reportDateDP" layoutX="130.0" layoutY="136.0" prefHeight="32.0" prefWidth="174.0" promptText="MM/DD/YYYY">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </DatePicker>
             <Separator layoutX="19.0" layoutY="73.0" prefHeight="5.0" prefWidth="658.0" />
-            <Button layoutX="355.0" layoutY="86.0" mnemonicParsing="false" onAction="#generateReportButtonOA" prefHeight="32.0" prefWidth="162.0" style="-fx-background-color: #6495ED;" text="Generate Report" textFill="WHITE">
+            <Button layoutX="354.0" layoutY="135.0" mnemonicParsing="false" onAction="#generateReportButtonOA" prefHeight="32.0" prefWidth="162.0" style="-fx-background-color: #6495ED;" text="Generate Report" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -28,14 +33,14 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Text layoutX="25.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report Date :">
+            <Text layoutX="23.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Report Date :">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="25.0" layoutY="145.0" prefHeight="132.0" prefWidth="646.0">
+      <AnchorPane layoutX="25.0" layoutY="205.0" prefHeight="132.0" prefWidth="646.0">
          <children>
             <Label layoutX="8.0" layoutY="4.0" prefHeight="19.0" prefWidth="118.0" text="Sales Summary" textFill="#2c5f8a">
                <font>
@@ -60,7 +65,7 @@
                   </AnchorPane>
                </children>
             </VBox>
-            <AnchorPane layoutX="165.0" layoutY="32.0" prefHeight="100.0" prefWidth="145.0" style="-fx-background-color: #EAF4FB; -fx-border-color: #000000;">
+            <AnchorPane layoutX="234.0" layoutY="32.0" prefHeight="100.0" prefWidth="145.0" style="-fx-background-color: #EAF4FB; -fx-border-color: #000000;">
                <children>
                   <Label layoutX="25.0" layoutY="11.0" text="Total Item Sold" textFill="#2c5f8a">
                      <font>
@@ -74,7 +79,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="319.0" layoutY="32.0" prefHeight="100.0" prefWidth="145.0" style="-fx-background-color: #EAF4FB; -fx-border-color: #000000;">
+            <AnchorPane layoutX="458.0" layoutY="32.0" prefHeight="100.0" prefWidth="145.0" style="-fx-background-color: #EAF4FB; -fx-border-color: #000000;">
                <children>
                   <Label layoutX="29.0" layoutY="11.0" text="Total Revenue" textFill="#2c5f8a">
                      <font>
@@ -88,36 +93,6 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="477.0" layoutY="32.0" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #EAF4FB; -fx-border-color: #000000;">
-               <children>
-                  <Label layoutX="23.0" layoutY="10.0" text="Best-Selling Item" textFill="#2c5f8a">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="bestSellingItemLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="34.0" prefHeight="52.0" prefWidth="145.0" text="N/A" textFill="#c0392b">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="13.0" layoutY="299.0" prefHeight="149.0" prefWidth="671.0">
-         <children>
-            <Label layoutX="20.0" layoutY="14.0" prefHeight="19.0" prefWidth="138.0" text="Category Breakdown" textFill="#2c5f8a">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Label>
-            <TableView fx:id="categoryBreakdownTC" layoutX="70.0" layoutY="47.0" prefHeight="142.0" prefWidth="518.0">
-               <columns>
-                  <TableColumn fx:id="categoryTC" prefWidth="175.0" text="Category" />
-                  <TableColumn fx:id="itemSoldTC" prefWidth="163.0" text="Item Sold" />
-                  <TableColumn fx:id="revenueTC" prefWidth="179.0" text="Revenue" />
-               </columns>
-            </TableView>
          </children>
       </AnchorPane>
    </children>

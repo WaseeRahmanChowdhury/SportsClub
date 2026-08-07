@@ -80,14 +80,16 @@ public class ViewAppointmentController
         for (Appointment a : appointmentList) {
             if (a.getApptDate().equals(selectedDate)) {
                 filteredList.add(a);
+            }
+        }
 
-                if (a.getStatus().equals("pending")) {
-                    pendingCount++;
-                } else if (a.getStatus().equals("completed")) {
-                    completedCount++;
-                } else if (a.getStatus().equals("cancelled")) {
-                    cancelledCount++;
-                }
+        for (Appointment a : filteredList){
+            if (a.getStatus().equals("pending")) {
+                pendingCount++;
+            } else if (a.getStatus().equals("completed")) {
+                completedCount++;
+            } else if (a.getStatus().equals("cancelled")) {
+                cancelledCount++;
             }
         }
 

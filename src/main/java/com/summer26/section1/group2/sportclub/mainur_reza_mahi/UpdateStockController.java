@@ -35,25 +35,14 @@ public class UpdateStockController
     @javafx.fxml.FXML
     public void initialize() {
 
-        // Step 1: tell each column which field of MenuItem to show
         itemIdTC.setCellValueFactory(new PropertyValueFactory<>("itemId"));
         itemNameTC.setCellValueFactory(new PropertyValueFactory<>("itemName"));
         categoryTC.setCellValueFactory(new PropertyValueFactory<>("category"));
         currentStockTC.setCellValueFactory(new PropertyValueFactory<>("stockQty"));
         stausTC.setCellValueFactory(new PropertyValueFactory<>("availability"));
-
-        // Step 2: load menu items from file
         loadMenuItems();
-
-        // Step 3: when a row is clicked, fill in the Item ID field automatically
-        allMenuItemTC.getSelectionModel().selectedItemProperty().addListener((obs, oldItem, newItem) -> {
-            if (newItem != null) {
-                itemIdTF.setText(newItem.getItemId());
-            }
-        });
     }
 
-    // loads the file and shows all menu items in the table
     private void loadMenuItems() {
 
         menuItemList.clear();
@@ -77,21 +66,16 @@ public class UpdateStockController
     @javafx.fxml.FXML
     public void updateStockButtonOA(ActionEvent actionEvent) {
 
-        // Step 1: get the item ID and new quantity
-        String itemId = itemIdTF.getText();
-        String quantityText = quantityTF.getText();
-
-        if (itemId.isEmpty() || quantityText.isEmpty()) {
+        if (itemIdTF.getText().isEmpty() || quantityTF.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Please select an item and enter a quantity.");
             alert.showAndWait();
             return;
         }
 
-        // Step 2: find the matching menu item
         MenuItem foundItem = null;
         for (MenuItem m : menuItemList) {
-            if (m.getItemId().equals(itemId)) {
+            if (m.getItemId().equals(itemIdTF.getText())) {
                 foundItem = m;
             }
         }
@@ -103,18 +87,18 @@ public class UpdateStockController
             return;
         }
 
-        // Step 3: update the stock quantity
-        int newStock = Integer.parseInt(quantityText);
+        //update the stock quantity
+        int newStock = Integer.parseInt(quantityTF.getText());
         foundItem.setStockQty(newStock);
 
-        // Step 4: update availability based on new stock
+        //update availability
         if (newStock == 0) {
             foundItem.setAvailability("Out of Stock");
         } else {
             foundItem.setAvailability("Available");
         }
 
-        // Step 5: save the whole list back to the file
+        //save the whole list to the file
         try {
             FileOutputStream fos = new FileOutputStream(FILE_NAME);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -124,12 +108,6 @@ public class UpdateStockController
             e.printStackTrace();
         }
 
-        // Step 6: confirmation message
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Stock updated for " + foundItem.getItemName() + ". New quantity: " + newStock);
-        alert.showAndWait();
-
-        // Step 7: clear the form and refresh the table
         itemIdTF.clear();
         quantityTF.clear();
         loadMenuItems();

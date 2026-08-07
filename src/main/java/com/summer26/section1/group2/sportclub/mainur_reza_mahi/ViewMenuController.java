@@ -1,6 +1,7 @@
 package com.summer26.section1.group2.sportclub.mainur_reza_mahi;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -34,10 +35,8 @@ public class ViewMenuController
     @javafx.fxml.FXML
     public void initialize() {
 
-        // Step 1: fill the category filter dropdown
         filterByCategoryCB.getItems().addAll("All", "Breakfast", "Launch", "Snack", "Beverage");
 
-        // Step 2: tell each column which field of MenuItem to show
         itemIdTC.setCellValueFactory(new PropertyValueFactory<>("itemId"));
         itemNameTC.setCellValueFactory(new PropertyValueFactory<>("itemName"));
         categoryTC.setCellValueFactory(new PropertyValueFactory<>("category"));
@@ -45,7 +44,7 @@ public class ViewMenuController
         stockTC.setCellValueFactory(new PropertyValueFactory<>("stockQty"));
         statusTC.setCellValueFactory(new PropertyValueFactory<>("availability"));
 
-        // Step 3: load existing menu items from file, if it exists
+
         File file = new File(FILE_NAME);
         if (file.exists()) {
             try {
@@ -58,7 +57,6 @@ public class ViewMenuController
             }
         }
 
-        // Step 4: show all items in the table right away
         viewMenuTC.getItems().clear();
         viewMenuTC.getItems().addAll(menuItemList);
     }
@@ -66,29 +64,27 @@ public class ViewMenuController
     @javafx.fxml.FXML
     public void filterItemButtonOA(ActionEvent actionEvent) {
 
-        // Step 1: get the selected category
-        String selectedCategory = filterByCategoryCB.getValue();
-
-        if (selectedCategory == null) {
+        if (filterByCategoryCB.getValue() == null) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Please select a category");
+            a.showAndWait();
             return;
         }
 
-        // Step 2: if "All" is selected, just show everything
-        if (selectedCategory.equals("All")) {
+        if (filterByCategoryCB.getValue().equals("All")) {
             viewMenuTC.getItems().clear();
             viewMenuTC.getItems().addAll(menuItemList);
             return;
         }
 
-        // Step 3: otherwise, filter the list by matching category
+
         ArrayList<MenuItem> filteredList = new ArrayList<>();
         for (MenuItem item : menuItemList) {
-            if (item.getCategory().equals(selectedCategory)) {
+            if (item.getCategory().equals(filterByCategoryCB.getValue())) {
                 filteredList.add(item);
             }
         }
 
-        // Step 4: show the filtered list in the table
         viewMenuTC.getItems().clear();
         viewMenuTC.getItems().addAll(filteredList);
     }

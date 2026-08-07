@@ -37,9 +37,9 @@
             </Button>
          </children>
       </AnchorPane>
-      <VBox layoutX="35.0" layoutY="178.0" prefHeight="200.0" prefWidth="626.0">
+      <VBox layoutX="35.0" layoutY="184.0" prefHeight="260.0" prefWidth="626.0">
          <children>
-            <TableView fx:id="viewOrdersTC" prefHeight="200.0" prefWidth="200.0">
+            <TableView fx:id="viewOrdersTC" prefHeight="261.0" prefWidth="626.0">
               <columns>
                 <TableColumn fx:id="orderIdTC" prefWidth="93.0" text="Order ID" />
                 <TableColumn fx:id="customerTC" prefWidth="119.0" text="Customer" />
@@ -51,24 +51,6 @@
             </TableView>
          </children>
       </VBox>
-      <VBox layoutX="35.0" layoutY="399.0" prefHeight="200.0" prefWidth="626.0">
-         <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Label layoutX="1.0" layoutY="10.0" text="Item Selling List :">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <TableView fx:id="itemSellingListTC" layoutX="83.0" layoutY="50.0" prefHeight="178.0" prefWidth="461.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="82.0">
-                    <columns>
-                      <TableColumn fx:id="itemNameTC" prefWidth="228.0" text="Item Name" />
-                      <TableColumn fx:id="quantityTC" prefWidth="232.0" text="Quantity" />
-                    </columns>
-                  </TableView>
-               </children>
-            </AnchorPane>
-         </children>
-      </VBox>
+      <VBox layoutX="35.0" layoutY="399.0" prefHeight="200.0" prefWidth="626.0" />
    </children>
 </AnchorPane>

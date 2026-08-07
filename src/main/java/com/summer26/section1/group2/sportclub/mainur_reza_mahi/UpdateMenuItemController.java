@@ -1,10 +1,7 @@
 package com.summer26.section1.group2.sportclub.mainur_reza_mahi;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.*;
@@ -46,13 +43,9 @@ public class UpdateMenuItemController
     @javafx.fxml.FXML
     public void initialize() {
 
-        // Step 1: fill the category dropdown
         categoryCB.getItems().addAll("Breakfast", "Launch", "Snack", "Beverage");
-
-        // Step 2: fill the stock dropdown with some sample numbers
         stockCB.getItems().addAll("0", "5", "10", "15", "20", "25", "30", "50");
 
-        // Step 3: tell each column which field of MenuItem to show
         itemIdTC.setCellValueFactory(new PropertyValueFactory<>("itemId"));
         itemNameTC.setCellValueFactory(new PropertyValueFactory<>("itemName"));
         categoryTC.setCellValueFactory(new PropertyValueFactory<>("category"));
@@ -60,7 +53,7 @@ public class UpdateMenuItemController
         stockTC.setCellValueFactory(new PropertyValueFactory<>("stockQty"));
         statusTC.setCellValueFactory(new PropertyValueFactory<>("availability"));
 
-        // Step 4: load menu items from file
+
         File file = new File(FILE_NAME);
         if (file.exists()) {
             try {
@@ -73,11 +66,11 @@ public class UpdateMenuItemController
             }
         }
 
-        // Step 5: show items in the table
+
         currentMenuItemTC.getItems().clear();
         currentMenuItemTC.getItems().addAll(menuItemList);
 
-        // Step 6: when a row is clicked, fill in the edit form below
+        // when a row is clicked, fill in the edit form below
         currentMenuItemTC.getSelectionModel().selectedItemProperty().addListener((obs, oldItem, newItem) -> {
             if (newItem != null) {
                 selectedItem = newItem;
@@ -95,26 +88,29 @@ public class UpdateMenuItemController
     @javafx.fxml.FXML
     public void saveChangesButtonOA(ActionEvent actionEvent) {
 
-        // Step 1: make sure a row was selected first
+        //make sure a row was selected
         if (selectedItem == null) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Please select a row");
+            a.showAndWait();
             return;
         }
 
-        // Step 2: get the updated values from the form
+        //get the updated values from the form
         String itemName = itemNameTF.getText();
         String category = categoryCB.getValue();
         double price = Double.parseDouble(priceTF.getText());
         int stockQty = Integer.parseInt(stockCB.getValue());
         String status = statusTF.getText();
 
-        // Step 3: update the selected item's fields
+        //update the selected item's fields
         selectedItem.setItemName(itemName);
         selectedItem.setCategory(category);
         selectedItem.setPrice(price);
         selectedItem.setStockQty(stockQty);
         selectedItem.setAvailability(status);
 
-        // Step 4: save the whole list back to the file
+
         try {
             FileOutputStream fos = new FileOutputStream(FILE_NAME);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -124,12 +120,9 @@ public class UpdateMenuItemController
             e.printStackTrace();
         }
 
-        // Step 5: refresh the table so the change shows immediately
         currentMenuItemTC.getItems().clear();
         currentMenuItemTC.getItems().addAll(menuItemList);
 
-        // Step 6: clear the form
-        clearButtonOA(actionEvent);
     }
 
     @javafx.fxml.FXML

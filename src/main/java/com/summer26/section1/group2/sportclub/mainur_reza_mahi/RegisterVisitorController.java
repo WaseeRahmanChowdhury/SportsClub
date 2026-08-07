@@ -39,14 +39,13 @@ public class RegisterVisitorController
                 "Media Officer"
         );
 
-        // Load existing visitors from file, if it exists
-        File file = new File(FILE_NAME);
-        if (file.exists()) {
+        File file = new File(FILE_NAME); //creating a file
+        if (file.exists()) { //checks if the file is existed or not
             try {
-                FileInputStream fis = new FileInputStream(FILE_NAME);
-                ObjectInputStream ois = new ObjectInputStream(fis);
-                visitorList = (ArrayList<Visitor>) ois.readObject();
-                ois.close();
+                FileInputStream fis = new FileInputStream(FILE_NAME); //read the file (but in binary)
+                ObjectInputStream ois = new ObjectInputStream(fis); // translate the file
+                visitorList = (ArrayList<Visitor>) ois.readObject(); //read the object
+                ois.close(); //close the file
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -79,9 +78,9 @@ public class RegisterVisitorController
         }
 
         try {
-            FileOutputStream fos = new FileOutputStream(FILE_NAME);
+            FileOutputStream fos = new FileOutputStream(FILE_NAME); // if file not exist , create new one , if file exist , erase old content and update it
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(visitorList);
+            oos.writeObject(visitorList); //update/writing Object
             oos.close();
         } catch (Exception e) {
             e.printStackTrace();

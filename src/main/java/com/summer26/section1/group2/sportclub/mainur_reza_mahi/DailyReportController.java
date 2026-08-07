@@ -1,10 +1,7 @@
 package com.summer26.section1.group2.sportclub.mainur_reza_mahi;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.*;
@@ -45,12 +42,14 @@ public class DailyReportController
     @javafx.fxml.FXML
     public void generateReportButtonOA(ActionEvent actionEvent) {
 
-        // Step 1: check a date was picked
         if (reportDateDP.getValue() == null) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Please select a date");
+            a.showAndWait();
             return;
         }
 
-        // Step 2: load the visitor list from file
+
         visitorList.clear();
 
         File file = new File(FILE_NAME);
@@ -64,11 +63,9 @@ public class DailyReportController
                 e.printStackTrace();
             }
         }
-
-        // Step 3: convert picked date to text
         String selectedDate = reportDateDP.getValue().format(DateTimeFormatter.ofPattern("MM-dd-yyyy"));
 
-        // Step 4: simple counters, one variable per thing we're counting
+
         int totalVisitors = 0;
         int currentlyInside = 0;
         int totalLeft = 0;
@@ -77,7 +74,7 @@ public class DailyReportController
         int trainingCount = 0;
         int otherCount = 0;
 
-        // Step 5: go through every visitor and count matching ones
+
         for (Visitor v : visitorList) {
             if (v.getVisitDate().equals(selectedDate)) {
 
@@ -104,15 +101,12 @@ public class DailyReportController
                 }
             }
         }
+        totalVisitorsLabel.setText(Integer.toString(totalVisitors));
+        currentlyInsideLabel.setText(Integer.toString(currentlyInside));
+        totalLeftLabel.setText(Integer.toString(totalLeft));
 
-        // Step 6: update the top labels
-        totalVisitorsLabel.setText(String.valueOf(totalVisitors));
-        currentlyInsideLabel.setText(String.valueOf(currentlyInside));
-        totalLeftLabel.setText(String.valueOf(totalLeft));
-
-        // Step 7: find the most common purpose using simple if-else comparisons
+        int highestCount = 0;
         String mostCommonPurpose = "Meeting";
-        int highestCount = meetingCount;
 
         if (deliveryCount > highestCount) {
             mostCommonPurpose = "Delivery";
@@ -124,18 +118,17 @@ public class DailyReportController
         }
         if (otherCount > highestCount) {
             mostCommonPurpose = "Other";
-            highestCount = otherCount;
         }
 
         commonPurposeLabel.setText(mostCommonPurpose);
 
-        // Step 8: calculate percentage for each purpose
+
         double meetingPercent = (meetingCount * 100.0) / totalVisitors;
         double deliveryPercent = (deliveryCount * 100.0) / totalVisitors;
         double trainingPercent = (trainingCount * 100.0) / totalVisitors;
         double otherPercent = (otherCount * 100.0) / totalVisitors;
 
-        // Step 9: build the table rows manually, one line per purpose
+        //........
         ArrayList<PurposeSummary> summaryList = new ArrayList<>();
         summaryList.add(new PurposeSummary("Meeting", meetingCount, String.format("%.1f%%", meetingPercent)));
         summaryList.add(new PurposeSummary("Delivery", deliveryCount, String.format("%.1f%%", deliveryPercent)));
