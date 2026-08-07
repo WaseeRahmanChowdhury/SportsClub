@@ -20,12 +20,8 @@
 
         <Label layoutX="20.0" layoutY="55.0" text="Competition:" />
         <ComboBox fx:id="competitionCombo" layoutX="120.0" layoutY="50.0" prefWidth="260.0" onAction="#onCompetitionChanged" />
-
-        <!-- Results list: fixed-width left column that grows taller with the window. -->
         <ListView fx:id="resultsListView" prefWidth="300.0"
                   AnchorPane.topAnchor="90.0" AnchorPane.leftAnchor="20.0" AnchorPane.bottomAnchor="20.0" />
-
-        <!-- Detail area: fills all remaining width/height to the right of the results list. -->
         <AnchorPane AnchorPane.topAnchor="90.0" AnchorPane.leftAnchor="340.0"
                     AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
             <children>

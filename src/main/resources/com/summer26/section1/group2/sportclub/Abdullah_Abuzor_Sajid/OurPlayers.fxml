@@ -16,12 +16,8 @@
                 <Font name="Arial Bold" size="16.0" />
             </font>
         </Label>
-
-        <!-- Player list: fixed-width left column that grows taller with the window. -->
         <ListView fx:id="playerListView" prefWidth="230.0"
                   AnchorPane.topAnchor="55.0" AnchorPane.leftAnchor="20.0" AnchorPane.bottomAnchor="20.0" />
-
-        <!-- Profile detail area: fills all remaining width/height to the right of the list. -->
         <AnchorPane AnchorPane.topAnchor="55.0" AnchorPane.leftAnchor="270.0"
                     AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="20.0">
             <children>

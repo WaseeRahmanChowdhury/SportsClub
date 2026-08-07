@@ -23,9 +23,6 @@
         <Label layoutX="20.0" layoutY="55.0" text="Search (booking ID or fan name):" />
         <TextField fx:id="searchField" layoutX="240.0" layoutY="50.0" prefWidth="220.0" />
         <Button layoutX="470.0" layoutY="50.0" prefWidth="90.0" text="Search" onAction="#onSearch" />
-
-        <!-- Table fills all remaining space between the search row and the details panel pinned
-             to the bottom, so it grows/shrinks whenever the window is resized. -->
         <TableView fx:id="bookingTable"
                    AnchorPane.topAnchor="90.0" AnchorPane.leftAnchor="20.0"
                    AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="225.0">
@@ -41,9 +38,6 @@
                 <TableColumn fx:id="statusColumn" text="Status" prefWidth="65.0" />
             </columns>
         </TableView>
-
-        <!-- Details panel: a fixed-height strip pinned to the bottom of the window regardless of
-             how tall the window is, instead of floating in the middle on a large screen. -->
         <AnchorPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0"
                     prefHeight="225.0">
             <children>

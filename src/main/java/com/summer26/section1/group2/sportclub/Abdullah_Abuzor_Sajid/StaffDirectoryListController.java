@@ -11,6 +11,19 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
+
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.Element;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.Table;
+import com.lowagie.text.pdf.PdfWriter;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.time.LocalDate;
 
 public class StaffDirectoryListController {
 
@@ -70,6 +83,55 @@ public class StaffDirectoryListController {
     @FXML
     private void onSearch() {
         staffRows.setAll(StaffMember.searchStaff(searchField.getText()));
+    }
+
+    @FXML
+    private void exportToPdf() {
+        FileChooser chooser = new FileChooser();
+        chooser.setInitialFileName("StaffDirectory.pdf");
+        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF File", "*.pdf"));
+        File file = chooser.showSaveDialog(staffTable.getScene().getWindow());
+        if (file == null) {
+            return;
+        }
+
+        Document document = new Document();
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream(file));
+            document.open();
+
+            Paragraph title = new Paragraph("Staff Directory");
+            title.setAlignment(Element.ALIGN_CENTER);
+            document.add(title);
+            document.add(new Paragraph("Generated: " + LocalDate.now()));
+            document.add(new Paragraph(" "));
+
+            Table table = new Table(5);
+            table.addCell("Staff ID");
+            table.addCell("Name");
+            table.addCell("Role");
+            table.addCell("Department");
+            table.addCell("Phone");
+
+            for (StaffMember member : staffTable.getItems()) {
+                table.addCell(member.getStaffId());
+                table.addCell(member.getFullName());
+                table.addCell(member.getRole());
+                table.addCell(member.getDepartment());
+                table.addCell(member.getPhoneNumber());
+            }
+            document.add(table);
+
+            document.close();
+            statusLabel.setTextFill(Color.GREEN);
+            statusLabel.setText("Exported staff directory to " + file.getName());
+        } catch (DocumentException e) {
+            statusLabel.setTextFill(Color.RED);
+            statusLabel.setText("Could not generate the PDF document.");
+        } catch (IOException e) {
+            statusLabel.setTextFill(Color.RED);
+            statusLabel.setText("Could not write the PDF file.");
+        }
     }
 
     private void populateEditFields(StaffMember member) {

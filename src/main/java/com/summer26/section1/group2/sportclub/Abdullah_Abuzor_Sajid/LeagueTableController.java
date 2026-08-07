@@ -5,6 +5,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -45,6 +47,8 @@ public class LeagueTableController {
     private Label fixtureHistoryLabel;
     @FXML
     private ListView<String> fixtureHistoryListView;
+    @FXML
+    private BarChart<String, Number> pointsChart;
 
     private final ObservableList<TeamStanding> standingsRows = FXCollections.observableArrayList();
 
@@ -110,6 +114,16 @@ public class LeagueTableController {
         standingsRows.setAll(MatchResult.computeStandings(competitionCombo.getValue()));
         fixtureHistoryListView.getItems().clear();
         fixtureHistoryLabel.setText("");
+        updatePointsChart();
+    }
+
+    private void updatePointsChart() {
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Points");
+        for (TeamStanding standing : standingsRows) {
+            series.getData().add(new XYChart.Data<>(standing.getTeamName(), standing.getPoints()));
+        }
+        pointsChart.getData().setAll(series);
     }
 
     // event-8/9: fan clicks on a team name to view that team's fixture history

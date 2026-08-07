@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -29,6 +30,8 @@ public class SponsorshipManagementController {
     private TableColumn<Sponsor, String> startDateColumn;
     @FXML
     private TableColumn<Sponsor, String> endDateColumn;
+    @FXML
+    private PieChart sponsorshipChart;
 
     private final ObservableList<Sponsor> sponsorRows = FXCollections.observableArrayList();
 
@@ -47,6 +50,15 @@ public class SponsorshipManagementController {
 
     private void refreshSponsors() {
         sponsorRows.setAll(Sponsor.getSponsors());
+        updateSponsorshipChart();
+    }
+
+    private void updateSponsorshipChart() {
+        ObservableList<PieChart.Data> pieData = FXCollections.observableArrayList();
+        for (Sponsor sponsor : sponsorRows) {
+            pieData.add(new PieChart.Data(sponsor.getCompanyName(), sponsor.getAnnualAmount()));
+        }
+        sponsorshipChart.setData(pieData);
     }
 
     // event-5: Admin clicks 'Add New Sponsor'

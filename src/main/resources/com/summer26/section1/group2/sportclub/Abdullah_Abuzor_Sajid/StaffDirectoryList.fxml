@@ -11,7 +11,7 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid.StaffDirectoryListController"
-            prefHeight="560.0" prefWidth="620.0">
+            prefHeight="560.0" prefWidth="680.0">
     <children>
 
         <Label layoutX="20.0" layoutY="15.0" text="Staff Directory">
@@ -23,9 +23,7 @@
         <Label layoutX="20.0" layoutY="55.0" text="Search (name or ID):" />
         <TextField fx:id="searchField" layoutX="170.0" layoutY="50.0" prefWidth="230.0" />
         <Button layoutX="410.0" layoutY="50.0" prefWidth="90.0" text="Search" onAction="#onSearch" />
-
-        <!-- Table fills all remaining space between the search row and the edit panel pinned
-             to the bottom, so it grows/shrinks whenever the window is resized. -->
+        <Button layoutX="510.0" layoutY="50.0" prefWidth="150.0" text="Export to PDF" onAction="#exportToPdf" />
         <TableView fx:id="staffTable"
                    AnchorPane.topAnchor="90.0" AnchorPane.leftAnchor="20.0"
                    AnchorPane.rightAnchor="20.0" AnchorPane.bottomAnchor="235.0">
@@ -40,9 +38,6 @@
                 <TableColumn fx:id="phoneColumn" text="Phone" prefWidth="100.0" />
             </columns>
         </TableView>
-
-        <!-- Edit panel: a fixed-height strip pinned to the bottom of the window regardless of
-             how tall the window is, instead of floating in the middle on a large screen. -->
         <AnchorPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0"
                     prefHeight="230.0">
             <children>
