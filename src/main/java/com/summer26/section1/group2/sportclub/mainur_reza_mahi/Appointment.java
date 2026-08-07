@@ -1,6 +1,8 @@
 package com.summer26.section1.group2.sportclub.mainur_reza_mahi;
 
-public class Appointment {
+import java.io.Serializable;
+
+public class Appointment implements Serializable {
     private String apptId , visitorName , contactNo , hostStaff , apptDate , apptTime , purpose , status ;
 
     public Appointment(String apptId, String visitorName, String contactNo, String hostStaff, String apptDate, String apptTime, String purpose, String status) {

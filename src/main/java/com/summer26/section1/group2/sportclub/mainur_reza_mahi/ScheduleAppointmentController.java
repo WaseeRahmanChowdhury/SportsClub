@@ -56,26 +56,26 @@ public class ScheduleAppointmentController
     @javafx.fxml.FXML
     public void bookAppointmentButtonOA(ActionEvent actionEvent) {
 
-        int nextNumber = appointmentList.size() + 1;
-        String apptId = String.format("APT-%04d", nextNumber);
         String visitorName = visitorNameTF.getText();
         String contactNo = contactNumberTF.getText();
         String hostStaff = hostStaffCB.getValue();
         String purpose = purposeOfMeetingTA.getText();
         String apptTime = appointmentTimeTF.getText();
-        String apptDate = appointmentDateDP.getValue().format(DateTimeFormatter.ofPattern("MM-dd-yyyy"));
 
-
-        Appointment appointment = new Appointment(apptId, visitorName, contactNo, hostStaff, apptDate, apptTime, purpose, "pending");
-
-        appointmentList.add(appointment);
-
-        if (visitorName.isEmpty()||contactNo.isEmpty()||hostStaff.isEmpty()||appointmentDateDP.getValue() == null||purpose.isEmpty() || apptTime.isEmpty()) {
+        if (visitorName.isEmpty() || contactNo.isEmpty() || hostStaff == null
+                || appointmentDateDP.getValue() == null || purpose.isEmpty() || apptTime.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Please fill in all fields.");
             alert.showAndWait();
             return;
         }
+
+        String apptDate = appointmentDateDP.getValue().format(DateTimeFormatter.ofPattern("MM-dd-yyyy"));
+        int nextNumber = appointmentList.size() + 1;
+        String apptId = String.format("APT-%04d", nextNumber);
+
+        Appointment appointment = new Appointment(apptId, visitorName, contactNo, hostStaff, apptDate, apptTime, purpose, "pending");
+        appointmentList.add(appointment);
 
         try {
             FileOutputStream fos = new FileOutputStream(FILE_NAME);
@@ -90,7 +90,6 @@ public class ScheduleAppointmentController
         alert.setContentText("Appointment booked successfully. ID: " + apptId);
         alert.showAndWait();
 
-
         visitorNameTF.clear();
         contactNumberTF.clear();
         hostStaffCB.setValue(null);
@@ -98,6 +97,7 @@ public class ScheduleAppointmentController
         purposeOfMeetingTA.clear();
         appointmentTimeTF.clear();
     }
+
     public void clearAllButtonOA(){
         visitorNameTF.clear();
         contactNumberTF.clear();

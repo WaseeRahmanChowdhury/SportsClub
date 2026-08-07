@@ -106,8 +106,12 @@ public class DailyReportController
         totalLeftLabel.setText(Integer.toString(totalLeft));
 
         int highestCount = 0;
-        String mostCommonPurpose = "Meeting";
+        String mostCommonPurpose = "None";
 
+        if (meetingCount>highestCount){
+            mostCommonPurpose = "Meeting";
+            highestCount = meetingCount;
+        }
         if (deliveryCount > highestCount) {
             mostCommonPurpose = "Delivery";
             highestCount = deliveryCount;

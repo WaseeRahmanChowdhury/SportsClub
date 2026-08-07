@@ -57,7 +57,7 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Button fx:id="addMenuItemButtonOA" layoutX="237.0" layoutY="221.0" prefHeight="30.0" prefWidth="180" style="-fx-background-color: #6495ED;" text="Add Menu Item" textFill="WHITE">
+                  <Button layoutX="237.0" layoutY="221.0" onAction="#addMenuItemButtonOA" prefHeight="30.0" prefWidth="180" style="-fx-background-color: #6495ED;" text="Add Menu Item" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
