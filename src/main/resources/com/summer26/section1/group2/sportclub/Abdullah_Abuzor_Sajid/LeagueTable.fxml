@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="560.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid.LeagueTableController">
+<AnchorPane prefHeight="560.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.summer26.section1.group2.sportclub.Abdullah_Abuzor_Sajid.LeagueTableController">
     <children>
 
         <Label layoutX="20.0" layoutY="15.0" text="League Table">
